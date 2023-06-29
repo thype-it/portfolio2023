@@ -1,3 +1,20 @@
+## Technologies used in this project & Usefull links:
+
+#### Ant Design:
+
+The world's second most popular UI framework
+[components](https://ant.design/components/overview)
+[icons](https://ant.design/components/icon)
+[colors](https://ant.design/docs/spec/colors)
+[theme](https://ant.design/docs/react/customize-theme)
+[blogPost](https://blog.logrocket.com/react-scroll-animations-framer-motion/)
+
+#### Framer Motion:
+
+An open source motiuon library fro React
+[docs](https://www.framer.com/motion/animation/)
+[examples](https://www.framer.com/motion/examples/?utm_source=motion-readme-docs)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
