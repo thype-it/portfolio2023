@@ -14,6 +14,12 @@ The world's second most popular UI framework
 An open source motiuon library fro React
 [docs](https://www.framer.com/motion/animation/)
 [examples](https://www.framer.com/motion/examples/?utm_source=motion-readme-docs)
+(https://letsbuildui.dev/series/scroll-animations-with-framer-motion/scroll-linked-content-reveal-animation)
+
+#### Emotion Styled:
+
+Emotion is a library designed for writing css styles with JavaScript.
+[docs](https://emotion.sh/docs/styled)
 
 # Getting Started with Create React App
 

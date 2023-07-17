@@ -1,7 +1,13 @@
-import AntLayout from "./components/layout/layout";
+import { Container } from "@chakra-ui/react";
+
+import HomePage from "./pages/home/HomePage";
 
 type Props = {};
 
 export default function App(props: Props) {
-  return <AntLayout />;
+  return (
+    <Container p={0} w="full">
+      <HomePage />
+    </Container>
+  );
 }

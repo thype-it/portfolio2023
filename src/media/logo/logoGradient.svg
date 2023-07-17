@@ -1,0 +1,12 @@
+<svg width="138" height="159" viewBox="0 0 138 159" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Logo Shape copy">
+<path id="Subtract" fill-rule="evenodd" clip-rule="evenodd" d="M138 39.75L69 0L0 39.75V119.25L69 159L95.8004 143.561V61.1308L76.0439 49.7494V130.274L68.8885 134.396L61.5349 130.16V49.8628L42.0855 61.0674V120.451L27.6884 112.157L27.5765 112.004V52.5548H27.844L68.5989 29.0764L68.7434 28.8268L68.8878 28.91L68.9037 28.9009L83.4127 37.2593L83.3969 37.2684L109.932 52.5548H110.309V135.202L138 119.25V39.75Z" fill="url(#paint0_linear_26_127)"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_26_127" x1="69" y1="0" x2="69" y2="159" gradientUnits="userSpaceOnUse">
+<stop offset="0.177083" stop-color="#0B3948"/>
+<stop offset="0.932292" stop-color="#0B3948" stop-opacity="0.426037"/>
+<stop offset="1" stop-color="#0B3948" stop-opacity="0.0416667"/>
+</linearGradient>
+</defs>
+</svg>
