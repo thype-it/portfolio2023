@@ -1,6 +1,26 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600&family=Montserrat:wght@400;500&family=Roboto:wght@300;400;500&display=swap");
+/* Import of all fonts used in app */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Oooh+Baby&family=Montserrat+Alternates:wght@400;600&family=Montserrat:wght@400;500&family=Roboto:wght@300;400;500&display=swap");
 
+/* Body and Heading font rules are set in theme (../index.ts) */
+
+/* CUSTOM FONT FAMILIES: */
+
+/* Special Heading */
+@font-face {
+  font-family: "Montserrat", sans-serif;
+  src: url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap");
+}
+
+/* Logo */
 @font-face {
   font-family: "MontserratAlternates", sans-serif;
   src: url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600&display=swap");
 }
+
+/* Qutes */
+@font-face {
+  font-family: "OoohBaby", cursive;
+  src: url("https://fonts.googleapis.com/css2?family=Oooh+Baby&display=swap");
+}
+
+/* END OF CUSTOM FONT FAMILIES */
