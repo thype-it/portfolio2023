@@ -7,7 +7,7 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { ReactNode } from "react";
+import { Fragment, ReactNode } from "react";
 
 import { useGetButton } from "../AboutMainSection";
 import type {
@@ -39,7 +39,9 @@ function ButtonRow({ variants }: { variants: SeeNextBlockVariant[] }) {
 
   return (
     <HStack gap={0} justify="space-evenly" w="full">
-      {variants.map((variant) => getButton(variant))}
+      {variants.map((variant) => (
+        <Fragment key={variant}>{getButton(variant)}</Fragment>
+      ))}
     </HStack>
   );
 }

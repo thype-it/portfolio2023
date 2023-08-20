@@ -42,7 +42,7 @@ export function HighlightText({
           query={highlightText}
           styles={{
             color: highlightColor,
-            whiteSpace: "nowrap",
+            whiteSpace: isSmall ? "normal" : "nowrap",
           }}
         >
           {children}

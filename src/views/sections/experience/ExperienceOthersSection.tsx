@@ -15,6 +15,7 @@ import DiscoverButton from "../../../components/DiscoverButton";
 import { TextBlock } from "../../../components/text";
 import banarunBgPhone from "../../../media/bgImages/banarunBg-phone.png";
 import banarunBg from "../../../media/bgImages/banarunBg.png";
+import muniMacBgPhone from "../../../media/bgImages/muniMacBg-phone.jpg";
 import muniMacBg from "../../../media/bgImages/muniMacBg.jpg";
 
 type Props = {};
@@ -68,7 +69,11 @@ export default function ExperienceOthersSection({}: Props) {
           text={content.thype.text}
           title={content.thype.title}
         >
-          <Image mt="auto" objectFit="contain" src={muniMacBg} />
+          <Image
+            mt="auto"
+            objectFit="contain"
+            src={isSmallScreen ? muniMacBgPhone : muniMacBg}
+          />
         </ContentBox>
       </Container>
     </Box>
@@ -115,7 +120,9 @@ function ContentBox({
         <Flex pos="relative" w={{ base: "100%", md: "50%" }}>
           {children}
         </Flex>
-        {isSmallScreen && <DiscoverButton isInverted={isInverted} />}
+        {isSmallScreen && (
+          <DiscoverButton isInverted={isInverted} mb="5" mx="auto" />
+        )}
       </Flex>
     </Box>
   );

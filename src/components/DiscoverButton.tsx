@@ -12,7 +12,7 @@ const defualtButtonText = "Find out more";
 export default function DiscoverButton({
   children,
   isInverted = false,
-  ...rest
+  ...chakraProps
 }: Props) {
   return (
     <Button
@@ -32,7 +32,7 @@ export default function DiscoverButton({
       }
       variant={isInverted ? "outlineInverted" : "outline"}
       w="max-content"
-      {...rest}
+      {...chakraProps}
     >
       {children ? children : defualtButtonText}
     </Button>

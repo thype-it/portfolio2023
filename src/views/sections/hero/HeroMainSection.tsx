@@ -104,14 +104,14 @@ export default function HeroMainSection({}: Props) {
         >
           <IntroView />
         </BoxMotion> */}
-        <BackgroundImage opacity={opacityBgImg} />
+        <BackgroundImage opacityMotion={opacityBgImg} />
         <MainContent
           isSmallScreen={isSmallScreen}
-          opacity={opacityElements}
-          scale={scale}
-          wrapperOpacity={opacityContentColumns}
+          opacityMotion={opacityElements}
+          scaleMotion={scale}
+          wrapperOpacityMotion={opacityContentColumns}
         />
-        <CenterText opacity={opacityText} scale={scaleText} />
+        <CenterText opacityMotion={opacityText} scaleMotion={scaleText} />
       </Flex>
     </Box>
   );
@@ -148,9 +148,8 @@ export default function HeroMainSection({}: Props) {
   }
 }
 
-function BackgroundImage({ opacity }: ScrollMotionProps) {
+function BackgroundImage({ opacityMotion: opacity }: ScrollMotionProps) {
   return (
-    // <Box h={{ base: "80%", md: "100%" }} pos="relative" w="full">
     <AbsoluteCenter
       className="fadeInFirst"
       mb="20%"
@@ -174,11 +173,13 @@ function BackgroundImage({ opacity }: ScrollMotionProps) {
         />
       </CenterMotion>
     </AbsoluteCenter>
-    // </Box>
   );
 }
 
-function CenterText({ opacity, scale }: ScrollMotionProps) {
+function CenterText({
+  opacityMotion: opacity,
+  scaleMotion: scale,
+}: ScrollMotionProps) {
   return (
     <AbsoluteCenter overflow="hidden" w="95%" zIndex={0}>
       <CenterMotion style={{ opacity, scale }}>

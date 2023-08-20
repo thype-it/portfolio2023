@@ -33,6 +33,7 @@ export function TextBlock({
         color={color}
         fontSize={{ base: "5xl", md: "8xl" }}
         lineHeight={1.1}
+        pos="relative"
       >
         {title}
       </Heading>

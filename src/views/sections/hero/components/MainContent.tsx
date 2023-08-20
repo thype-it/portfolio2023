@@ -34,9 +34,9 @@ const zIndices = {
 };
 
 export default function MainContent({
-  scale,
-  opacity,
-  wrapperOpacity,
+  scaleMotion: scale,
+  opacityMotion: opacity,
+  wrapperOpacityMotion: wrapperOpacity,
   isSmallScreen = false,
 }: Props) {
   const desktopVersion = (
@@ -47,7 +47,7 @@ export default function MainContent({
         overflow="hidden"
         zIndex={zIndices.middle}
       >
-        <ButtonLeft opacity={opacity} />
+        <ButtonLeft opacityMotion={opacity} />
       </VStack>
 
       <VstackMotion
@@ -57,10 +57,14 @@ export default function MainContent({
         style={{ opacity: wrapperOpacity }}
         zIndex={zIndices.middle}
       >
-        <Logo scale={scale} />
-        <Slogan opacity={opacity} />
+        <Logo scaleMotion={scale} />
+        <Slogan opacityMotion={opacity} />
         <Spacer />
-        <ArrowDown opacity={opacity} scale={scale} src={arrowDownWhite} />
+        <ArrowDown
+          opacityMotion={opacity}
+          scaleMotion={scale}
+          src={arrowDownWhite}
+        />
       </VstackMotion>
 
       <VStack
@@ -69,7 +73,7 @@ export default function MainContent({
         overflow="hidden"
         zIndex={zIndices.middle}
       >
-        <ButtonRight opacity={opacity} />
+        <ButtonRight opacityMotion={opacity} />
       </VStack>
     </>
   );
@@ -81,14 +85,18 @@ export default function MainContent({
       w="full"
       zIndex={zIndices.middle}
     >
-      <Logo scale={scale} />
+      <Logo scaleMotion={scale} />
       <VStack spacing="10" w="full">
-        <Slogan opacity={opacity} />
+        <Slogan opacityMotion={opacity} />
         <HStack w="full">
-          <ButtonLeft opacity={opacity} />
-          <ButtonRight opacity={opacity} />
+          <ButtonLeft opacityMotion={opacity} />
+          <ButtonRight opacityMotion={opacity} />
         </HStack>
-        <ArrowDown opacity={opacity} scale={scale} src={arrowDownWhiteSmall} />
+        <ArrowDown
+          opacityMotion={opacity}
+          scaleMotion={scale}
+          src={arrowDownWhiteSmall}
+        />
       </VStack>
     </VstackMotion>
   );
@@ -97,8 +105,8 @@ export default function MainContent({
 }
 
 function ArrowDown({
-  opacity,
-  scale,
+  opacityMotion: opacity,
+  scaleMotion: scale,
   src,
 }: { src: string } & ScrollMotionProps) {
   return (
@@ -113,7 +121,7 @@ function ArrowDown({
   );
 }
 
-function Slogan({ opacity }: ScrollMotionProps) {
+function Slogan({ opacityMotion: opacity }: ScrollMotionProps) {
   return (
     <HStackMotion className="fadeInFirst" style={{ opacity }}>
       <Text color="gray">I build</Text>
@@ -122,7 +130,7 @@ function Slogan({ opacity }: ScrollMotionProps) {
   );
 }
 
-function Logo({ scale }: ScrollMotionProps) {
+function Logo({ scaleMotion: scale }: ScrollMotionProps) {
   return (
     <BoxMotion style={{ scale }} textAlign="center">
       <Image
@@ -145,7 +153,7 @@ function Logo({ scale }: ScrollMotionProps) {
 
 function ButtonWrapper({
   children,
-  opacity,
+  opacityMotion: opacity,
 }: { children: ReactNode } & ScrollMotionProps) {
   return (
     <HStackMotion
@@ -159,9 +167,9 @@ function ButtonWrapper({
   );
 }
 
-function ButtonLeft({ opacity }: ScrollMotionProps) {
+function ButtonLeft({ opacityMotion: opacity }: ScrollMotionProps) {
   return (
-    <ButtonWrapper opacity={opacity}>
+    <ButtonWrapper opacityMotion={opacity}>
       <Divider
         borderColor="gray.500"
         opacity={1}
@@ -179,9 +187,9 @@ function ButtonLeft({ opacity }: ScrollMotionProps) {
   );
 }
 
-function ButtonRight({ opacity }: ScrollMotionProps) {
+function ButtonRight({ opacityMotion: opacity }: ScrollMotionProps) {
   return (
-    <ButtonWrapper opacity={opacity}>
+    <ButtonWrapper opacityMotion={opacity}>
       <Button
         minWidth="fit-content"
         rightIcon={<Icon as={MdBusiness} />}

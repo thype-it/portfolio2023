@@ -38,17 +38,7 @@ export default function AboutTextBase({}: Props) {
     <Box ref={targetRef} h="250vh" pos="relative">
       <Box pos="sticky" pt="10" top={0}>
         <TextBlock title={content.title} topic={content.topic} isInverted>
-          <motion.div
-            style={
-              {
-                //   opacity: textOpacity,
-                //   y: textY,
-                //   display,
-              }
-            }
-          >
-            {content.text}
-          </motion.div>
+          {content.text}
         </TextBlock>
         <VStack gap={0}>
           <BoxMotion

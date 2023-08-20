@@ -1,45 +1,63 @@
-import { Box } from "@chakra-ui/react";
+import { Box, ChakraProps, useBreakpointValue } from "@chakra-ui/react";
 
 import type { ScrollMotionProps } from "../types";
 
 import { BoxMotion } from "./motion";
 
-type Props = ScrollMotionProps & {
-  height?: string;
-  initialOpacity?: 0 | 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | 0.6 | 0.7 | 0.8 | 0.9 | 1;
-  children?: React.ReactNode;
-  src: string;
-};
+type Props = ChakraProps &
+  ScrollMotionProps & {
+    initialOpacity?:
+      | 0
+      | 0.1
+      | 0.2
+      | 0.3
+      | 0.4
+      | 0.5
+      | 0.6
+      | 0.7
+      | 0.8
+      | 0.9
+      | 1;
+    children?: React.ReactNode;
+    src: string;
+    srcPhone?: string;
+  };
 
 export default function ImageBg({
-  scale,
-  opacity,
+  scaleMotion: scale,
+  opacityMotion: opacity,
+  wrapperOpacityMotion,
   src,
+  srcPhone = src,
   children,
-  height = "full",
   initialOpacity = 1,
+  ...chakraProps
 }: Props) {
-  const backgroundImage = `url(${src})`;
+  const isPhoneScreen = useBreakpointValue({ base: true, md: false });
+  const backgroundImage = `url(${isPhoneScreen ? srcPhone : src})`;
 
   return (
-    <BoxMotion
-      bg="black"
-      h={height}
-      pos="relative"
-      style={{ scale, opacity }}
-      w="full"
-    >
-      <Box
+    <BoxMotion bg="black" h="full" pos="relative" w="full" {...chakraProps}>
+      <BoxMotion
         bgImg={backgroundImage}
         bgPos="center"
         bgSize="cover"
         h="full"
         left={0}
-        opacity={initialOpacity}
+        pos="absolute"
+        style={{ scale, opacity }}
+        top={0}
+        w="full"
+      />
+      <Box
+        bg="black"
+        h="full"
+        left={0}
+        opacity={1 - initialOpacity}
         pos="absolute"
         top={0}
         w="full"
-      ></Box>
+      />
       {children}
     </BoxMotion>
   );
