@@ -53,7 +53,7 @@ export default function Footer({}: Props) {
         </Flex>
       </Container>
       <Center color="gray" pb="7">
-        <Text fontWeight="400">MIKE IT © 2023 - All rights reserved</Text>
+        <Text fontWeight="400">MIKE iIT © 2023 - All rights reserved</Text>
       </Center>
     </VStack>
   );
