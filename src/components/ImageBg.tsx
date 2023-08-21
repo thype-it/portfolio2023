@@ -37,7 +37,14 @@ export default function ImageBg({
   const backgroundImage = `url(${isPhoneScreen ? srcPhone : src})`;
 
   return (
-    <BoxMotion bg="black" h="full" pos="relative" w="full" {...chakraProps}>
+    <BoxMotion
+      bg="black"
+      h="full"
+      pos="relative"
+      w="full"
+      {...chakraProps}
+      overflow="hidden"
+    >
       <BoxMotion
         bgImg={backgroundImage}
         bgPos="center"

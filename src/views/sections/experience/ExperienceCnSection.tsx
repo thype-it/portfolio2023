@@ -1,4 +1,6 @@
 import { Box, Center, Flex, Icon, VStack } from "@chakra-ui/react";
+import { useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { MdLocationPin } from "react-icons/md";
 
 import DiscoverButton from "../../../components/DiscoverButton";
@@ -23,9 +25,23 @@ const content = {
 };
 
 export default function ExperienceCnSection() {
+  const targetRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start start", "end start"],
+  });
+
+  const scaleImageBig = useTransform(scrollYProgress, [0, 0.5], [1.15, 1]);
+  const scaleImageSmall = useTransform(scrollYProgress, [0.2, 0.7], [1.15, 1]);
+
   return (
-    <Box as="section" bg="black" pos="relative" w="full">
-      <ImageBg height="100vh" initialOpacity={0.5} src={bratislavaBg}>
+    <Box ref={targetRef} as="section" bg="black" pos="relative" w="full">
+      <ImageBg
+        height="100vh"
+        initialOpacity={0.5}
+        scaleMotion={scaleImageBig}
+        src={bratislavaBg}
+      >
         <ContentContainer>
           <TextBlock
             title={content.hero.title}
@@ -45,6 +61,7 @@ export default function ExperienceCnSection() {
           boxShadow="dark-lg"
           h={{ base: "60vh", md: "80vh" }}
           initialOpacity={0.6}
+          scaleMotion={scaleImageSmall}
           src={ciklumPresent}
           srcPhone={ciklumPresentPhone}
         >

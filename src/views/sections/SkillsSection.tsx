@@ -83,7 +83,7 @@ export default function SkillsSection() {
   return (
     <Box ref={targetRef} as="section" bg="black" pos="relative" w="full">
       <Box
-        h={{ base: "370vh", md: "240vh", xl: "220vh" }}
+        h={{ base: "320vh", md: "220vh", xl: "200vh" }}
         left={0}
         overflow="hidden"
         pos="sticky"
@@ -95,7 +95,7 @@ export default function SkillsSection() {
             maxW={{ base: "full", md: "container.lg", xl: "container.xl" }}
             p={0}
             pos="relative"
-            pt="50vh"
+            pt="20vh"
             w={{ base: "90%", md: "90%", lg: "full" }}
           >
             <VStack px={boxSpacing} spacing={boxSpacing} w="full">

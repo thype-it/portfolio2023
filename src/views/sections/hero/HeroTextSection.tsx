@@ -7,37 +7,68 @@ import { BoxMotion } from "../../../components/motion";
 import videoSrc from "../../../media/video/stockVideo.mp4";
 import type { ScrollMotionProps } from "../../../types";
 
-// text content:
-const sentences = [
-  "From woocomerce eshops, to apps that save hummanity ",
-  "I love making responsive designs ",
-  "I pay maximum attention to detail ",
-  "More than 20 projects under my belt ",
-  "Code evberyday ",
-];
+//variables:
+const sectionHeightVH = 160;
+
+//text content:
+const content = {
+  sentences: [
+    "From woocomerce eshops, to apps that save hummanity ",
+    "I love making responsive designs ",
+    "I pay maximum attention to detail ",
+    "More than 20 projects under my belt ",
+    "Code evberyday ",
+  ],
+};
+
+const animationOrder = {
+  start: 0,
+  startText: 0.27,
+  visibleVideoStart: 0.3,
+  visibleVideoEnd: 0.62,
+  hideVideo: 0.69,
+  endText: 0.7,
+};
 
 export default function HeroTextSection() {
   const targetRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ["start end", "end start"],
+    offset: ["-0.5 end", "end start"],
   });
 
   const scrollOpacityTextInterval = useTransform(
     scrollYProgress,
-    [0.2, 1],
+    [animationOrder.startText, animationOrder.endText],
     [0, 1]
   );
 
-  const opacityVideo = useTransform(scrollYProgress, [0.3, 1], [0, 1]);
+  const opacityVideo = useTransform(
+    scrollYProgress,
+    [
+      animationOrder.start,
+      animationOrder.visibleVideoStart,
+      animationOrder.visibleVideoEnd,
+      animationOrder.hideVideo,
+    ],
+    [0, 0.5, 0.5, 0]
+  );
 
   return (
-    <BoxMotion ref={targetRef} as="section" h="100vh" pos="relative" top={0}>
+    <BoxMotion
+      ref={targetRef}
+      as="section"
+      h={`${sectionHeightVH}vh`}
+      mt="-40vh"
+      pos="relative"
+      top={0}
+    >
       <Box overflow="hidden" pos="relative" w="full" zIndex={1}>
         <Center>
           <ScrollOpacityText scrollInterval={scrollOpacityTextInterval} />
         </Center>
       </Box>
+      {/* <SkillsText /> */}
       <BackgroundVideo opacityMotion={opacityVideo} />
     </BoxMotion>
   );
@@ -55,11 +86,11 @@ function ScrollOpacityText({ scrollInterval }: ScrollOpacityTextProps) {
     >
       <Text
         color="white"
-        fontSize={{ base: "1.6rem", md: "2.75rem", lg: "3.5rem" }}
+        fontSize={{ base: "1.9rem", md: "2.75rem", lg: "3.5rem" }}
       >
-        {sentences.map((sentence, index) => {
-          const start = index / sentences.length;
-          const end = (index + 1) / sentences.length;
+        {content.sentences.map((sentence, index) => {
+          const start = index / content.sentences.length;
+          const end = (index + 1) / content.sentences.length;
           const step = (end - start) / 2;
 
           return (
@@ -86,7 +117,7 @@ function BackgroundVideo({ opacityMotion: opacity }: ScrollMotionProps) {
   return (
     <BoxMotion
       h="100vh"
-      mt="-200vh"
+      mt={`-${sectionHeightVH + 100}vh`}
       pos="sticky"
       style={{ opacity }}
       top={0}
