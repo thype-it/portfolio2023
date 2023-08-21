@@ -16,7 +16,11 @@ import ContentContainer from "../../../components/layout/ContentContainer";
 import { BoxMotion } from "../../../components/motion";
 import { SmallText, TextBlock } from "../../../components/text";
 import ferraraWeb from "../../../media/oldWebs/ferrara.png";
+import jovineckyWeb from "../../../media/oldWebs/jovinecky.png";
 import leafcareWeb from "../../../media/oldWebs/leaf.png";
+import ferraraWebPhone from "../../../media/oldWebs/mobile/ferrara.png";
+import jovineckyWebPhone from "../../../media/oldWebs/mobile/jovinecky.png";
+import thypeWebPhone from "../../../media/oldWebs/mobile/thype.png";
 import thypeWeb from "../../../media/oldWebs/thype.png";
 
 //text content:
