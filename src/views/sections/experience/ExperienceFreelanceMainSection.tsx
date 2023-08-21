@@ -5,7 +5,6 @@ import {
   Flex,
   Highlight,
   Image,
-  Text,
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { MotionValue, useScroll, useTransform } from "framer-motion";
@@ -18,9 +17,22 @@ import { BoxMotion } from "../../../components/motion";
 import { SmallText, TextBlock } from "../../../components/text";
 import ferraraWeb from "../../../media/oldWebs/ferrara.png";
 
-type Props = {};
+//text content:
+const content = {
+  hero: {
+    topic: `Experience`,
+    title: `Freelance carier. Satisfied clients. Work solo or in small team`,
+    text: `I ccan work solo but i know how to cooperate in big teams. The biggest project 
+    I was a part of consisted of over 50 people working from multiple countries.`,
+  },
+  senctences: [
+    `Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+    Porro ut soluta quod id molestiae saepe cumque in totam.
+    Repellat expedita ea beatae`,
+  ],
+};
 
-export default function ExperienceFreelanceMainSection({}: Props) {
+export default function ExperienceFreelanceMainSection() {
   const targetRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -41,13 +53,8 @@ export default function ExperienceFreelanceMainSection({}: Props) {
         w="full"
       >
         <ContentContainer>
-          <TextBlock
-            title="Freelance carier. Satisfied clients. Work solo or in small team"
-            topic="Experience"
-          >
-            I ccan work solo but i know how to cooperate in big teams. The
-            biggest project I was a part of consisted of over 50 people working
-            from multiple countries.
+          <TextBlock title={content.hero.title} topic={content.hero.topic}>
+            {content.hero.text}
           </TextBlock>
         </ContentContainer>
         <Box h="100vh" left={0} pos="sticky" top={0} w="full">

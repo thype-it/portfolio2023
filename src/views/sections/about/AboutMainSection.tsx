@@ -16,8 +16,7 @@ import AboutMainBase from "./components/AboutMainBase";
 import AboutMainDesktop from "./components/AboutMainDesktop";
 import type { ButtonContent, SeeNextBlockVariant } from "./types";
 
-type Props = {};
-
+//text content:
 const seeNextContent = {
   portfolio:
     " Check out collection of my old projects ranging from woocomerce to multinational mega projects",
@@ -29,7 +28,7 @@ const seeNextContent = {
 const GetButtonContext = createContext(getButton);
 export const useGetButton = () => useContext(GetButtonContext);
 
-export default function AboutMainSection({}: Props) {
+export default function AboutMainSection() {
   const isSmallScreen = useBreakpointValue({ base: true, xl: false });
 
   return (

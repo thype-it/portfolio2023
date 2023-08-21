@@ -1,55 +1,36 @@
 import {
   AbsoluteCenter,
-  Badge,
   Box,
-  Button,
-  Center,
-  Divider,
   Flex,
-  Icon,
   Image,
-  Spacer,
-  Text,
-  VStack,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import {
-  MotionValue,
-  stagger,
-  useAnimate,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import { stagger, useAnimate, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
-import { MdArticle } from "react-icons/md";
-import { MdBusiness } from "react-icons/md";
 
-import VideoBg from "../../../components/VideoBg";
-import {
-  BoxMotion,
-  CenterMotion,
-  HStackMotion,
-  VstackMotion,
-} from "../../../components/motion";
+import { CenterMotion } from "../../../components/motion";
 import { HighlightText } from "../../../components/text";
-import arrowDownWhite from "../../../media/arrowDownWhite.svg";
 import heroBgBig from "../../../media/bgImages/heroBgBig.jpg";
-import logoWhite from "../../../media/logo/logo_white.svg";
 import type { ScrollMotionProps } from "../../../types";
-import IntroView from "../../IntroView";
 
-import MainContentColumns from "./components/MainContent";
 import MainContent from "./components/MainContent";
 
-type Props = {};
+// text content:
+const content = {
+  centertext: {
+    text: "Over 5+ years of experience",
+    highlight: "5+ years",
+  },
+};
 
+// variables:
 const zIndices = {
   front: 3,
   middle: 2,
   back: 1,
 };
 
-export default function HeroMainSection({}: Props) {
+export default function HeroMainSection() {
   const [scope, animate] = useAnimate();
 
   useEffect(() => {
@@ -110,6 +91,7 @@ export default function HeroMainSection({}: Props) {
           opacityMotion={opacityElements}
           scaleMotion={scale}
           wrapperOpacityMotion={opacityContentColumns}
+          zIndices={zIndices}
         />
         <CenterText opacityMotion={opacityText} scaleMotion={scaleText} />
       </Flex>
@@ -183,8 +165,11 @@ function CenterText({
   return (
     <AbsoluteCenter overflow="hidden" w="95%" zIndex={0}>
       <CenterMotion style={{ opacity, scale }}>
-        <HighlightText highlightText="5+ years" style={{ opacity }}>
-          Over 5+ years of experience
+        <HighlightText
+          highlightText={content.centertext.highlight}
+          style={{ opacity }}
+        >
+          {content.centertext.text}
         </HighlightText>
       </CenterMotion>
     </AbsoluteCenter>

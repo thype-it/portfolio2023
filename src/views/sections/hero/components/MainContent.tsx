@@ -25,18 +25,18 @@ import type { ScrollMotionProps } from "../../../../types";
 
 type Props = ScrollMotionProps & {
   isSmallScreen?: boolean;
-};
-
-const zIndices = {
-  front: 3,
-  middle: 2,
-  back: 1,
+  zIndices: {
+    front: number;
+    middle: number;
+    back: number;
+  };
 };
 
 export default function MainContent({
   scaleMotion: scale,
   opacityMotion: opacity,
   wrapperOpacityMotion: wrapperOpacity,
+  zIndices,
   isSmallScreen = false,
 }: Props) {
   const desktopVersion = (

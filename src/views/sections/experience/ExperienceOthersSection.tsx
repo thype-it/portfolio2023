@@ -4,7 +4,6 @@ import {
   Flex,
   Heading,
   Image,
-  Spacer,
   Text,
   VStack,
   useBreakpointValue,
@@ -12,13 +11,10 @@ import {
 import { ReactNode } from "react";
 
 import DiscoverButton from "../../../components/DiscoverButton";
-import { TextBlock } from "../../../components/text";
 import banarunBgPhone from "../../../media/bgImages/banarunBg-phone.png";
 import banarunBg from "../../../media/bgImages/banarunBg.png";
 import muniMacBgPhone from "../../../media/bgImages/muniMacBg-phone.jpg";
 import muniMacBg from "../../../media/bgImages/muniMacBg.jpg";
-
-type Props = {};
 
 const content = {
   thype: {
@@ -27,7 +23,7 @@ const content = {
   },
 };
 
-export default function ExperienceOthersSection({}: Props) {
+export default function ExperienceOthersSection() {
   const isSmallScreen = useBreakpointValue({ base: true, md: false });
 
   return (

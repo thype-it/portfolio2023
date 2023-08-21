@@ -1,30 +1,23 @@
 import {
   AbsoluteCenter,
-  Badge,
   Box,
   ChakraProps,
   Container,
   Divider,
   Flex,
-  HStack,
   Heading,
-  Image,
   Tag,
   VStack,
   theme,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import { animate, useInView, useScroll, useTransform } from "framer-motion";
+import { useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
-import ImageBg from "../../components/ImageBg";
-import ContentContainer from "../../components/layout/ContentContainer";
-import { BoxMotion, CenterMotion } from "../../components/motion";
-import skillsBg from "../../media/bgImages/skillsBg.jpg";
+import { BoxMotion } from "../../components/motion";
 import type { ScrollMotionProps } from "../../types";
 
-type Props = {};
-
+// text content:
 const content = {
   frontend: [
     "HTML",
@@ -45,6 +38,7 @@ const content = {
     "React Router",
     "Redux",
     "Next.js",
+    "i18next ",
   ],
   frameworksStyle: [
     "Chakra UI",
@@ -67,7 +61,7 @@ const content = {
   ],
 };
 
-export default function SkillsSection({}: Props) {
+export default function SkillsSection() {
   const targetRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -97,12 +91,6 @@ export default function SkillsSection({}: Props) {
         top={0}
       >
         <AbsoluteCenter h="full" w="full">
-          {/* <ImageBg
-            initialOpacity={0.5}
-            opacityMotion={opacity}
-            scaleMotion={scale}
-            src={skillsBg}
-          > */}
           <Container
             maxW={{ base: "full", md: "container.lg", xl: "container.xl" }}
             p={0}
@@ -141,7 +129,6 @@ export default function SkillsSection({}: Props) {
               </Flex>
             </VStack>
           </Container>
-          {/* </ImageBg> */}
         </AbsoluteCenter>
       </Box>
     </Box>
@@ -157,13 +144,8 @@ function SkillsBlock({ skills, title, opacityMotion }: BlockProps) {
   const isSmallScreen = useBreakpointValue({ base: true, md: false });
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { margin: "0px 0px -25% 0px" });
-  console.log(
-    "🚀 ~ file: SkillsSection.tsx:160 ~ SkillsBlock ~ isInView:",
-    isInView
-  );
 
-  //animation props:
-
+  // animation props:
   const boxShadows = {
     initial: `inset 0 0 60px 14px ${theme.colors.whiteAlpha[500]}, 0 0 0px 0px ${theme.colors.whiteAlpha[500]}`,
     animate: `inset 0 0 0px 0px ${theme.colors.whiteAlpha[500]},  0 0 15px 4px ${theme.colors.whiteAlpha[500]}`,

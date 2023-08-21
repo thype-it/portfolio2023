@@ -1,25 +1,13 @@
-import { AbsoluteCenter, Box, Center, Container, Text } from "@chakra-ui/react";
-import {
-  MotionValue,
-  motion,
-  useMotionValueEvent,
-  useScroll,
-  useTransform,
-} from "framer-motion";
-import { useRef, useState } from "react";
+import { Box, Center, Container, Text } from "@chakra-ui/react";
+import { MotionValue, motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 import VideoBg from "../../../components/VideoBg";
 import { BoxMotion } from "../../../components/motion";
-import {
-  HighlightText,
-  HighlightTextVariant,
-  SmallText,
-} from "../../../components/text";
 import videoSrc from "../../../media/video/stockVideo.mp4";
 import type { ScrollMotionProps } from "../../../types";
 
-type Props = {};
-
+// text content:
 const sentences = [
   "From woocomerce eshops, to apps that save hummanity ",
   "I love making responsive designs ",
@@ -28,7 +16,7 @@ const sentences = [
   "Code evberyday ",
 ];
 
-export default function HeroTextSection({}: Props) {
+export default function HeroTextSection() {
   const targetRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -44,16 +32,7 @@ export default function HeroTextSection({}: Props) {
   const opacityVideo = useTransform(scrollYProgress, [0.3, 1], [0, 1]);
 
   return (
-    <BoxMotion
-      ref={targetRef}
-      // bg="black"
-      as="section"
-      h="100vh"
-      pos="relative"
-      top={0}
-      // style={{ opacity }}
-      // bg="red"
-    >
+    <BoxMotion ref={targetRef} as="section" h="100vh" pos="relative" top={0}>
       <Box overflow="hidden" pos="relative" w="full" zIndex={1}>
         <Center>
           <ScrollOpacityText scrollInterval={scrollOpacityTextInterval} />

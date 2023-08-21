@@ -1,16 +1,4 @@
-import {
-  Box,
-  Button,
-  Center,
-  Flex,
-  HStack,
-  Icon,
-  Stat,
-  StatHelpText,
-  StatLabel,
-  StatNumber,
-  VStack,
-} from "@chakra-ui/react";
+import { Box, Center, Flex, Icon, VStack } from "@chakra-ui/react";
 import { MdLocationPin } from "react-icons/md";
 
 import DiscoverButton from "../../../components/DiscoverButton";
@@ -21,25 +9,34 @@ import bratislavaBg from "../../../media/bgImages/bratislavaBg.jpg";
 import ciklumPresent from "../../../media/bgImages/ciklumPresent.jpg";
 import ciklumPresentPhone from "../../../media/bgImages/ciklumPresentPhone.jpg";
 
-type Props = {};
+//text content:
+const content = {
+  hero: {
+    title: "Ciklum WE",
+    topic: "Bratislava",
+    text: "I was working as a React / React Native developer. I was part of 3 projects working with over 100 people. My last project was a react native application for Interflex.",
+  },
+  subHeroText:
+    "During my time I also attended multiple Educational events and lorem ipsum",
+  discoverText:
+    "During my time I also attended multiple Educational events and lorem ipsum",
+};
 
-export default function ExperienceCnSection({}: Props) {
+export default function ExperienceCnSection() {
   return (
     <Box as="section" bg="black" pos="relative" w="full">
       <ImageBg height="100vh" initialOpacity={0.5} src={bratislavaBg}>
         <ContentContainer>
           <TextBlock
-            title="Ciklum WE"
+            title={content.hero.title}
             topic={
               <>
                 <Icon as={MdLocationPin} />
-                Bratislava
+                {content.hero.topic}
               </>
             }
           >
-            I was working as a React / React Native developer. I was part of 3
-            projects working with over 100 people. My last project was a react
-            native application for Interflex.
+            {content.hero.text}
           </TextBlock>
         </ContentContainer>
       </ImageBg>
@@ -53,8 +50,7 @@ export default function ExperienceCnSection({}: Props) {
         >
           <VStack h="full" justify="flex-end" maxW="md" ml={10}>
             <SmallText color="highlight.orange.500">
-              During my time I also attended multiple Educational events and
-              lorem ipsum
+              {content.subHeroText}
             </SmallText>
           </VStack>
         </ImageBg>
@@ -66,14 +62,10 @@ export default function ExperienceCnSection({}: Props) {
         w="80%"
       >
         <Box w={{ base: "100%", md: "50%" }}>
-          <SmallText>
-            I was working as a React / React Native developer. I was part of 3
-            projects working with over 100 people. My last project was a react
-            native application for Interflex.
-          </SmallText>
+          <SmallText>{content.discoverText}</SmallText>
         </Box>
         <Center w={{ base: "100%", md: "50%" }}>
-          <DiscoverButton>Discover more</DiscoverButton>
+          <DiscoverButton />
         </Center>
       </Flex>
     </Box>
