@@ -18,9 +18,7 @@ import HeroTextSection from "./views/sections/hero/HeroTextSection";
 import "./theme/fonts.css";
 import "react-device-frameset/styles/marvel-devices.min.css";
 
-type Props = {};
-
-export default function App(props: Props) {
+export default function App() {
   return (
     <React.StrictMode>
       <ChakraProvider theme={theme}>

@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 
 import { SmallText } from "./SmallText";
 
-type Props = {
+export type TextBlockProps = {
   children: ReactNode;
   isInverted?: boolean;
   topic: string | ReactNode;
@@ -15,7 +15,7 @@ export function TextBlock({
   topic,
   title,
   children,
-}: Props) {
+}: TextBlockProps) {
   const color = isInverted ? "black" : "white";
 
   return (

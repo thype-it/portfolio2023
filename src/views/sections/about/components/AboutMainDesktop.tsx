@@ -17,7 +17,7 @@ export default function AboutMainDesktop({
   children,
 }: AboutChildProps) {
   return (
-    <HStack justify="space-between" pt={450}>
+    <HStack justify="space-between" pt={150}>
       <VStack alignSelf="flex-end" pos="relative" w="35%">
         <Box
           scale={1.3}

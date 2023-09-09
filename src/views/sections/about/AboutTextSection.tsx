@@ -20,7 +20,9 @@ export default function AboutTextSection() {
     <Box as="section" bg="white" pos="relative">
       <ContentContainer>
         {isSmallScreen ? (
-          <AboutTextBase />
+          <AboutTextBase title={content.title} topic={content.topic}>
+            {content.text}
+          </AboutTextBase>
         ) : (
           <TextBlock title={content.title} topic={content.topic} isInverted>
             {content.text}

@@ -120,7 +120,7 @@ export default function ExperienceFreelanceMainSection() {
   const y = useParallax(scrollYProgress, frameHeight * scrollContent.length);
 
   return (
-    <Box bg="black" pos="relative">
+    <Box bg="black" mt={{ base: "24", md: "80" }} pos="relative">
       <ContentContainer>
         <TextBlock title={content.hero.title} topic={content.hero.topic}>
           {content.hero.text}
