@@ -11,7 +11,7 @@ import {
   theme,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import { useInView, useScroll, useTransform } from "framer-motion";
+import { useInView } from "framer-motion";
 import { useRef } from "react";
 
 import { BoxMotion } from "../../components/motion";
@@ -62,12 +62,6 @@ const content = {
 };
 
 export default function SkillsSection() {
-  const targetRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start end", "end start"],
-  });
-
   const isMiddleScreen = useBreakpointValue({
     base: false,
     md: true,
@@ -75,13 +69,10 @@ export default function SkillsSection() {
     xl: false,
   });
 
-  const scale = useTransform(scrollYProgress, [0.2, 1], [1, 1.7]);
-  const opacity = useTransform(scrollYProgress, [0.2, 0.4], [0, 1]);
-
   const boxSpacing = { base: "4", md: "8", lg: "12" };
 
   return (
-    <Box ref={targetRef} as="section" bg="black" pos="relative" w="full">
+    <Box as="section" bg="black" pos="relative" w="full">
       <Box
         h={{ base: "320vh", md: "220vh", xl: "200vh" }}
         left={0}
@@ -140,10 +131,10 @@ type BlockProps = ScrollMotionProps & {
   title: string;
 };
 
-function SkillsBlock({ skills, title, opacityMotion }: BlockProps) {
+function SkillsBlock({ skills, title }: BlockProps) {
   const isSmallScreen = useBreakpointValue({ base: true, md: false });
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { margin: "0px 0px -25% 0px" });
+  const isInView = useInView(ref, { margin: "0px 0px -25% 0px", once: true });
 
   // animation props:
   const boxShadows = {
@@ -151,19 +142,20 @@ function SkillsBlock({ skills, title, opacityMotion }: BlockProps) {
     animate: `inset 0 0 0px 0px ${theme.colors.whiteAlpha[500]},  0 0 15px 4px ${theme.colors.whiteAlpha[500]}`,
   };
   const opacity = isInView ? 1 : 0;
+  const scale = isInView ? 1 : 0.9;
   const boxShadow = isInView ? boxShadows.animate : boxShadows.initial;
 
   return (
     <BoxMotion
       ref={ref}
-      animate={{ boxShadow, opacity }}
+      animate={{ boxShadow, opacity, scale }}
       bg="#black"
       borderRadius={{ base: "lg", md: "2xl" }}
       h="auto"
       mb={{ base: "10", md: 0 }}
       minW="52"
       p="7"
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.8 }}
     >
       <Heading color="highlight.green.500" mb="5" ml="2" size="lg">
         {title}
