@@ -1,6 +1,5 @@
-import { Text } from "@chakra-ui/react";
 import { HTMLMotionProps } from "framer-motion";
-import { ReactNode } from "react";
+import { ReactNode, Ref, forwardRef } from "react";
 
 import { TextMotion } from "../motion";
 
@@ -9,9 +8,13 @@ type Props = HTMLMotionProps<"div"> & {
   children: ReactNode;
 };
 
-export function SmallText({ color = "white", children, ...rest }: Props) {
+export const SmallText = forwardRef(function SmallText(
+  { color = "white", children, ...rest }: Props,
+  ref: Ref<HTMLElement>
+) {
   return (
     <TextMotion
+      ref={ref}
       color={color}
       fontSize={{ base: "2xl", md: "3xl" }}
       fontWeight="bold"
@@ -22,4 +25,4 @@ export function SmallText({ color = "white", children, ...rest }: Props) {
       {children}
     </TextMotion>
   );
-}
+});

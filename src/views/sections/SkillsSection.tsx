@@ -14,7 +14,7 @@ import {
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 
-import { BoxMotion } from "../../components/motion";
+import { BoxMotion, HeadingMotion } from "../../components/motion";
 import type { ScrollMotionProps } from "../../types";
 
 // text content:
@@ -142,7 +142,7 @@ function SkillsBlock({ skills, title }: BlockProps) {
     animate: `inset 0 0 0px 0px ${theme.colors.whiteAlpha[500]},  0 0 15px 4px ${theme.colors.whiteAlpha[500]}`,
   };
   const opacity = isInView ? 1 : 0;
-  const scale = isInView ? 1 : 0.9;
+  const scale = isInView ? 1 : 0.95;
   const boxShadow = isInView ? boxShadows.animate : boxShadows.initial;
 
   return (
@@ -155,16 +155,28 @@ function SkillsBlock({ skills, title }: BlockProps) {
       mb={{ base: "10", md: 0 }}
       minW="52"
       p="7"
-      transition={{ duration: 0.8 }}
+      transition={{
+        boxShadow: { duration: 0.4, delay: 0.1 },
+        opacity: { duration: 0.5 },
+        scale: { duration: 0.6, delay: 0.3 },
+      }}
     >
-      <Heading color="highlight.green.500" mb="5" ml="2" size="lg">
+      <HeadingMotion
+        animate={{ opacity }}
+        color="highlight.green.500"
+        initial={{ opacity: 0 }}
+        mb="5"
+        ml="2"
+        size="lg"
+        transition={{ duration: 1, delay: 0.4 }}
+      >
         {title}
-      </Heading>
+      </HeadingMotion>
       {isSmallScreen && <Divider mb="5" />}
       <BoxMotion
         animate={{ opacity }}
         initial={{ opacity: 0 }}
-        transition={{ duration: 0.8, delay: 0.5 }}
+        transition={{ duration: 1, delay: 0.6 }}
       >
         {isSmallScreen ? (
           <BlockContent skills={skills} />

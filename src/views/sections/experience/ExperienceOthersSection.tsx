@@ -8,9 +8,11 @@ import {
   VStack,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import { ReactNode } from "react";
+import { useInView } from "framer-motion";
+import { ReactNode, useRef } from "react";
 
 import DiscoverButton from "../../../components/DiscoverButton";
+import { FlexMotion } from "../../../components/motion";
 import banarunBgPhone from "../../../media/bgImages/banarunBg-phone.png";
 import banarunBg from "../../../media/bgImages/banarunBg.png";
 import muniMacBgPhone from "../../../media/bgImages/muniMacBg-phone.jpg";
@@ -36,6 +38,7 @@ export default function ExperienceOthersSection() {
         py={{ base: 8, md: 10, lg: 20 }}
       >
         <ContentBox
+          isAnimationVertical={!isSmallScreen}
           isSmallScreen={isSmallScreen}
           text={content.thype.text}
           title={content.thype.title}
@@ -82,6 +85,7 @@ type ContentBoxProps = {
   text: string;
   isInverted?: boolean;
   isSmallScreen?: boolean;
+  isAnimationVertical?: boolean;
 };
 
 function ContentBox({
@@ -90,12 +94,22 @@ function ContentBox({
   text,
   isInverted = false,
   isSmallScreen = false,
+  isAnimationVertical = false,
 }: ContentBoxProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { amount: 0.3, once: true });
+  const translate = isInView ? "0%" : "20%";
+  const x = !isAnimationVertical ? translate : "0%";
+  const y = isAnimationVertical ? translate : "0%";
+  const opacity = isInView ? 1 : 0;
+
   return (
     <Box pb={{ base: 8, md: 10, lg: 20 }}>
       <Flex
+        ref={ref}
         bg={isInverted ? "customGray" : "black"}
         direction={{ base: "column", md: "row" }}
+        overflow="hidden"
       >
         <Box p={{ base: 8, md: 10, lg: 20 }} w={{ base: "100%", md: "50%" }}>
           <VStack
@@ -113,9 +127,17 @@ function ContentBox({
             )}
           </VStack>
         </Box>
-        <Flex pos="relative" w={{ base: "100%", md: "50%" }}>
+        <FlexMotion
+          animate={{ x, y, opacity }}
+          pos="relative"
+          transition={{
+            duration: 0.6,
+            opacity: { duration: 0.4 },
+          }}
+          w={{ base: "100%", md: "50%" }}
+        >
           {children}
-        </Flex>
+        </FlexMotion>
         {isSmallScreen && (
           <DiscoverButton isInverted={isInverted} mb="5" mx="auto" />
         )}
