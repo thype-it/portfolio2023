@@ -1,6 +1,8 @@
 import { Highlight, Text } from "@chakra-ui/react";
 import { HTMLMotionProps, motion } from "framer-motion";
 
+import { TextMotion } from "../motion";
+
 export enum HighlightTextVariant {
   Primary,
   Dimmed,
@@ -12,8 +14,6 @@ type HighlightTextProps = HTMLMotionProps<"div"> & {
   variant?: HighlightTextVariant;
   isSmall?: boolean;
 };
-
-const TextMotion = motion(Text);
 
 export function HighlightText({
   children,

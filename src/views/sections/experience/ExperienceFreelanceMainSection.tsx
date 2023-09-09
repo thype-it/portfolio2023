@@ -13,14 +13,14 @@ import { DeviceFrameset } from "react-device-frameset";
 
 import DiscoverButton from "../../../components/DiscoverButton";
 import ContentContainer from "../../../components/layout/ContentContainer";
-import { BoxMotion } from "../../../components/motion";
+import { BoxMotion, VstackMotion } from "../../../components/motion";
 import { SmallText, TextBlock } from "../../../components/text";
+import logoWhite from "../../../media/logo/logo_white.svg";
 import ferraraWeb from "../../../media/oldWebs/ferrara.png";
 import jovineckyWeb from "../../../media/oldWebs/jovinecky.png";
-import leafcareWeb from "../../../media/oldWebs/leaf.png";
-import ferraraWebPhone from "../../../media/oldWebs/mobile/ferrara.png";
-import jovineckyWebPhone from "../../../media/oldWebs/mobile/jovinecky.png";
-import thypeWebPhone from "../../../media/oldWebs/mobile/thype.png";
+import ferraraWebPhone from "../../../media/oldWebs/mobile/ferrara.jpg";
+import jovineckyWebPhone from "../../../media/oldWebs/mobile/jovinecky.jpg";
+import thypeWebPhone from "../../../media/oldWebs/mobile/thype.jpg";
 import thypeWeb from "../../../media/oldWebs/thype.png";
 
 //text content:
@@ -31,21 +31,67 @@ const content = {
     text: `I ccan work solo but i know how to cooperate in big teams. The biggest project 
     I was a part of consisted of over 50 people working from multiple countries.`,
   },
-  senctences: [
-    `Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-    Porro ut soluta quod id molestiae saepe cumque in totam.
-    Repellat expedita ea beatae`,
-    `Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-    Porro ut soluta quod id molestiae saepe cumque in totam.
-    Repellat expedita ea beatae`,
-    `Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-    Porro ut soluta quod id molestiae saepe cumque in totam.
-    Repellat expedita ea beatae`,
-  ],
 };
 
-const scrollImages = {
-  desktop: [ferraraWeb, leafcareWeb, thypeWeb],
+//variables:
+const scrollContent = [
+  {
+    id: 1,
+    text: `Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+    Porro ut soluta quod id molestiae saepe cumque in totam.
+    Repellat expedita ea beatae`,
+    highlightedText: "Lorem ipsum",
+    image: {
+      desktop: ferraraWeb,
+      mobile: ferraraWebPhone,
+    },
+  },
+  {
+    id: 2,
+    text: `Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+    Porro ut soluta quod id molestiae saepe cumque in totam.
+    Repellat expedita ea beatae`,
+    highlightedText: "Lorem ipsum",
+    image: {
+      desktop: jovineckyWeb,
+      mobile: jovineckyWebPhone,
+    },
+  },
+  {
+    id: 3,
+    text: `Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+    Porro ut soluta quod id molestiae saepe cumque in totam.
+    Repellat expedita ea beatae`,
+    highlightedText: "Lorem ipsum",
+    image: {
+      desktop: thypeWeb,
+      mobile: thypeWebPhone,
+    },
+  },
+];
+
+const scrollContentBottom = {
+  id: 500,
+  text: `Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+  Porro ut soluta quod id molestiae saepe cumque in totam.
+  Repellat expedita ea beatae`,
+  highlightedText: "Lorem ipsum",
+  image: {
+    desktop: logoWhite,
+    mobile: logoWhite,
+  },
+};
+
+const deviceFrameImagesHeight = {
+  desktop: 1800, //px
+  mobile: 1700, //px
+};
+
+//animation:
+const animationOrder = {
+  start: 0.05, //start of device frame and text scrolling
+  endOfTextScroll: 0.6, //end of text scrolling
+  endOfDeviceFrameScroll: 0.7, //end of device frame scrolling
 };
 
 export default function ExperienceFreelanceMainSection() {
@@ -54,8 +100,24 @@ export default function ExperienceFreelanceMainSection() {
     target: targetRef,
     offset: ["start start", "end start"],
   });
+  const isSmallScreen = useBreakpointValue({ base: true, md: false });
+  const frameHeight = isSmallScreen
+    ? deviceFrameImagesHeight.mobile
+    : deviceFrameImagesHeight.desktop;
 
-  const y = useParallax(scrollYProgress, 1500);
+  const scrollTextInterval = useTransform(
+    scrollYProgress,
+    [animationOrder.start, animationOrder.endOfTextScroll],
+    [0, 1]
+  );
+
+  const scrollImageInterval = useTransform(
+    scrollYProgress,
+    [animationOrder.start, animationOrder.endOfDeviceFrameScroll],
+    [0, 1]
+  );
+
+  const y = useParallax(scrollYProgress, frameHeight * scrollContent.length);
 
   return (
     <Box bg="black" pos="relative">
@@ -68,7 +130,7 @@ export default function ExperienceFreelanceMainSection() {
         ref={targetRef}
         as="section"
         bg="black"
-        h="400vh"
+        h={`${scrollContent.length * 100}vh`}
         pos="relative"
         pt="20"
         w="full"
@@ -78,66 +140,49 @@ export default function ExperienceFreelanceMainSection() {
             h="40%"
             maxW="container.lg"
             mx="auto"
+            pos="relative"
             transform="auto"
             translateY={{ base: "3vh", md: "3vh" }}
           >
             <Center h="full">
-              <SmallText color="gray">
-                <Highlight query="Lorem ipsum" styles={{ color: "white" }}>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Porro ut soluta quod id molestiae saepe cumque in totam.
-                  Repellat expedita ea beatae
-                </Highlight>
-              </SmallText>
+              <ScrollText scrollInterval={scrollTextInterval} />
             </Center>
           </Container>
 
           <Flex bottom={0} justify="center" pos="absolute" w="full">
-            <DeviceFrame>
-              <BoxMotion style={{ y }}>
-                <BoxMotion h="1500px" overflow="hidden">
-                  <Image
-                    className="logoImg"
-                    objectFit="contain"
-                    src={ferraraWeb}
-                  />
-                </BoxMotion>
-                <BoxMotion h="1500px" overflow="hidden">
-                  <Image
-                    className="logoImg"
-                    objectFit="contain"
-                    src={leafcareWeb}
-                  />
-                </BoxMotion>
+            <DeviceFrame isSmallScreen={isSmallScreen}>
+              <BoxMotion background="black" style={{ y }}>
+                <ScrollImage
+                  height={frameHeight}
+                  isSmallScreen={isSmallScreen}
+                  scrollInterval={scrollImageInterval}
+                />
               </BoxMotion>
             </DeviceFrame>
           </Flex>
         </Box>
       </Box>
-      <Center
-        // mt="40vh" pb="10vh"
-        h="50vh"
-        mt="20vh"
-        pos="relative"
-        w="full"
-      >
+      <Center h="50vh" mt="20vh" pos="relative" w="full">
         <DiscoverButton>Find out more</DiscoverButton>
       </Center>
     </Box>
   );
 
   function useParallax(value: MotionValue<number>, distance: number) {
-    return useTransform(value, [0.05, 0.5], [0, -distance]);
+    return useTransform(
+      value,
+      [animationOrder.start, animationOrder.endOfDeviceFrameScroll],
+      [0, -distance]
+    );
   }
 }
 
 type DeviceFrameProps = {
   children: ReactNode;
+  isSmallScreen?: boolean;
 };
 
-function DeviceFrame({ children }: DeviceFrameProps) {
-  const isSmallScreen = useBreakpointValue({ base: true, md: false });
-
+function DeviceFrame({ children, isSmallScreen = false }: DeviceFrameProps) {
   const device = isSmallScreen ? (
     <DeviceFrameset device="iPhone X">{children}</DeviceFrameset>
   ) : (
@@ -156,71 +201,128 @@ function DeviceFrame({ children }: DeviceFrameProps) {
   );
 }
 
-type ScrollOpacityTextProps = {
+type ScrollElementsProps = {
   scrollInterval: MotionValue<number>;
-  imageSources: string[];
 };
 
-function ScrollImages({
-  scrollInterval,
-  imageSources,
-}: ScrollOpacityTextProps) {
+function ScrollText({ scrollInterval }: ScrollElementsProps) {
   return (
     <>
-      {imageSources.map((source, index) => {
+      {scrollContent.map((item, index) => {
+        const { rangeArray } = getScrollRange(
+          index,
+          scrollContent.length,
+          0.25
+        );
+
+        const initialOpacity = index === 0 ? 1 : 0;
+        const endOpacity = index === scrollContent.length - 1 ? 1 : 0;
+        const initialY = index === 0 ? 0 : 20;
+        const endY = index === scrollContent.length - 1 ? 0 : -20;
+
+        const opacity = useTransform(scrollInterval, rangeArray, [
+          initialOpacity,
+          1,
+          1,
+          endOpacity,
+        ]);
+        const y = useTransform(scrollInterval, rangeArray, [
+          initialY,
+          0,
+          0,
+          endY,
+        ]);
+
         return (
-          <BoxMotion
-            key={source}
-            // style={{ y }}
+          <SmallText
+            key={item.id}
+            color="gray"
+            style={{ opacity, y, position: "absolute", maxWidth: "95%" }}
           >
-            <Image
-              //   boxSize="20vw"
-              className="logoImg"
-              objectFit="contain"
-              src={ferraraWeb}
-            />
-          </BoxMotion>
+            <Highlight query={item.highlightedText} styles={{ color: "white" }}>
+              {item.text}
+            </Highlight>
+          </SmallText>
         );
       })}
     </>
   );
-
-  function useParallax(value: MotionValue<number>, distance: number) {
-    return useTransform(value, [0.1, 0.3], [0, -distance]);
-  }
 }
 
-// function ScrollOpacityText({ scrollInterval }: ScrollOpacityTextProps) {
-//   return (
-//     <Container
-//       maxW={{ base: "440px", md: "container.lg" }}
-//       w={{ base: "86%", lg: "95%" }}
-//     >
-//       <Text
-//         color="white"
-//         fontSize={{ base: "1.9rem", md: "2.75rem", lg: "3.5rem" }}
-//       >
-//         {content.sentences.map((sentence, index) => {
-//           const start = index / content.sentences.length;
-//           const end = (index + 1) / content.sentences.length;
-//           const step = (end - start) / 2;
+type ScrollImageProps = ScrollElementsProps & {
+  height: number;
+  isSmallScreen?: boolean;
+};
 
-//           return (
-//             <motion.span
-//               key={sentence}
-//               style={{
-//                 opacity: useTransform(
-//                   scrollInterval,
-//                   [start, start + step, end - step, end],
-//                   [0.3, 1, 1, 0.3]
-//                 ),
-//               }}
-//             >
-//               {sentence}{" "}
-//             </motion.span>
-//           );
-//         })}
-//       </Text>
-//     </Container>
-//   );
-// }
+function ScrollImage({
+  scrollInterval,
+  height,
+  isSmallScreen = false,
+}: ScrollImageProps) {
+  const extraScrollContent = scrollContent.concat(scrollContentBottom);
+
+  return (
+    <>
+      {extraScrollContent.map((item, index) => {
+        const isLast = index === extraScrollContent.length - 1;
+
+        const { start, end, step, rangeArray } = getScrollRange(
+          index,
+          scrollContent.length,
+          0.5
+        );
+
+        const initialY = index === 0 ? "0%" : "-10%";
+
+        const opacity = useTransform(
+          scrollInterval,
+          [start, end - step, end],
+          [1, 1, 0]
+        );
+        const y = useTransform(scrollInterval, rangeArray, [
+          initialY,
+          "0%",
+          "0%",
+          "30%",
+        ]);
+
+        return (
+          <VstackMotion
+            key={item.id}
+            h={`${height}px`}
+            overflow="hidden"
+            style={{
+              y: isLast ? "0%" : y,
+              opacity,
+            }}
+          >
+            <Image
+              className="logoImg"
+              mt={isLast ? height * (isSmallScreen ? 0.15 : 0.09) : "0"}
+              objectFit="contain"
+              src={isSmallScreen ? item.image.mobile : item.image.desktop}
+            />
+          </VstackMotion>
+        );
+      })}
+    </>
+  );
+}
+
+function getScrollRange(
+  index: number,
+  length: number,
+  stepFraction: number = 1
+) {
+  const start = index / length;
+  const end = (index + 1) / length;
+  const step = (end - start) * stepFraction;
+  const rangeArray = [start, start + step, end - step, end];
+
+  return {
+    start,
+    end,
+    step,
+    rangeArray,
+  };
+}
