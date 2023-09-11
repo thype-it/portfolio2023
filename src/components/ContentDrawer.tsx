@@ -121,6 +121,7 @@ export default function ContentDrawer({ isOpen, onClose, children }: Props) {
             id="scrollerContainerContentDrawer"
             overflowX={isDesktopDevice ? "hidden" : "auto"}
             pos="relative"
+            py={0}
           >
             <BoxMotion
               ref={containerRef}
@@ -128,7 +129,6 @@ export default function ContentDrawer({ isOpen, onClose, children }: Props) {
               display="flex"
               gap={10}
               h={isDesktopDevice ? "100vh" : "full"}
-              p={0}
               width="max-content"
               {...(isDesktopDevice
                 ? {
