@@ -6,7 +6,7 @@ import { TextBlock } from "../../components/text";
 // text content:
 
 const content = {
-  title: "I love my work. Great team makes it even better.",
+  title: "Eager to embrace new challenges and learn new technologies.",
   topic: "Skills",
   text: "I ccan work solo but i know how to cooperate in big teams. The biggest project I was a part of consisted of over 50 people working from multiple countries. I was a part of consisted of over 50 people working from multiple countries.",
 };

@@ -5,7 +5,8 @@ import { TextBlock } from "../../../components/text";
 
 //text content:
 const content = {
-  title: "A brief story on how I learned to code and cooperate in teams",
+  title: "I love my work. Great team makes it even better.",
+  // title: "A brief story on how I learned to code and cooperate in teams",
   topic: "Experience",
   text: "With features that help you stay healthy, safe and connected, the watch that pushes limits is also one you can wear every day.",
 };

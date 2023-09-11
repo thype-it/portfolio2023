@@ -24,12 +24,19 @@ const content = {
   hero: {
     title: "Ciklum WE",
     topic: "Bratislava",
-    text: "I was working as a React / React Native developer. I was part of 3 projects working with over 100 people. My last project was a react native application for Interflex.",
+    text: `
+    As a React/React Native developer, I've actively contributed to three projects, 
+    collaborating extensively within large teams. My latest project involved React 
+    Native app development for Interflex.
+    `,
   },
   subHeroText:
-    "During my time I also attended multiple Educational events and lorem ipsum",
-  discoverText:
-    "During my time I also attended multiple Educational events and lorem ipsum",
+    "I've also had opportunities to participate in various educational events",
+  discoverText: `
+    I've gained a robust understanding of developing web and mobile applications 
+    using React and React Native, encompassing component-based architecture, state management,
+     and effective teamwork, including idea articulation and the abillity to ask questions.
+    `,
 };
 
 export default function ExperienceCnSection() {

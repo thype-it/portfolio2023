@@ -18,8 +18,8 @@ import MainContent from "./components/MainContent";
 //text content:
 const content = {
   centertext: {
-    text: "Over 5+ years of experience",
-    highlight: "5+ years",
+    text: "Over 4+ years of experience",
+    highlight: "4+ years",
   },
 };
 

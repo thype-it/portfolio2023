@@ -13,11 +13,18 @@ const sectionHeightVH = 160;
 //text content:
 const content = {
   sentences: [
-    "From woocomerce eshops, to apps that save hummanity ",
-    "I love making responsive designs ",
-    "I pay maximum attention to detail ",
-    "More than 20 projects under my belt ",
-    "Code evberyday ",
+    // "From managing small solo projects to collaborating within large Agile teams.",
+    // "Passionate about creating captivating, responsive designs and apps.",
+    // "Striving for perfection, with keen attention to detail.",
+    // "Eager to embrace new challenges, learn new technologies.",
+    // "Thriving on the synergy of creativity and code.",
+
+    "Creating captivating, responsive designs and apps.",
+    "Collaborating in large Agile teams.",
+    "Managing small solo projects.",
+    "Ensuring client satisfaction.",
+    // "Eager to embrace new challenges, learn new technologies.",
+    "Thriving on the synergy of creativity and code.",
   ],
 };
 
@@ -82,7 +89,7 @@ function ScrollOpacityText({ scrollInterval }: ScrollOpacityTextProps) {
   return (
     <Container
       maxW={{ base: "440px", md: "container.lg" }}
-      w={{ base: "86%", lg: "95%" }}
+      w={{ base: "95%", lg: "95%" }}
     >
       <Text
         color="white"
