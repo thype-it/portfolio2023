@@ -6,11 +6,13 @@ import {
   Highlight,
   Image,
   useBreakpointValue,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { MotionValue, useScroll, useTransform } from "framer-motion";
 import { ReactNode, useRef } from "react";
 import { DeviceFrameset } from "react-device-frameset";
 
+import ContentDrawer from "../../../components/ContentDrawer";
 import DiscoverButton from "../../../components/DiscoverButton";
 import ContentContainer from "../../../components/layout/ContentContainer";
 import { BoxMotion, VstackMotion } from "../../../components/motion";
@@ -118,6 +120,7 @@ export default function ExperienceFreelanceMainSection() {
   );
 
   const y = useParallax(scrollYProgress, frameHeight * scrollContent.length);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <Box bg="black" mt={{ base: "24", md: "80" }} pos="relative">
@@ -163,8 +166,9 @@ export default function ExperienceFreelanceMainSection() {
         </Box>
       </Box>
       <Center h="50vh" mt="20vh" pos="relative" w="full">
-        <DiscoverButton>Find out more</DiscoverButton>
+        <DiscoverButton onPress={onOpen}>Find out more</DiscoverButton>
       </Center>
+      <ContentDrawer isOpen={isOpen} onClose={onClose} />
     </Box>
   );
 

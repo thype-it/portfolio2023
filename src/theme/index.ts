@@ -1,4 +1,4 @@
-import { background, theme as base, extendTheme } from "@chakra-ui/react";
+import { theme as base, extendTheme } from "@chakra-ui/react";
 
 
 const theme = extendTheme({
@@ -92,7 +92,19 @@ const theme = extendTheme({
                     }
                 },
             }
-        }
+        },
+        // Drawer: {
+        //     baseStyle: {
+        //         anima
+        //     }
+        // }
+        // Drawer: {
+        //     baseStyle: {
+        //         exit: {
+        //             transition: "all 1s ease", // Change the duration and easing function as needed
+        //         },
+        //     },
+        // },
     },
 });
 

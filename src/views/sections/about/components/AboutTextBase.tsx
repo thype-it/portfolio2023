@@ -6,11 +6,16 @@ import { BoxMotion } from "../../../../components/motion";
 import { TextBlock, TextBlockProps } from "../../../../components/text";
 import portrait from "../../../../media/portrait.png";
 
+type Props = {
+  onPress?: () => void;
+};
+
 export default function AboutTextBase({
   topic,
   title,
   children,
-}: TextBlockProps) {
+  onPress,
+}: TextBlockProps & Props) {
   const targetRef = useRef<HTMLDivElement>(null); //preparation for scroll animation
 
   return (
@@ -32,7 +37,7 @@ export default function AboutTextBase({
           </BoxMotion>
           <Box bg="white" boxShadow="0px 6px 81px 115px #fff" width="full">
             <Box mx="auto" transform="auto" translateY="-100%" w="max-content">
-              <DiscoverButton isInverted />
+              <DiscoverButton isInverted onPress={onPress} />
             </Box>
           </Box>
         </VStack>

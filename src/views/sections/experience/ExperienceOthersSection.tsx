@@ -7,10 +7,12 @@ import {
   Text,
   VStack,
   useBreakpointValue,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { useInView } from "framer-motion";
 import { ReactNode, useRef } from "react";
 
+import ContentDrawer from "../../../components/ContentDrawer";
 import DiscoverButton from "../../../components/DiscoverButton";
 import { FlexMotion } from "../../../components/motion";
 import banarunBgPhone from "../../../media/bgImages/banarunBg-phone.png";
@@ -81,6 +83,7 @@ export default function ExperienceOthersSection() {
 
 type ContentBoxProps = {
   children?: ReactNode;
+  contentDrawer?: ReactNode;
   title: string;
   text: string;
   isInverted?: boolean;
@@ -92,6 +95,7 @@ function ContentBox({
   children,
   title,
   text,
+  contentDrawer,
   isInverted = false,
   isSmallScreen = false,
   isAnimationVertical = false,
@@ -102,6 +106,7 @@ function ContentBox({
   const x = !isAnimationVertical ? translate : "0%";
   const y = isAnimationVertical ? translate : "0%";
   const opacity = isInView ? 1 : 0;
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <Box pb={{ base: 8, md: 10, lg: 20 }}>
@@ -123,7 +128,11 @@ function ContentBox({
             </Heading>
             <Text>{text}</Text>
             {!isSmallScreen && (
-              <DiscoverButton isInverted={isInverted} mt="auto" />
+              <DiscoverButton
+                isInverted={isInverted}
+                mt="auto"
+                onPress={onOpen}
+              />
             )}
           </VStack>
         </Box>
@@ -139,9 +148,17 @@ function ContentBox({
           {children}
         </FlexMotion>
         {isSmallScreen && (
-          <DiscoverButton isInverted={isInverted} mb="5" mx="auto" />
+          <DiscoverButton
+            isInverted={isInverted}
+            mb="5"
+            mx="auto"
+            onPress={onOpen}
+          />
         )}
       </Flex>
+      <ContentDrawer isOpen={isOpen} onClose={onClose}>
+        {contentDrawer}
+      </ContentDrawer>
     </Box>
   );
 }

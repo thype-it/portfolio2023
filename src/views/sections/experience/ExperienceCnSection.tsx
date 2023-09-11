@@ -1,8 +1,16 @@
-import { Box, Center, Flex, Icon, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  Flex,
+  Icon,
+  VStack,
+  useDisclosure,
+} from "@chakra-ui/react";
 import { useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { MdLocationPin } from "react-icons/md";
 
+import ContentDrawer from "../../../components/ContentDrawer";
 import DiscoverButton from "../../../components/DiscoverButton";
 import ImageBg from "../../../components/ImageBg";
 import ContentContainer from "../../../components/layout/ContentContainer";
@@ -33,6 +41,8 @@ export default function ExperienceCnSection() {
 
   const scaleImageBig = useTransform(scrollYProgress, [0, 0.5], [1.15, 1]);
   const scaleImageSmall = useTransform(scrollYProgress, [0.2, 0.7], [1.15, 1]);
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <Box ref={targetRef} as="section" bg="black" pos="relative" w="full">
@@ -82,9 +92,10 @@ export default function ExperienceCnSection() {
           <SmallText>{content.discoverText}</SmallText>
         </Box>
         <Center w={{ base: "100%", md: "50%" }}>
-          <DiscoverButton />
+          <DiscoverButton onPress={onOpen} />
         </Center>
       </Flex>
+      <ContentDrawer isOpen={isOpen} onClose={onClose} />
     </Box>
   );
 }

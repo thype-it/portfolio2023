@@ -5,12 +5,14 @@ import { MdExpandCircleDown } from "react-icons/md";
 type Props = ChakraProps & {
   children?: ReactNode;
   isInverted?: boolean;
+  onPress?: () => void;
 };
 
 const defualtButtonText = "Find out more";
 
 export default function DiscoverButton({
   children,
+  onPress,
   isInverted = false,
   ...chakraProps
 }: Props) {
@@ -32,6 +34,7 @@ export default function DiscoverButton({
       }
       variant={isInverted ? "outlineInverted" : "outline"}
       w="max-content"
+      onClick={onPress}
       {...chakraProps}
     >
       {children ? children : defualtButtonText}

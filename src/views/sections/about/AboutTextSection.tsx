@@ -1,5 +1,6 @@
-import { Box, useBreakpointValue } from "@chakra-ui/react";
+import { Box, useBreakpointValue, useDisclosure } from "@chakra-ui/react";
 
+import ContentDrawer from "../../../components/ContentDrawer";
 import DiscoverButton from "../../../components/DiscoverButton";
 import ContentContainer from "../../../components/layout/ContentContainer";
 import { TextBlock } from "../../../components/text";
@@ -15,20 +16,26 @@ const content = {
 
 export default function AboutTextSection() {
   const isSmallScreen = useBreakpointValue({ base: true, xl: false });
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <Box as="section" bg="white" pos="relative">
       <ContentContainer>
         {isSmallScreen ? (
-          <AboutTextBase title={content.title} topic={content.topic}>
+          <AboutTextBase
+            title={content.title}
+            topic={content.topic}
+            onPress={onOpen}
+          >
             {content.text}
           </AboutTextBase>
         ) : (
           <TextBlock title={content.title} topic={content.topic} isInverted>
             {content.text}
-            <DiscoverButton mt={10} isInverted />
+            <DiscoverButton mt={10} isInverted onPress={onOpen} />
           </TextBlock>
         )}
+        <ContentDrawer isOpen={isOpen} onClose={onClose} />
       </ContentContainer>
     </Box>
   );
