@@ -8,14 +8,24 @@ import {
   useBreakpointValue,
   useDisclosure,
 } from "@chakra-ui/react";
-import { MotionValue, useScroll, useTransform } from "framer-motion";
+import {
+  MotionValue,
+  useInView,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import { ReactNode, useRef } from "react";
 import { DeviceFrameset } from "react-device-frameset";
 
 import ContentDrawer from "../../../components/ContentDrawer";
 import DiscoverButton from "../../../components/DiscoverButton";
 import ContentContainer from "../../../components/layout/ContentContainer";
-import { BoxMotion, VstackMotion } from "../../../components/motion";
+import {
+  BoxMotion,
+  CenterMotion,
+  VstackMotion,
+} from "../../../components/motion";
 import { SmallText, TextBlock } from "../../../components/text";
 import logoWhite from "../../../media/logo/logo_white.svg";
 import ferraraWeb from "../../../media/oldWebs/ferrara.png";
@@ -97,10 +107,16 @@ const animationOrder = {
 
 export default function ExperienceFreelanceMainSection() {
   const targetRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
+  const textRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: spring } = useScroll({
     target: targetRef,
     offset: ["start start", "end start"],
   });
+
+  const physicsScrollX = { damping: 15, mass: 0.27, stiffness: 85 };
+
+  const scrollYProgress = useSpring(spring, physicsScrollX);
+
   const isSmallScreen = useBreakpointValue({ base: true, md: false });
   const frameHeight = isSmallScreen
     ? deviceFrameImagesHeight.mobile
@@ -120,6 +136,7 @@ export default function ExperienceFreelanceMainSection() {
 
   const y = useParallax(scrollYProgress, frameHeight * scrollContent.length);
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const isTextInView = useInView(textRef, { margin: "100% 0px -60% 0px" });
 
   return (
     <Box bg="black" mt={{ base: "24", md: "80" }} pos="relative">
@@ -146,9 +163,15 @@ export default function ExperienceFreelanceMainSection() {
             transform="auto"
             translateY={{ base: "3vh", md: "3vh" }}
           >
-            <Center h="full">
+            <CenterMotion
+              ref={textRef}
+              h="full"
+              initial={{ opacity: 0 }}
+              // transition={{ delay: 0.2 }}
+              animate={{ opacity: isTextInView ? 1 : 0 }}
+            >
               <ScrollText scrollInterval={scrollTextInterval} />
-            </Center>
+            </CenterMotion>
           </Container>
 
           <Flex bottom={0} justify="center" pos="absolute" w="full">
