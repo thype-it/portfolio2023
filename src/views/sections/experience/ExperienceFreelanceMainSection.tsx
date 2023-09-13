@@ -100,7 +100,7 @@ const deviceFrameImagesHeight = {
 
 //animation:
 const animationOrder = {
-  start: 0.05, //start of device frame and text scrolling
+  start: 0.04, //start of device frame and text scrolling
   endOfTextScroll: 0.6, //end of text scrolling
   endOfDeviceFrameScroll: 0.7, //end of device frame scrolling
 };
@@ -136,7 +136,7 @@ export default function ExperienceFreelanceMainSection() {
 
   const y = useParallax(scrollYProgress, frameHeight * scrollContent.length);
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const isTextInView = useInView(textRef, { margin: "100% 0px -60% 0px" });
+  const isTextInView = useInView(textRef, { margin: "100% 0px -80% 0px" });
 
   return (
     <Box bg="black" mt={{ base: "24", md: "80" }} pos="relative">
@@ -165,10 +165,13 @@ export default function ExperienceFreelanceMainSection() {
           >
             <CenterMotion
               ref={textRef}
+              animate={{
+                opacity: isTextInView ? 1 : 0,
+                y: isTextInView ? "0%" : "10%",
+              }}
               h="full"
-              initial={{ opacity: 0 }}
-              // transition={{ delay: 0.2 }}
-              animate={{ opacity: isTextInView ? 1 : 0 }}
+              initial={{ opacity: 0, y: "10%" }}
+              transition={{ duration: 0.5 }}
             >
               <ScrollText scrollInterval={scrollTextInterval} />
             </CenterMotion>

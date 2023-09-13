@@ -46,7 +46,9 @@ export function TextBlock({
         </Heading>
       </AnimationWrapper>
       <AnimationWrapper>
-        <SmallText color={color}>{children}</SmallText>
+        <SmallText color={color} style={{ opacity: 0.8 }}>
+          {children}
+        </SmallText>
       </AnimationWrapper>
     </VStack>
   );
