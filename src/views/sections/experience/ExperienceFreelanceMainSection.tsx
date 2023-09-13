@@ -29,13 +29,11 @@ import thypeWeb from "../../../media/oldWebs/thype.png";
 const content = {
   hero: {
     topic: `Experience`,
-    title: `Freelance carier. Satisfied clients. Managing small projects.`,
+    title: `Freelance carier. Satisfied clients.`,
     text: `
-
-    I've had the opportunity to work on numerous websites, both independently
-     and collaboratively. Additionally, I engage in small-scale pet projects
+      I've had the opportunity to work on numerous websites, both independently
+      and collaboratively. Additionally, I engage in small-scale pet projects
       with other enthusiastic developers.
-    
     `,
   },
 };
@@ -65,8 +63,8 @@ const scrollContent = [
   },
   {
     id: 3,
-    text: `I'm currently focused on complex web and mobile app development. 
-    My previous web projects provided me with invaluable experience.`,
+    text: `Although I'm currently focused on more complex web and mobile app development, 
+    my previous web projects provided me with invaluable experience.`,
     highlightedText: "invaluable experience",
     image: {
       desktop: thypeWeb,
@@ -242,7 +240,7 @@ function ScrollText({ scrollInterval }: ScrollElementsProps) {
           <SmallText
             key={item.id}
             color="gray"
-            style={{ opacity, y, position: "absolute", maxWidth: "95%" }}
+            style={{ opacity, y, position: "absolute", maxWidth: "90%" }}
           >
             <Highlight query={item.highlightedText} styles={{ color: "white" }}>
               {item.text}

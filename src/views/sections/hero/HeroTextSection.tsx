@@ -13,17 +13,9 @@ const sectionHeightVH = 160;
 //text content:
 const content = {
   sentences: [
-    // "From managing small solo projects to collaborating within large Agile teams.",
-    // "Passionate about creating captivating, responsive designs and apps.",
-    // "Striving for perfection, with keen attention to detail.",
-    // "Eager to embrace new challenges, learn new technologies.",
-    // "Thriving on the synergy of creativity and code.",
-
     "Creating captivating, responsive designs and apps.",
-    "Collaborating in large Agile teams.",
-    "Managing small solo projects.",
-    "Ensuring client satisfaction.",
-    // "Eager to embrace new challenges, learn new technologies.",
+    "Collaborating in large Agile teams within dynamic and fast-paced environments.",
+    "Managing small projects ensuring client satisfaction.",
     "Thriving on the synergy of creativity and code.",
   ],
 };
@@ -75,7 +67,6 @@ export default function HeroTextSection() {
           <ScrollOpacityText scrollInterval={scrollOpacityTextInterval} />
         </Center>
       </Box>
-      {/* <SkillsText /> */}
       <BackgroundVideo opacityMotion={opacityVideo} />
     </BoxMotion>
   );
@@ -89,16 +80,18 @@ function ScrollOpacityText({ scrollInterval }: ScrollOpacityTextProps) {
   return (
     <Container
       maxW={{ base: "440px", md: "container.lg" }}
-      w={{ base: "95%", lg: "95%" }}
+      w={{ base: "95%", lg: "90%" }}
     >
       <Text
         color="white"
-        fontSize={{ base: "1.9rem", md: "2.75rem", lg: "3.5rem" }}
+        fontSize={{ base: "1.75rem", md: "2.75rem", lg: "3rem" }}
       >
         {content.sentences.map((sentence, index) => {
           const start = index / content.sentences.length;
           const end = (index + 1) / content.sentences.length;
           const step = (end - start) / 2;
+          const startOpacity = index === 0 ? 1 : 0.3;
+          const endOpacity = index === content.sentences.length - 1 ? 1 : 0.3;
 
           return (
             <motion.span
@@ -107,7 +100,7 @@ function ScrollOpacityText({ scrollInterval }: ScrollOpacityTextProps) {
                 opacity: useTransform(
                   scrollInterval,
                   [start, start + step, end - step, end],
-                  [0.3, 1, 1, 0.3]
+                  [startOpacity, 1, 1, endOpacity]
                 ),
               }}
             >

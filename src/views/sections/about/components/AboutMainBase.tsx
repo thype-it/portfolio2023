@@ -3,7 +3,6 @@ import {
   Container,
   Divider,
   HStack,
-  Spacer,
   Text,
   VStack,
 } from "@chakra-ui/react";

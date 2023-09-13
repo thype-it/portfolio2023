@@ -8,6 +8,7 @@ import {
   Spacer,
   Text,
   VStack,
+  useToast,
 } from "@chakra-ui/react";
 import { ReactNode } from "react";
 import { MdArticle } from "react-icons/md";
@@ -168,6 +169,8 @@ function ButtonWrapper({
 }
 
 function ButtonLeft({ opacityMotion: opacity }: ScrollMotionProps) {
+  const toast = useToast();
+
   return (
     <ButtonWrapper opacityMotion={opacity}>
       <Divider
@@ -180,6 +183,12 @@ function ButtonLeft({ opacityMotion: opacity }: ScrollMotionProps) {
         rightIcon={<Icon as={MdArticle} />}
         size="sm"
         variant="outline"
+        onClick={() =>
+          toast({
+            title: "Blog comming soon",
+            description: "This feature is still in development",
+          })
+        }
       >
         Blog
       </Button>
@@ -188,6 +197,8 @@ function ButtonLeft({ opacityMotion: opacity }: ScrollMotionProps) {
 }
 
 function ButtonRight({ opacityMotion: opacity }: ScrollMotionProps) {
+  const toast = useToast();
+
   return (
     <ButtonWrapper opacityMotion={opacity}>
       <Button
@@ -195,6 +206,12 @@ function ButtonRight({ opacityMotion: opacity }: ScrollMotionProps) {
         rightIcon={<Icon as={MdBusiness} />}
         size="sm"
         variant="outline"
+        onClick={() =>
+          toast({
+            title: "Porfolio comming soon",
+            description: "This feature is still in development",
+          })
+        }
       >
         Portfolio
       </Button>

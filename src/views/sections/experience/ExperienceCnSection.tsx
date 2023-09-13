@@ -95,7 +95,7 @@ export default function ExperienceCnSection() {
         direction={{ base: "column", md: "row" }}
         gap={{ base: "10", md: 0 }}
         mx="auto"
-        w="80%"
+        w={{ base: "90%", md: "80%" }}
       >
         <Box w={{ base: "100%", md: "50%" }}>
           <SmallText>{content.discoverText}</SmallText>

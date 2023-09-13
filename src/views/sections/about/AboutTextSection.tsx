@@ -11,11 +11,8 @@ import AboutTextBase from "./components/AboutTextBase";
 const content = {
   topic: "About me",
   text: `
-   I enjoy meeting new people, explore new ideas and places.
-  I have a passion for reading 
-  fantasy novels.
-  I try to stay active and maintain 
-  a healthy lifestyle. I like to listen to audiobooks while I go for my morning jog.
+  I'm an aspiring young developer looking to expand my knowledge and connect with like-minded professionals. 
+  One my favourite things to do is listen to audiobooks while I go for my morning jog.
   `,
   title: "Hi, I'm Mike",
 };
@@ -38,6 +35,7 @@ export default function AboutTextSection() {
         ) : (
           <TextBlock title={content.title} topic={content.topic} isInverted>
             {content.text}
+            <br />
             <DiscoverButton mt={10} isInverted onPress={onOpen} />
           </TextBlock>
         )}

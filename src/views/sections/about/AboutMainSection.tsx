@@ -5,12 +5,14 @@ import {
   Icon,
   Link,
   useBreakpointValue,
+  useToast,
 } from "@chakra-ui/react";
 import { createContext, useContext } from "react";
 import { MdBusiness } from "react-icons/md";
 import { MdArticle } from "react-icons/md";
 
 import { SmallText } from "../../../components/text";
+import CV from "../../../media/illit_CV.pdf";
 
 import AboutMainBase from "./components/AboutMainBase";
 import AboutMainDesktop from "./components/AboutMainDesktop";
@@ -19,8 +21,8 @@ import type { ButtonContent, SeeNextBlockVariant } from "./types";
 //text content:
 const seeNextContent = {
   portfolio:
-    " Check out collection of my old projects ranging from woocomerce to multinational mega projects",
-  blog: "   Take a look at my blog. Learn more about why I chode to move to melbourne and how I compare it to EU or why I prefer using CSS in JS",
+    " Check out my collection of past projects, showcasing my diverse experiences",
+  blog: "   Take a look at my blog. Learn more about why I chose to move to Melbourne, or how I got into programming",
   caseStudy:
     " Want to see how I made this portfolio ? I prepared a case study detailing the process from start to finish",
 };
@@ -49,6 +51,7 @@ export default function AboutMainSection() {
 }
 
 function getButton(variant: SeeNextBlockVariant) {
+  const toast = useToast();
   const content = ((): ButtonContent => {
     switch (variant) {
       case "portfolio":
@@ -63,7 +66,17 @@ function getButton(variant: SeeNextBlockVariant) {
   })();
 
   return (
-    <Button rightIcon={content.icon} size="sm" variant="outlineBlack">
+    <Button
+      rightIcon={content.icon}
+      size="sm"
+      variant="outlineBlack"
+      onClick={() =>
+        toast({
+          title: `${content.text} comming soon`,
+          description: "This feature is still in development",
+        })
+      }
+    >
       {content.text}
     </Button>
   );
@@ -74,8 +87,14 @@ function MiddleContent() {
     <>
       <SmallText color="black">
         I currently live in Melbourne <br /> Feel free to contact me at{" "}
-        <Link textDecor="underline">blade@blade.sk.</Link> <br />
-        Download my <Link textDecor="underline">CV</Link>
+        <Link href="mailto:inquiries@mikeit.site" textDecor="underline">
+          inquiries@mikeit.site.
+        </Link>{" "}
+        <br />
+        Download my{" "}
+        <Link download="CV" href={CV} textDecor="underline">
+          CV
+        </Link>
       </SmallText>
       <Heading mb={8} size="2xl">
         See next ...

@@ -20,7 +20,10 @@ export function TextBlock({
   const color = isInverted ? "black" : "white";
 
   return (
-    <VStack alignItems="start" w={{ base: "87%", lg: "43rem", xl: "50rem" }}>
+    <VStack
+      alignItems="start"
+      w={{ base: "95%", md: "87%", lg: "43rem", xl: "50rem" }}
+    >
       <AnimationWrapper>
         <Text
           color={color}

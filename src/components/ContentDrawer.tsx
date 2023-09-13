@@ -16,6 +16,7 @@ import { scroll } from "framer-motion/dom";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { isBrowser } from "react-device-detect";
 
+import ButtonAnimationWrapper from "./ButtonAnimationWrapper";
 import { BoxMotion } from "./motion";
 
 type Props = {
@@ -172,13 +173,15 @@ export default function ContentDrawer({ isOpen, onClose, children }: Props) {
                   w="full"
                 ></BoxMotion>
               </VStack>
-              <DrawerCloseButton
-                bg="white"
-                borderRadius={999}
-                color="black"
-                pos="static"
-                size="lg"
-              />
+              <ButtonAnimationWrapper>
+                <DrawerCloseButton
+                  bg="white"
+                  borderRadius={999}
+                  color="black"
+                  pos="static"
+                  size="lg"
+                />
+              </ButtonAnimationWrapper>
             </HStack>
           </DrawerFooter>
         </BoxMotion>

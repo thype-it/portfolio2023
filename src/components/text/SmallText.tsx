@@ -16,7 +16,7 @@ export const SmallText = forwardRef(function SmallText(
     <TextMotion
       ref={ref}
       color={color}
-      fontSize={{ base: "2xl", md: "3xl" }}
+      fontSize={{ base: "xl", md: "3xl" }}
       fontWeight="bold"
       pos="relative"
       py={6}
