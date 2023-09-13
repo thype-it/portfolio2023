@@ -29,20 +29,24 @@ import thypeWeb from "../../../media/oldWebs/thype.png";
 const content = {
   hero: {
     topic: `Experience`,
-    title: `Freelance carier. Satisfied clients. Work solo or in small team`,
-    text: `I ccan work solo but i know how to cooperate in big teams. The biggest project 
-    I was a part of consisted of over 50 people working from multiple countries.`,
+    title: `Freelance carier. Satisfied clients. Managing small projects.`,
+    text: `
+
+    I've had the opportunity to work on numerous websites, both independently
+     and collaboratively. Additionally, I engage in small-scale pet projects
+      with other enthusiastic developers.
+    
+    `,
   },
 };
-
 //variables:
 const scrollContent = [
   {
     id: 1,
-    text: `Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-    Porro ut soluta quod id molestiae saepe cumque in totam.
-    Repellat expedita ea beatae`,
-    highlightedText: "Lorem ipsum",
+    text: `My responsibilities span the full development process, from 
+    client consultations to logic design, responsive implementation, 
+    and timely project delivery.`,
+    highlightedText: ["full development process"],
     image: {
       desktop: ferraraWeb,
       mobile: ferraraWebPhone,
@@ -50,10 +54,10 @@ const scrollContent = [
   },
   {
     id: 2,
-    text: `Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-    Porro ut soluta quod id molestiae saepe cumque in totam.
-    Repellat expedita ea beatae`,
-    highlightedText: "Lorem ipsum",
+    text: `Most of these projects involved building websites from scratch, 
+    utilizing technologies such as Sass, CSS3 animations,
+    JavaScript observers, and jQuery.`,
+    highlightedText: "building websites from scratch",
     image: {
       desktop: jovineckyWeb,
       mobile: jovineckyWebPhone,
@@ -61,10 +65,9 @@ const scrollContent = [
   },
   {
     id: 3,
-    text: `Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-    Porro ut soluta quod id molestiae saepe cumque in totam.
-    Repellat expedita ea beatae`,
-    highlightedText: "Lorem ipsum",
+    text: `I'm currently focused on complex web and mobile app development. 
+    My previous web projects provided me with invaluable experience.`,
+    highlightedText: "invaluable experience",
     image: {
       desktop: thypeWeb,
       mobile: thypeWebPhone,
@@ -74,10 +77,8 @@ const scrollContent = [
 
 const scrollContentBottom = {
   id: 500,
-  text: `Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-  Porro ut soluta quod id molestiae saepe cumque in totam.
-  Repellat expedita ea beatae`,
-  highlightedText: "Lorem ipsum",
+  text: "",
+  highlightedText: "",
   image: {
     desktop: logoWhite,
     mobile: logoWhite,

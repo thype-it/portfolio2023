@@ -8,7 +8,12 @@ import { TextBlock } from "../../components/text";
 const content = {
   title: "Eager to embrace new challenges and learn new technologies.",
   topic: "Skills",
-  text: "I ccan work solo but i know how to cooperate in big teams. The biggest project I was a part of consisted of over 50 people working from multiple countries. I was a part of consisted of over 50 people working from multiple countries.",
+  text: `Over time, I have developed a comprehensive understanding of various 
+  technologies, particularly in the domains of frontend development, data handling, 
+  and UI/UX design.  My curiosity drives me to continually expand my knowledge by embracing new frameworks, 
+  and staying up-to-date with industry trends. I enjoy putting these skills to use as hands-on experience 
+  enhances my learning journey.
+  `,
 };
 
 export default function SkillsTextSection() {

@@ -23,7 +23,26 @@ import muniMacBg from "../../../media/bgImages/muniMacBg.jpg";
 const content = {
   thype: {
     title: "Number 1 spot for month",
-    text: "As a ceeo of my company I strived to make my team better in every way. I was able to achieve this by making sure that my team was in the best possible position to succeed. I was able to achieve this by making sure that my team was in the best possible position to succeed.",
+    text: `
+        During the pandemic, alongside a team of like-minded individuals, 
+        we created a mobile game available on the App Store and Google Play. 
+        It quickly rose to the number 1 spot in the Casual and Action categories 
+        in our region, maintaining a top 3 position in the free games chart on the App Store for several weeks.
+    `,
+  },
+  muni: {
+    title: "Computer science foundation",
+    text: `
+    During my participation in an applied science program, 
+    I established a foundational understanding of computer 
+    operation. I was introduced to programming concepts using Boolean 
+    algebra and languages like Python and C. Additionally, I explored 
+    diverse topics, such as interpreting punched cards, introductory courses 
+    in relational algebra and MySQL, and algorithm complexity, including the 
+    calculation of Big O notation. My education was further enriched by completing 
+    numerous courses dedicated to specific technologies, enabling me to acquire valuable 
+    hands-on experience and enhance my expertise.
+    `,
   },
 };
 
@@ -67,8 +86,8 @@ export default function ExperienceOthersSection() {
         </ContentBox>
         <ContentBox
           isSmallScreen={isSmallScreen}
-          text={content.thype.text}
-          title={content.thype.title}
+          text={content.muni.text}
+          title={content.muni.title}
         >
           <Image
             mt="auto"

@@ -33,9 +33,11 @@ const content = {
   subHeroText:
     "I've also had opportunities to participate in various educational events",
   discoverText: `
-    I've gained a robust understanding of developing web and mobile applications 
-    using React and React Native, encompassing component-based architecture, state management,
-     and effective teamwork, including idea articulation and the abillity to ask questions.
+
+  I've gained a robust understanding of developing web and mobile applications using React and React Native, along 
+  with the importance of effective teamwork. This includes clear idea articulation, the ability 
+  to ask questions and proficiency in version control best practices, facilitating seamless 
+  collaboration with fellow developers.
     `,
 };
 

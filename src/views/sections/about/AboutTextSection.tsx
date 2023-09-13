@@ -10,7 +10,13 @@ import AboutTextBase from "./components/AboutTextBase";
 //text content:
 const content = {
   topic: "About me",
-  text: "I like Bla bla, motivets me bla a-nd drives my curiosity. I spend my days meeting new people and looking for oprtunities. I code I drinkm and I live.",
+  text: `
+   I enjoy meeting new people, explore new ideas and places.
+  I have a passion for reading 
+  fantasy novels.
+  I try to stay active and maintain 
+  a healthy lifestyle. I like to listen to audiobooks while I go for my morning jog.
+  `,
   title: "Hi, I'm Mike",
 };
 
