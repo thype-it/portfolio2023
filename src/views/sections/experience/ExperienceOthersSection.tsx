@@ -38,8 +38,8 @@ const content = {
     operation. I was introduced to programming concepts using Boolean 
     algebra and languages like Python and C. Additionally, I explored 
     diverse topics, such as interpreting punched cards, introductory courses 
-    in relational algebra and MySQL, and algorithm complexity, including the 
-    calculation of Big O notation. My education was further enriched by completing 
+    in relational algebra and MySQL, and algorithm complexity.
+     My education was further enriched by completing 
     numerous courses dedicated to specific technologies, enabling me to acquire valuable 
     hands-on experience and enhance my expertise.
     `,

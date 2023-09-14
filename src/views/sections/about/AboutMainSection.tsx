@@ -21,10 +21,10 @@ import type { ButtonContent, SeeNextBlockVariant } from "./types";
 //text content:
 const seeNextContent = {
   portfolio:
-    " Check out my collection of past projects, showcasing my diverse experiences",
-  blog: "   Take a look at my blog. Learn more about why I chose to move to Melbourne, or how I got into programming",
+    "To learn more about my past projects and my experience you can visit my portfolio.",
+  blog: "Take a look at my blog. Learn more about why I chose to move to Melbourne, or how I got into programming.",
   caseStudy:
-    " Want to see how I made this portfolio ? I prepared a case study detailing the process from start to finish",
+    "Want to see how I made this portfolio ? I prepared a case study detailing the process from start to finish.",
 };
 
 const GetButtonContext = createContext(getButton);

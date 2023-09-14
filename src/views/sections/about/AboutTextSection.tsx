@@ -12,7 +12,7 @@ const content = {
   topic: "About me",
   text: `
   I'm an aspiring young developer looking to expand my knowledge and connect with like-minded professionals. 
-  One my favourite things to do is listen to audiobooks while I go for my morning jog.
+  One of my favourite things to do is listen to audiobooks while I go for my morning jog.
   `,
   title: "Hi, I'm Mike",
 };

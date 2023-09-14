@@ -42,7 +42,7 @@ const content = {
     title: `Freelance carier. Satisfied clients.`,
     text: `
       I've had the opportunity to work on numerous websites, both independently
-      and collaboratively. Additionally, I engage in small-scale pet projects
+      and collaboratively. Additionally, I engage in small-scale projects
       with other enthusiastic developers.
     `,
   },
@@ -62,9 +62,9 @@ const scrollContent = [
   },
   {
     id: 2,
-    text: `Most of these projects involved building websites from scratch, 
-    utilizing technologies such as Sass, CSS3 animations,
-    JavaScript observers, and jQuery.`,
+    text: `Most of these projects involved building
+    websites from scratch, utilizing technologies such as Sass, CSS3 animations,
+    jQuery and React.`,
     highlightedText: "building websites from scratch",
     image: {
       desktop: jovineckyWeb,
@@ -73,8 +73,8 @@ const scrollContent = [
   },
   {
     id: 3,
-    text: `Although I'm currently focused on more complex web and mobile app development, 
-    my previous web projects provided me with invaluable experience.`,
+    text: `My previous web projects provided me with invaluable experience. 
+    I'm currently focused on more complex web and mobile app development.`,
     highlightedText: "invaluable experience",
     image: {
       desktop: thypeWeb,

@@ -26,8 +26,8 @@ const content = {
     topic: "Bratislava",
     text: `
     As a React/React Native developer, I've actively contributed to three projects, 
-    collaborating extensively within large teams. My latest project involved React 
-    Native app development for Interflex.
+    collaborating extensively within a large Agile team. My latest project was a greenfield React 
+    Native app for a large german client.
     `,
   },
   subHeroText:

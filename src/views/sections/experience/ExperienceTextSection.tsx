@@ -6,10 +6,10 @@ import { TextBlock } from "../../../components/text";
 //text content:
 const content = {
   title: "I love my work. Great team makes it even better.",
-  // title: "A brief story on how I learned to code and cooperate in teams",
   topic: "Experience",
   text: `
-  I had the opportunity to be part of large Agile teams within a
+  I had the opportunity to work alongside highly skilled developers, designers, and
+  product managers within a
    dynamic and collaborative environment that nurtured learning, creativity, and professional growth. 
   I particularly enjoyed learning from colleagues with diverse experiences and perspectives, enriching our team dynamic.
   `,
