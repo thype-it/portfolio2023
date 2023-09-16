@@ -27,7 +27,7 @@ const content = {
     text: `
     As a React/React Native developer, I've actively contributed to three projects, 
     collaborating extensively within a large Agile team. My latest project was a greenfield React 
-    Native app for a large german client.
+    Native app for a big client based in Germany.
     `,
   },
   subHeroText:

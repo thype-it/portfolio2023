@@ -1,5 +1,5 @@
 import { ChakraProvider, Container } from "@chakra-ui/react";
-import React from "react";
+import { StrictMode } from "react";
 
 import reportWebVitals from "./reportWebVitals";
 import theme from "./theme";
@@ -20,7 +20,7 @@ import "react-device-frameset/styles/marvel-devices.min.css";
 
 export default function App() {
   return (
-    <React.StrictMode>
+    <StrictMode>
       <ChakraProvider theme={theme}>
         <Container bg="black" m={0} maxW="full" p={0} pos="relative">
           <HeroMainSection />
@@ -36,7 +36,7 @@ export default function App() {
           <Footer />
         </Container>
       </ChakraProvider>
-    </React.StrictMode>
+    </StrictMode>
   );
 }
 
