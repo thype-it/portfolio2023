@@ -1,0 +1,82 @@
+parser: "@typescript-eslint/parser"
+extends:
+  - "next/core-web-vitals"
+  - "plugin:prettier/recommended"
+plugins:
+  - "import"
+  - "react"
+  - "@typescript-eslint"
+rules:
+  "@typescript-eslint/consistent-type-definitions":
+    - "warn"
+    - "type"
+  "@typescript-eslint/no-shadow": "off"
+  "@typescript-eslint/no-unused-vars":
+    - "warn"
+    - "argsIgnorePattern": "^_"
+      "ignoreRestSiblings": true
+  "import/order":
+    - "warn"
+    - "newlines-between": "always"
+      "alphabetize":
+        "order": "asc"
+  "no-case-declarations": "warn"
+  "no-console": "warn"
+  "no-debugger": "warn"
+  "no-else-return": "warn"
+  "no-shadow": "off"
+  "no-trailing-spaces": "off"
+  "no-var": "warn"
+  "object-shorthand": "warn"
+  "padding-line-between-statements":
+    - "warn"
+    - "blankLine": "always"
+      "prev": "*"
+      "next": "class"
+    - "blankLine": "always"
+      "prev": "*"
+      "next": "for"
+    - "blankLine": "always"
+      "prev": "*"
+      "next": "function"
+    - "blankLine": "always"
+      "prev": "*"
+      "next": "if"
+    - "blankLine": "always"
+      "prev": "*"
+      "next": "return"
+    - "blankLine": "always"
+      "prev": "*"
+      "next": "switch"
+    - "blankLine": "always"
+      "prev": "*"
+      "next": "try"
+    - "blankLine": "always"
+      "prev": "*"
+      "next": "while"
+    - "blankLine": "always"
+      "prev": "block-like"
+      "next":
+        - "let"
+        - "const"
+  "prefer-const": "warn"
+  "prettier/prettier": "off"
+  "react/jsx-boolean-value": "warn"
+  "react/jsx-curly-brace-presence": "warn"
+  "react/jsx-key": "warn"
+  "react/jsx-sort-props":
+    - "warn"
+    - "callbacksLast": true
+      "reservedFirst": true
+      "shorthandLast": true
+  "react/no-array-index-key": "warn"
+  "react/no-unstable-nested-components":
+    - "warn"
+    - "allowAsProps": true
+  "react/react-in-jsx-scope": "off"
+  "semi-spacing": "off"
+  "sort-imports":
+    - "warn"
+    - "ignoreDeclarationSort": true
+      "allowSeparatedGroups": true
+  "yoda": "warn"
