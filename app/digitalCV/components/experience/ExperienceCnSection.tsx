@@ -1,20 +1,10 @@
-import {
-  Box,
-  Center,
-  Flex,
-  Icon,
-  VStack,
-  useDisclosure,
-} from "@chakra-ui/react";
+import { Box, Center, Flex, Icon, VStack } from "@chakra-ui/react";
 import { useScroll, useTransform } from "framer-motion";
+import Link from "next/link";
 import { useRef } from "react";
 import { MdLocationPin } from "react-icons/md";
 
-import {
-  ContentContainer,
-  ContentDrawer,
-  DiscoverButton,
-} from "@/app/components";
+import { ContentContainer, DiscoverButton } from "@/app/components";
 import { ImageBg } from "@/app/components/media";
 import { SmallText, TextBlock } from "@/app/components/text";
 import bratislavaBg from "@/public/media/bgImages/bratislavaBg.jpg";
@@ -51,8 +41,6 @@ export default function ExperienceCnSection() {
 
   const scaleImageBig = useTransform(scrollYProgress, [0, 0.5], [1.15, 1]);
   const scaleImageSmall = useTransform(scrollYProgress, [0.2, 0.7], [1.15, 1]);
-
-  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <Box ref={targetRef} as="section" bg="black" pos="relative" w="full">
@@ -102,10 +90,11 @@ export default function ExperienceCnSection() {
           <SmallText>{content.discoverText}</SmallText>
         </Box>
         <Center w={{ base: "100%", md: "50%" }}>
-          <DiscoverButton onPress={onOpen} />
+          <Link href="/digitalCV/id">
+            <DiscoverButton />
+          </Link>
         </Center>
       </Flex>
-      {/* <ContentDrawer isOpen={isOpen} onClose={onClose} /> */}
     </Box>
   );
 }

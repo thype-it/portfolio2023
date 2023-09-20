@@ -1,12 +1,9 @@
-import { Box, useBreakpointValue, useDisclosure } from "@chakra-ui/react";
+import { Box, useBreakpointValue } from "@chakra-ui/react";
+import Link from "next/link";
 
 import AboutTextBase from "./components/AboutTextBase";
 
-import {
-  ContentContainer,
-  ContentDrawer,
-  DiscoverButton,
-} from "@/app/components";
+import { ContentContainer, DiscoverButton } from "@/app/components";
 import { TextBlock } from "@/app/components/text";
 
 //text content:
@@ -21,27 +18,23 @@ const content = {
 
 export default function AboutTextSection() {
   const isSmallScreen = useBreakpointValue({ base: true, xl: false });
-  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <Box as="section" bg="white" pos="relative">
       <ContentContainer>
         {isSmallScreen ? (
-          <AboutTextBase
-            title={content.title}
-            topic={content.topic}
-            onPress={onOpen}
-          >
+          <AboutTextBase title={content.title} topic={content.topic}>
             {content.text}
           </AboutTextBase>
         ) : (
           <TextBlock title={content.title} topic={content.topic} isInverted>
             {content.text}
             <br />
-            <DiscoverButton mt={10} isInverted onPress={onOpen} />
+            <Link href="/digitalCV/id">
+              <DiscoverButton mt={10} isInverted />
+            </Link>
           </TextBlock>
         )}
-        {/* <ContentDrawer isOpen={isOpen} onClose={onClose} /> */}
       </ContentContainer>
     </Box>
   );

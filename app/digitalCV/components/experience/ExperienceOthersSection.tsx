@@ -6,12 +6,12 @@ import {
   Text,
   VStack,
   useBreakpointValue,
-  useDisclosure,
 } from "@chakra-ui/react";
 import { useInView } from "framer-motion";
+import Link from "next/link";
 import { ReactNode, useRef } from "react";
 
-import { ContentDrawer, DiscoverButton } from "@/app/components";
+import { DiscoverButton } from "@/app/components";
 import { ChakraNextImage } from "@/app/components/media";
 import { FlexMotion } from "@/app/components/motion";
 import banarunBgPhone from "@/public/media/bgImages/banarunBg-phone.png";
@@ -116,7 +116,6 @@ function ContentBox({
   children,
   title,
   text,
-  contentDrawer,
   isInverted = false,
   isSmallScreen = false,
   isAnimationVertical = false,
@@ -127,7 +126,6 @@ function ContentBox({
   const x = !isAnimationVertical ? translate : "0%";
   const y = isAnimationVertical ? translate : "0%";
   const opacity = isInView ? 1 : 0;
-  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <Box pb={{ base: 8, md: 10, lg: 20 }}>
@@ -149,11 +147,9 @@ function ContentBox({
             </Heading>
             <Text>{text}</Text>
             {!isSmallScreen && (
-              <DiscoverButton
-                isInverted={isInverted}
-                mt="auto"
-                onPress={onOpen}
-              />
+              <Link href="/digitalCV/id">
+                <DiscoverButton isInverted={isInverted} mt="auto" />
+              </Link>
             )}
           </VStack>
         </Box>
@@ -169,17 +165,11 @@ function ContentBox({
           {children}
         </FlexMotion>
         {isSmallScreen && (
-          <DiscoverButton
-            isInverted={isInverted}
-            mb="5"
-            mx="auto"
-            onPress={onOpen}
-          />
+          <Link href="/digitalCV/id">
+            <DiscoverButton isInverted={isInverted} mb="5" mx="auto" />
+          </Link>
         )}
       </Flex>
-      {/* <ContentDrawer isOpen={isOpen} onClose={onClose}>
-        {contentDrawer}
-      </ContentDrawer> */}
     </Box>
   );
 }

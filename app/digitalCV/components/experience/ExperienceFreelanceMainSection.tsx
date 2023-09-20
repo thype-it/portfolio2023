@@ -5,7 +5,6 @@ import {
   Flex,
   Highlight,
   useBreakpointValue,
-  useDisclosure,
 } from "@chakra-ui/react";
 import {
   MotionValue,
@@ -14,16 +13,13 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
+import Link from "next/link";
 import { ReactNode, useRef } from "react";
 import { DeviceFrameset } from "react-device-frameset";
 
 import type { ScrollItem } from "./types";
 
-import {
-  ContentContainer,
-  ContentDrawer,
-  DiscoverButton,
-} from "@/app/components";
+import { ContentContainer, DiscoverButton } from "@/app/components";
 import { ChakraNextImage } from "@/app/components/media";
 import { BoxMotion, CenterMotion, VstackMotion } from "@/app/components/motion";
 import { SmallText, TextBlock } from "@/app/components/text";
@@ -136,7 +132,6 @@ export default function ExperienceFreelanceMainSection() {
   );
 
   const y = useParallax(scrollYProgress, frameHeight * scrollContent.length);
-  const { isOpen, onOpen, onClose } = useDisclosure();
   const isTextInView = useInView(textRef, { margin: "100% 0px -80% 0px" });
 
   return (
@@ -206,9 +201,10 @@ export default function ExperienceFreelanceMainSection() {
         </Box>
       </Box>
       <Center h="50vh" mt="20vh" pos="relative" w="full">
-        <DiscoverButton onPress={onOpen}>Find out more</DiscoverButton>
+        <Link href="/digitalCV/id">
+          <DiscoverButton>Find out more</DiscoverButton>
+        </Link>
       </Center>
-      {/* <ContentDrawer isOpen={isOpen} onClose={onClose} /> */}
     </Box>
   );
 
