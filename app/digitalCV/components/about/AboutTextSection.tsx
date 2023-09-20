@@ -41,7 +41,7 @@ export default function AboutTextSection() {
             <DiscoverButton mt={10} isInverted onPress={onOpen} />
           </TextBlock>
         )}
-        <ContentDrawer isOpen={isOpen} onClose={onClose} />
+        {/* <ContentDrawer isOpen={isOpen} onClose={onClose} /> */}
       </ContentContainer>
     </Box>
   );

@@ -208,7 +208,7 @@ export default function ExperienceFreelanceMainSection() {
       <Center h="50vh" mt="20vh" pos="relative" w="full">
         <DiscoverButton onPress={onOpen}>Find out more</DiscoverButton>
       </Center>
-      <ContentDrawer isOpen={isOpen} onClose={onClose} />
+      {/* <ContentDrawer isOpen={isOpen} onClose={onClose} /> */}
     </Box>
   );
 

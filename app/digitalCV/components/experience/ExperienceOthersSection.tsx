@@ -177,9 +177,9 @@ function ContentBox({
           />
         )}
       </Flex>
-      <ContentDrawer isOpen={isOpen} onClose={onClose}>
+      {/* <ContentDrawer isOpen={isOpen} onClose={onClose}>
         {contentDrawer}
-      </ContentDrawer>
+      </ContentDrawer> */}
     </Box>
   );
 }

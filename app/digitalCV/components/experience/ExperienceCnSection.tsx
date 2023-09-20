@@ -105,7 +105,7 @@ export default function ExperienceCnSection() {
           <DiscoverButton onPress={onOpen} />
         </Center>
       </Flex>
-      <ContentDrawer isOpen={isOpen} onClose={onClose} />
+      {/* <ContentDrawer isOpen={isOpen} onClose={onClose} /> */}
     </Box>
   );
 }
