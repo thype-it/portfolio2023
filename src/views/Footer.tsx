@@ -13,7 +13,6 @@ import {
 import React from "react";
 
 import ButtonAnimationWrapper from "../components/ButtonAnimationWrapper";
-import { BoxMotion } from "../components/motion";
 import facebook from "../media/icons/facebook.svg";
 import figma from "../media/icons/figma.svg";
 import github from "../media/icons/github.svg";
