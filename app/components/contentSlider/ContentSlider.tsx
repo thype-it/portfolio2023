@@ -14,7 +14,7 @@ import { isBrowser } from "react-device-detect";
 import ButtonAnimationWrapper from "../ButtonAnimationWrapper";
 import { BoxMotion } from "../motion";
 
-import { useScreenSize } from "@/lib";
+import { useScreenSize } from "@/utils/useScreenSize";
 
 type Props = {
   children?: ReactNode;

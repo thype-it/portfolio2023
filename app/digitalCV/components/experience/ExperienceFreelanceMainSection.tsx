@@ -23,7 +23,6 @@ import { ContentContainer, DiscoverButton } from "@/app/components";
 import { ChakraNextImage } from "@/app/components/media";
 import { BoxMotion, CenterMotion, VstackMotion } from "@/app/components/motion";
 import { SmallText, TextBlock } from "@/app/components/text";
-import { getScrollRange } from "@/lib";
 import logoWhite from "@/public/media/logo/logo_white.svg";
 import ferraraWeb from "@/public/media/oldWebs/ferrara.png";
 import jovineckyWeb from "@/public/media/oldWebs/jovinecky.png";
@@ -31,6 +30,7 @@ import ferraraWebPhone from "@/public/media/oldWebs/mobile/ferrara.jpg";
 import jovineckyWebPhone from "@/public/media/oldWebs/mobile/jovinecky.jpg";
 import thypeWebPhone from "@/public/media/oldWebs/mobile/thype.jpg";
 import thypeWeb from "@/public/media/oldWebs/thype.png";
+import { getScrollRange } from "@/utils/getScrollRange";
 
 //text content:
 const content = {

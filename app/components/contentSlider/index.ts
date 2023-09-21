@@ -1,2 +1,4 @@
 import ContentSlider from "./ContentSlider";
-export { ContentSlider };
+import Stories from "./Stories";
+
+export { ContentSlider, Stories };

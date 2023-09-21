@@ -4,6 +4,12 @@ type ScrollMotionProps = {
   wrapperOpacityMotion?: import("framer-motion").MotionValue<number>;
 };
 
+type Story = {
+  id: string;
+  title: string;
+  text: string;
+};
+
 type User = {
   id: number;
   name: string;
