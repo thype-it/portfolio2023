@@ -1,5 +1,3 @@
-import { Suspense } from "react";
-
 import { ContentSlider, Stories } from "@/app/components/contentSlider";
 import { getAllStories, getStoryData } from "@/lib/stories";
 
@@ -16,15 +14,12 @@ export async function generateStaticParams() {
   return stories.map((story) => ({ storyId: story.id }));
 }
 
-export default async function Story({ params }: Props) {
+export default async function Page({ params }: Props) {
   const storyData = getStoryData(params.storyId);
 
   return (
     <ContentSlider>
-      {/* Skeleton loading ? */}
-      <Suspense fallback={<p>Loading...</p>}>
-        <Stories data={storyData} />
-      </Suspense>
+      <Stories data={storyData} />
     </ContentSlider>
   );
 }
