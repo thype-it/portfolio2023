@@ -5,16 +5,16 @@ type Props = {
   params: { storyId: string };
 };
 
-//All dynamic segments are include in generateStaticParams
+// All dynamic segments are include in generateStaticParams
 export const dynamicParams = false;
 
-export async function generateStaticParams() {
-  const { stories } = await getAllStories();
+export function generateStaticParams() {
+  const stories = getAllStories();
 
   return stories.map((story) => ({ storyId: story.id }));
 }
 
-export default async function Page({ params }: Props) {
+export default function Page({ params }: Props) {
   const storyData = getStoryData(params.storyId);
 
   return (
