@@ -4,7 +4,7 @@ import { useRef } from "react";
 
 import { VideoBg } from "@/app/components/media";
 import { BoxMotion } from "@/app/components/motion";
-import { getScrollRange } from "@/lib";
+import { getScrollRange } from "@/utils/getScrollRange";
 
 //variables:
 const sectionHeightVH = 160;
