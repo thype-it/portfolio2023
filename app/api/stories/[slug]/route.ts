@@ -1,13 +1,13 @@
 import { NextResponse } from "next/server";
 
-import stories from "@/data/stories";
+import stories from "@/data/stories.json";
 
 export async function GET(
   req: Request,
   { params }: { params: { slug: string } }
 ) {
   try {
-    const story = stories.find((story) => story.id === params.slug);
+    const story = stories.data.find((story) => story.id === params.slug);
 
     if (!story) {
       return new NextResponse("not found", { status: 404 });
