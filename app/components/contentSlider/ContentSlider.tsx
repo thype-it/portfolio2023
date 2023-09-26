@@ -93,8 +93,10 @@ export default function ContentSlider({ children }: Props) {
           ref={containerRef}
           alignItems="center"
           display="flex"
-          gap={10}
+          gap={{ base: 10, md: 20 }}
           h={isDesktopDevice ? "100vh" : "full"}
+          overflow="hidden"
+          px={16}
           width="max-content"
           {...(isDesktopDevice
             ? {
