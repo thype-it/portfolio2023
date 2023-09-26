@@ -20,8 +20,6 @@ type Props = {
   children?: ReactNode;
 };
 
-const endPadding = 100; // for desktop only
-
 export default function ContentSlider({ children }: Props) {
   const [containerElement, setContainerElement] = useState<HTMLElement>();
   const [isDesktopDevice, setIsDesktopDevice] = useState(false);
@@ -54,9 +52,7 @@ export default function ContentSlider({ children }: Props) {
 
       if (isDesktopDevice && viewportWidth) {
         containerRef.current &&
-          setScrollRange(
-            containerRef.current.scrollWidth - viewportWidth + endPadding
-          );
+          setScrollRange(containerRef.current.scrollWidth - viewportWidth);
       }
       containerElement && setContainerElement(containerElement);
     });
