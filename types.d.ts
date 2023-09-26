@@ -7,29 +7,27 @@ type ScrollMotionProps = {
 type Story = {
   id: string;
   title: string;
-  text: string;
+  content: StoryContentItem[];
 };
 
-type User = {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  address: {
-    street: string;
-    suite: string;
-    city: string;
-    zipcode: string;
-    geo: {
-      lat: string;
-      lng: string;
-    };
-  };
-  phone: string;
-  website: string;
-  company: {
+type StoryContentItem = (StoryContentItemText | StoryContentItemImg) & {
+  id: string;
+};
+
+type StoryContentItemImg = {
+  image: {
     name: string;
-    catchPhrase: string;
-    bs: string;
+    extension: "png" | "jpg";
+    alt: string;
   };
+  title?: string;
+  text?: string;
+  isTextBottom?: boolean;
+};
+
+type StoryContentItemText = {
+  title?: string;
+  text?: string;
+  highlightText?: string | string[];
+  highlightTitle?: string | string[];
 };
