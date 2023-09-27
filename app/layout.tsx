@@ -1,7 +1,6 @@
 // import './globals.css'
 import type { Metadata } from "next";
 
-import { Footer } from "./components/navigation";
 import Providers from "./providers";
 
 export const metadata: Metadata = {
@@ -16,11 +15,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <Providers>
-          {children}
-          <Footer />
-        </Providers>
+      <body style={{ background: "black" }}>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

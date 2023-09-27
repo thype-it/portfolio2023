@@ -21,7 +21,6 @@ type Props = {
 };
 
 export default function ContentSlider({ children }: Props) {
-  const [containerElement, setContainerElement] = useState<HTMLElement>();
   const [isDesktopDevice, setIsDesktopDevice] = useState(false);
   const scrollProgress = useMotionValue(0);
   const physicsProgress = {
@@ -45,33 +44,30 @@ export default function ContentSlider({ children }: Props) {
   const scrollX = useSpring(transformAmount, physicsScrollX);
 
   useEffect(() => {
-    requestAnimationFrame(() => {
-      const containerElement = document.getElementById(
-        "scrollerContainerContentDrawer"
-      );
+    const containerElement = document.getElementById(
+      "scrollerContainerContentDrawer"
+    );
 
-      if (isDesktopDevice && viewportWidth) {
-        containerRef.current &&
-          setScrollRange(containerRef.current.scrollWidth - viewportWidth);
-      }
-      containerElement && setContainerElement(containerElement);
-    });
+    if (isDesktopDevice && viewportWidth) {
+      containerRef.current &&
+        setScrollRange(containerRef.current.scrollWidth - viewportWidth);
+    }
     scrollInfo(
       (progress) =>
         scrollProgress.set(
           isDesktopDevice ? progress.y.progress : progress.x.progress
         ),
       {
-        container: containerElement,
+        container: containerElement ?? undefined,
       }
     );
     setIsDesktopDevice(isBrowser);
-  }, [viewportWidth, isDesktopDevice, containerElement, scrollProgress]);
+  }, [viewportWidth, isDesktopDevice, scrollProgress]);
 
   return (
     <Box h="fullHeight" left={0} pos="fixed" top={0} w="full" zIndex={10}>
       <Box
-        background="gray.900"
+        background="black"
         css={
           !isDesktopDevice && {
             "&::-webkit-scrollbar": {
