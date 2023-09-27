@@ -71,7 +71,7 @@ export default function ContentSlider({ children }: Props) {
   return (
     <Box h="fullHeight" left={0} pos="fixed" top={0} w="full" zIndex={10}>
       <Box
-        background="gray.900"
+        background="black"
         css={
           !isDesktopDevice && {
             "&::-webkit-scrollbar": {
