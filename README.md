@@ -36,3 +36,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## Links to new topics I have learned while developing this project:
 
 [How to include import of other types in ambient module declarations - namely in this project types.d.ts](https://stackoverflow.com/questions/39040108/import-class-in-definition-file-d-ts)
+[Inspiration for horizontal springy scroll with framer motion](https://5crke.csb.app/)
