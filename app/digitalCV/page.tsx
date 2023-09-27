@@ -20,19 +20,17 @@ import {
 } from "./components";
 
 export default function DigitalCV() {
-  const onTheRight = { x: "100%" };
-  const inTheCenter = { x: 0 };
-  const onTheLeft = { x: "-100%" };
+  const onTheLeft = { x: "-50%", opacity: 0 };
+  const inTheCenter = { x: 0, opacity: 1 };
   const transition = { duration: 0.6, ease: "easeInOut" };
 
   const pathname = usePathname();
 
   return (
-    <AnimatePresence mode="popLayout">
+    <AnimatePresence>
       <motion.div
         key={pathname}
         animate={inTheCenter}
-        exit={onTheRight}
         initial={onTheLeft}
         transition={transition}
       >
