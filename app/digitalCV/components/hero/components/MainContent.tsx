@@ -10,8 +10,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { ReactNode } from "react";
-import { MdArticle } from "react-icons/md";
-import { MdBusiness } from "react-icons/md";
+import { MdArticle, MdBusiness } from "react-icons/md";
 
 import { ChakraNextImage } from "@/app/components/media";
 import { BoxMotion, HStackMotion, VstackMotion } from "@/app/components/motion";
