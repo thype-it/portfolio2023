@@ -19,7 +19,7 @@ export default function ExperienceTextSection() {
   return (
     <Box as="section" bg="black" pos="relative" w="full">
       <ContentContainer>
-        <Box mb={{ base: "24", md: "36" }} mt="-30vh">
+        <Box id="experience" mb={{ base: "24", md: "36" }} mt="-30vh">
           <TextBlock title={content.title} topic={content.topic}>
             {content.text}
           </TextBlock>

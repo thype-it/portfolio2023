@@ -35,7 +35,7 @@ export default function AboutMainSection() {
   const isSmallScreen = useBreakpointValue({ base: true, xl: false });
 
   return (
-    <Box as="section" bg="white" overflow="hidden" pos="relative">
+    <Box as="section" bg="white" id="contact" overflow="hidden" pos="relative">
       <AboutButtonContext.Provider value={AboutButton}>
         {isSmallScreen ? (
           <AboutMainBase content={seeNextContent}>
