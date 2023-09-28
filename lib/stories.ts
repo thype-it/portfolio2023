@@ -1,4 +1,4 @@
-import stories from "@/data/stories/stories";
+import { stories } from "@/data";
 
 export function getAllStories() {
   return stories;
