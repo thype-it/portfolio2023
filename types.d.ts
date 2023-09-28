@@ -31,3 +31,17 @@ type StoryContentItemText = {
   highlightText?: string | string[];
   highlightTitle?: string | string[];
 };
+
+type Project = {
+  id: string;
+  title: string;
+  description: string;
+  techStack: string[];
+  content: ProjectContentItem[];
+};
+
+type ProjectContentItem = (StoryContentItemText | StoryContentItemImg) & {
+  id: string;
+  //links ?
+  //desciption ?
+};

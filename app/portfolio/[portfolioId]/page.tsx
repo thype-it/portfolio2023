@@ -1,25 +1,27 @@
 import { PageTransitionWrapperRight } from "@/app/components/PageTransitionWrapper";
 import { ContentSlider, Story } from "@/app/components/contentSlider";
-import { getAllStories, getStoryData } from "@/lib/stories";
+import { getAllProjects, getProjectData } from "@/lib/projects";
 
 type Props = {
-  params: { storyId: string };
+  params: { projectId: string };
 };
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  const stories = getAllStories();
+  const projects = getAllProjects();
 
-  return stories.map((story) => ({ storyId: story.id }));
+  return projects.map((story) => ({ storyId: story.id }));
 }
 
 export default function Page({ params }: Props) {
-  const storyData = getStoryData(params.storyId);
+  const projectData = getProjectData(params.projectId);
 
   return (
     <PageTransitionWrapperRight>
-      <ContentSlider>{storyData && <Story data={storyData} />}</ContentSlider>
+      <ContentSlider>
+        {projectData && <Story data={projectData} />}
+      </ContentSlider>
     </PageTransitionWrapperRight>
   );
 }
