@@ -71,7 +71,7 @@ export default function SkillsSection() {
   const boxSpacing = { base: "4", md: "8", lg: "12" };
 
   return (
-    <Box as="section" bg="black" pos="relative" w="full">
+    <Box as="section" bg="black" id="skills" pos="relative" w="full">
       <Box
         h={{ base: "320vh", md: "220vh", xl: "200vh" }}
         left={0}

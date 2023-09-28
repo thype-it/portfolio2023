@@ -1,2 +1,3 @@
 import Footer from "./Footer";
-export { Footer };
+import MainMenu from "./MainMenu";
+export { Footer, MainMenu };
