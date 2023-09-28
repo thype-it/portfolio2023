@@ -1,34 +1,38 @@
-const projectContent: (StoryContentItemText | StoryContentItemImg)[] = [
-  {
-    text: `In this dynamic field, frontend developers utilize a combination of HTML, CSS, and JavaScript`,
-  },
-];
-const projectContentWithIds = projectContent.map((item, index) => ({
-  id: index.toString(),
-  ...item,
-}));
+import { projectContent } from "./projectId";
 
-const data: Project[] = [
+import insertIds from "@/utils/insertIds";
+
+// add all new project content here
+// make sure that the id is the same as the project id
+const projectContentList = {
+  "0": projectContent,
+  "1": projectContent,
+  "3": projectContent,
+  "221": projectContent,
+  "33": projectContent,
+  "223": projectContent,
+  "21": projectContent,
+} as Record<string, (StoryContentItemText | StoryContentItemImg)[]>;
+
+//add new projects here
+const projectList: Omit<Project, "content">[] = [
   {
     id: "0",
     title: "Project 1",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     techStack: ["React", "TypeScript", "Framer Motion"],
-    content: projectContentWithIds,
   },
   {
     id: "1",
     title: "Project 1",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     techStack: ["React", "TypeScript", "Framer Motion"],
-    content: projectContentWithIds,
   },
   {
     id: "3",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     title: "Project 1",
     techStack: ["React", "TypeScript", "Framer Motion"],
-    content: projectContentWithIds,
   },
   {
     id: "221",
@@ -36,7 +40,6 @@ const data: Project[] = [
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit.psum dolor sit amet consectetur adipisicing elit",
     techStack: ["React", "TypeScript", "Framer Motion"],
-    content: projectContentWithIds,
   },
   {
     id: "33",
@@ -50,14 +53,12 @@ const data: Project[] = [
       "Framer Motion",
       "React Spring",
     ],
-    content: projectContentWithIds,
   },
   {
     id: "223",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     title: "Project 1",
     techStack: ["React", "TypeScript", "Framer Motion"],
-    content: projectContentWithIds,
   },
   {
     id: "21",
@@ -65,8 +66,15 @@ const data: Project[] = [
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit.psum dolor sit amet consectetur adipisicing elit",
     techStack: ["React", "TypeScript", "Framer Motion"],
-    content: projectContentWithIds,
   },
 ];
+
+const data: Project[] = projectList.map((project) => ({
+  ...project,
+  content: insertIds<
+    StoryContentItemText | StoryContentItemImg,
+    ProjectContentItem
+  >(projectContentList[project.id]),
+}));
 
 export default data;
