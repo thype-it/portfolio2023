@@ -9,9 +9,9 @@ const errorMessage = `List of story ids from /data/stories and folder names from
 export default function checkStoriesDataValidity(data: Story[]) {
   const storyIdList = data.map((story) => story.id);
 
-  const isValid = storyIdList.every(
-    (storyId, index) => storyId === storyIdFolderNames[index]
-  );
+  const isValid = storyIdList.every((storyId, index) => {
+    return storyId === storyIdFolderNames[index];
+  });
 
   if (!isValid) {
     throw new Error(errorMessage);
