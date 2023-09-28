@@ -10,9 +10,6 @@ export default function checkStoriesDataValidity(data: Story[]) {
   const storyIdList = data.map((story) => story.id);
 
   const isValid = storyIdList.every((storyId, index) => {
-    console.log(`storyIdFolderNames[${index}] :`, storyIdFolderNames[index]);
-    console.log("storyId :", storyId);
-
     return storyId === storyIdFolderNames[index];
   });
 
