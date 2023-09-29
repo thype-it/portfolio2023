@@ -5,10 +5,10 @@ import React from "react";
 
 import "react-device-frameset/styles/marvel-devices.min.css";
 
+import { CustomLayout } from "../components";
 import { PageTransitionWrapperLeft } from "../components/PageTransitionWrapper";
 
 import {
-  AboutMainSection,
   AboutTextSection,
   ExperienceCnSection,
   ExperienceFreelanceMainSection,
@@ -23,18 +23,19 @@ import {
 export default function DigitalCV() {
   return (
     <PageTransitionWrapperLeft>
-      <Container bg="black" m={0} maxW="full" p={0} pos="relative">
-        <HeroMainSection />
-        <HeroTextSection />
-        <SkillsTextSection />
-        <SkillsSection />
-        <ExperienceTextSection />
-        <ExperienceCnSection />
-        <ExperienceFreelanceMainSection />
-        <ExperienceOthersSection />
-        <AboutTextSection />
-        <AboutMainSection />
-      </Container>
+      <CustomLayout>
+        <Container bg="black" m={0} maxW="full" p={0} pos="relative">
+          <HeroMainSection />
+          <HeroTextSection />
+          <SkillsTextSection />
+          <SkillsSection />
+          <ExperienceTextSection />
+          <ExperienceCnSection />
+          <ExperienceFreelanceMainSection />
+          <ExperienceOthersSection />
+          <AboutTextSection />
+        </Container>
+      </CustomLayout>
     </PageTransitionWrapperLeft>
   );
 }

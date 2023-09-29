@@ -1,5 +1,6 @@
 import React from "react";
 
+import { CustomLayout } from "../components";
 import { PageTransitionWrapperLeft } from "../components/PageTransitionWrapper";
 
 import { Hero } from "./components";
@@ -12,8 +13,10 @@ export default function Portfolio() {
 
   return (
     <PageTransitionWrapperLeft>
-      <Hero />
-      <ProjectList data={projectData} />
+      <CustomLayout>
+        <Hero />
+        <ProjectList data={projectData} />
+      </CustomLayout>
     </PageTransitionWrapperLeft>
   );
 }
