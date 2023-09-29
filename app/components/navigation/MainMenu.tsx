@@ -84,7 +84,7 @@ export default function MainMenu({}: Props) {
                   <Icon as={MdArrowRight} />
                   Education
                 </MenuItem>
-                <MenuItem as={NextLink} href="/digitalCV#hero">
+                <MenuItem as={NextLink} href="/digitalCV#about">
                   #About
                 </MenuItem>
               </MenuGroup>
