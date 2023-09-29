@@ -29,7 +29,7 @@ type Props = {};
 export default function MainMenu({}: Props) {
   return (
     <Box
-      as="header"
+      as="nav"
       background="blackAlpha.50"
       pos="sticky"
       top={0}
@@ -57,7 +57,7 @@ export default function MainMenu({}: Props) {
                 //isLoading
               />
             </BoxMotion>
-            <MenuList as="nav">
+            <MenuList>
               <MenuGroup title="Digital CV">
                 <MenuItem as={NextLink} href="/digitalCV">
                   #Home

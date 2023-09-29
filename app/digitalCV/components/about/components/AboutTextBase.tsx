@@ -29,6 +29,7 @@ export default function AboutTextBase({
               boxSize="100%"
               className="logoImg"
               maxW="30rem"
+              mx="auto"
               objectFit="contain"
               objectPosition="bottom"
               src={portrait}
