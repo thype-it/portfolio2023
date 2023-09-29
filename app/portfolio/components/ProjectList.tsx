@@ -28,7 +28,12 @@ type Props = {
 
 export default function ProjectList({ data }: Props) {
   return (
-    <Container maxW="container.xl" p={0} py={4}>
+    <Container
+      maxW="container.xl"
+      p={0}
+      pb={{ base: 0, md: 20 }}
+      pt={{ base: 8, md: 12 }}
+    >
       <SimpleGrid
         columns={{ base: 1, md: 2, lg: 3 }}
         gap={6}
