@@ -9,6 +9,7 @@ import {
   VStack,
   useToast,
 } from "@chakra-ui/react";
+import Link from "next/link";
 import { ReactNode } from "react";
 import { MdArticle, MdBusiness } from "react-icons/md";
 
@@ -197,24 +198,18 @@ function ButtonLeft({ opacityMotion: opacity }: ScrollMotionProps) {
 }
 
 function ButtonRight({ opacityMotion: opacity }: ScrollMotionProps) {
-  const toast = useToast();
-
   return (
     <ButtonWrapper opacityMotion={opacity}>
-      <Button
-        minWidth="fit-content"
-        rightIcon={<Icon as={MdBusiness} />}
-        size="sm"
-        variant="outline"
-        onClick={() =>
-          toast({
-            title: "Porfolio comming soon",
-            description: "This feature is still in development",
-          })
-        }
-      >
-        Portfolio
-      </Button>
+      <Link href="/portfolio">
+        <Button
+          minWidth="fit-content"
+          rightIcon={<Icon as={MdBusiness} />}
+          size="sm"
+          variant="outline"
+        >
+          Portfolio
+        </Button>
+      </Link>
       <Divider
         borderColor="gray.500"
         opacity={1}
