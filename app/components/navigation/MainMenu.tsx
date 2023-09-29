@@ -41,13 +41,13 @@ export default function MainMenu() {
           <>
             <BoxMotion
               animate={{ rotate: isOpen ? 90 : 0 }}
+              borderRadius="full"
               pos="absolute"
               right={4}
               top={4}
             >
               <MenuButton
                 _expanded={{ bg: "white", color: "black" }}
-                aria-label="Options"
                 as={IconButton}
                 background="blackAlpha.600"
                 borderRadius="full"
@@ -58,7 +58,12 @@ export default function MainMenu() {
                 //isLoading
               />
             </BoxMotion>
-            <MenuList>
+            <MenuList
+              motionProps={{
+                animate: isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 },
+              }}
+              rootProps={{ pos: "absolute" }}
+            >
               <MenuGroup title="Digital CV">
                 <MenuItem as={NextLink} href="/digitalCV">
                   #Home
