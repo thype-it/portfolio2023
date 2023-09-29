@@ -20,7 +20,7 @@ export default function AboutTextSection() {
   const isSmallScreen = useBreakpointValue({ base: true, xl: false });
 
   return (
-    <Box as="section" bg="white" pos="relative">
+    <Box as="section" bg="white" id="about" pos="relative">
       <ContentContainer>
         {isSmallScreen ? (
           <AboutTextBase title={content.title} topic={content.topic}>
