@@ -5,7 +5,5 @@ export function getAllProjects() {
 }
 
 export function getProjectData(slug: string) {
-  const project = projects.find((project) => project.id === slug);
-
-  return project;
+  return projects.find((project) => project.id === slug);
 }

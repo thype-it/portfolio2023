@@ -3,12 +3,13 @@ import {
   Container,
   Flex,
   Heading,
+  Link,
   Text,
   VStack,
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { useInView } from "framer-motion";
-import Link from "next/link";
+import NextLink from "next/link";
 import { ReactNode, useRef } from "react";
 
 import { DiscoverButton } from "@/app/components";
@@ -147,8 +148,8 @@ function ContentBox({
             </Heading>
             <Text>{text}</Text>
             {!isSmallScreen && (
-              <Link href="/digitalCV/id">
-                <DiscoverButton isInverted={isInverted} mt="auto" />
+              <Link as={NextLink} href="/digitalCV/id" mt="auto">
+                <DiscoverButton isInverted={isInverted} />
               </Link>
             )}
           </VStack>
@@ -165,8 +166,8 @@ function ContentBox({
           {children}
         </FlexMotion>
         {isSmallScreen && (
-          <Link href="/digitalCV/id">
-            <DiscoverButton isInverted={isInverted} mb="5" mx="auto" />
+          <Link as={NextLink} href="/digitalCV/id" mx="auto">
+            <DiscoverButton isInverted={isInverted} mb="5" />
           </Link>
         )}
       </Flex>

@@ -11,7 +11,7 @@ export const dynamicParams = false;
 export function generateStaticParams() {
   const projects = getAllProjects();
 
-  return projects.map((story) => ({ storyId: story.id }));
+  return projects.map((project) => ({ projectId: project.id }));
 }
 
 export default function Page({ params }: Props) {

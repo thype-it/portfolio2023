@@ -7,6 +7,7 @@ import {
   useBreakpointValue,
   useToast,
 } from "@chakra-ui/react";
+import { useRouter } from "next/navigation";
 import { createContext, useContext } from "react";
 import { MdBusiness } from "react-icons/md";
 import { MdArticle } from "react-icons/md";
@@ -16,7 +17,6 @@ import AboutMainDesktop from "./components/AboutMainDesktop";
 import type { ButtonContent, SeeNextBlockVariant } from "./types";
 
 import { SmallText } from "@/app/components/text";
-
 const CV = "/media/illit_CV.pdf";
 
 //text content:
@@ -53,10 +53,15 @@ export default function AboutMainSection() {
 
 function AboutButton(variant: SeeNextBlockVariant) {
   const toast = useToast();
+  const router = useRouter();
   const content = ((): ButtonContent => {
     switch (variant) {
       case "portfolio":
-        return { icon: <Icon as={MdBusiness} />, text: "Portfolio" };
+        return {
+          icon: <Icon as={MdBusiness} />,
+          text: "Portfolio",
+          href: "/portfolio",
+        };
       case "blog":
         return { icon: <Icon as={MdArticle} />, text: "Blog" };
       case "caseStudy":
@@ -71,12 +76,18 @@ function AboutButton(variant: SeeNextBlockVariant) {
       rightIcon={content.icon}
       size="sm"
       variant="outlineBlack"
-      onClick={() =>
-        toast({
-          title: `${content.text} comming soon`,
-          description: "This feature is still in development",
-        })
-      }
+      //remove once all links are fuunctional
+      //replace with <NextLink> to enable prefetching
+      onClick={() => {
+        if (!!content.href) {
+          router.push(content.href);
+        } else {
+          toast({
+            title: `${content.text} coming soon`,
+            description: "This feature is still in development",
+          });
+        }
+      }}
     >
       {content.text}
     </Button>

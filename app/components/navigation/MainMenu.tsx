@@ -12,6 +12,7 @@ import {
   MenuList,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 import {
   MdArrowForward,
@@ -24,12 +25,12 @@ import {
 
 import { BoxMotion } from "../motion";
 
-type Props = {};
+export default function MainMenu() {
+  const currentPath = usePathname();
 
-export default function MainMenu({}: Props) {
   return (
     <Box
-      as="header"
+      as="nav"
       background="blackAlpha.50"
       pos="sticky"
       top={0}
@@ -40,13 +41,13 @@ export default function MainMenu({}: Props) {
           <>
             <BoxMotion
               animate={{ rotate: isOpen ? 90 : 0 }}
+              borderRadius="full"
               pos="absolute"
               right={4}
               top={4}
             >
               <MenuButton
                 _expanded={{ bg: "white", color: "black" }}
-                aria-label="Options"
                 as={IconButton}
                 background="blackAlpha.600"
                 borderRadius="full"
@@ -57,7 +58,12 @@ export default function MainMenu({}: Props) {
                 //isLoading
               />
             </BoxMotion>
-            <MenuList as="nav">
+            <MenuList
+              motionProps={{
+                animate: isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 },
+              }}
+              rootProps={{ pos: "absolute" }}
+            >
               <MenuGroup title="Digital CV">
                 <MenuItem as={NextLink} href="/digitalCV">
                   #Home
@@ -97,7 +103,7 @@ export default function MainMenu({}: Props) {
                 <Icon as={MdArticle} />
                 &nbsp; Blog
               </MenuItem>
-              <MenuItem as={NextLink} href="/#contact">
+              <MenuItem as={NextLink} href={`${currentPath}/#contact`}>
                 <Icon as={MdContactPage} />
                 &nbsp; Contact
               </MenuItem>

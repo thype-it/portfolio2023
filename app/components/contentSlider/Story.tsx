@@ -10,14 +10,16 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import Image from "next/image";
+import type { ReactNode } from "react";
 
 import { SmallText } from "../text";
 
 type Props = {
   data: Story;
+  children?: ReactNode;
 };
 
-export default function Story({ data }: Props) {
+export default function Story({ data, children }: Props) {
   const isSmallScreen = useBreakpointValue({ base: true, md: false });
   const maxStoryItemWidth = isSmallScreen ? 300 : 600; //px
 
@@ -32,6 +34,7 @@ export default function Story({ data }: Props) {
       >
         {data.title}
       </Heading>
+      {children}
       {data.content.map((item) => (
         <StoryItem
           key={item.id}
