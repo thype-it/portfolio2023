@@ -33,18 +33,16 @@ export default function MainMenu() {
       as="nav"
       background="blackAlpha.50"
       pos="sticky"
+      right={0}
       top={0}
       zIndex="dropdown"
     >
       <Menu>
         {({ isOpen }) => (
-          <>
+          <Box pos="fixed" right={4} top={4}>
             <BoxMotion
               animate={{ rotate: isOpen ? 90 : 0 }}
               borderRadius="full"
-              pos="absolute"
-              right={4}
-              top={4}
             >
               <MenuButton
                 _expanded={{ bg: "white", color: "black" }}
@@ -54,15 +52,13 @@ export default function MainMenu() {
                 icon={isOpen ? <MdArrowForward /> : <MdMenu />}
                 size="lg"
                 variant="outline"
-                //add loading functionality after click while fetching data
-                //isLoading
+                //isLoading - adds loading animation
               />
             </BoxMotion>
             <MenuList
               motionProps={{
                 animate: isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 },
               }}
-              rootProps={{ pos: "absolute" }}
             >
               <MenuGroup title="Digital CV">
                 <MenuItem as={NextLink} href="/digitalCV">
@@ -108,7 +104,7 @@ export default function MainMenu() {
                 &nbsp; Contact
               </MenuItem>
             </MenuList>
-          </>
+          </Box>
         )}
       </Menu>
     </Box>
