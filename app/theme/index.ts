@@ -46,6 +46,9 @@ const theme = extendTheme({
       },
     },
   },
+  breakpoints: {
+    "3xl": "1920px",
+  },
   fonts: {
     heading: "var(--font-roboto)",
     body: "var(--font-roboto)",

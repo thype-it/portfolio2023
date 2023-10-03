@@ -234,7 +234,7 @@ function DeviceFrame({ children, isSmallScreen = false }: DeviceFrameProps) {
       scale={{ base: 0.5, md: 0.6, lg: 0.8 }}
       transform="auto"
       transformOrigin="bottom"
-      translateY={{ base: "20vh", md: "20vh" }}
+      translateY={{ base: "20vh", md: "20vh", "3xl": "0" }}
     >
       {device}
     </Box>
