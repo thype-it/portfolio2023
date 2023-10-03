@@ -6,7 +6,7 @@ type Props = {
 };
 
 export const metadata: Metadata = {
-  title: "Digital CV - Mike IT",
+  title: "CV - Mike IT",
   description: "Experience and skills I've gained.",
 };
 

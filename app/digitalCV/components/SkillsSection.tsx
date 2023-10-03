@@ -1,5 +1,4 @@
 import {
-  AbsoluteCenter,
   Box,
   ChakraProps,
   Container,
@@ -71,56 +70,45 @@ export default function SkillsSection() {
   const boxSpacing = { base: "4", md: "8", lg: "12" };
 
   return (
-    <Box as="section" bg="black" id="skills" pos="relative" w="full">
-      <Box
-        h={{ base: "320vh", md: "220vh", xl: "200vh" }}
-        left={0}
-        overflow="hidden"
-        pos="sticky"
-        py="20"
-        top={0}
+    <Box as="section" bg="black" id="skills" pos="relative" py={20} w="full">
+      <Container
+        maxW={{ base: "full", md: "container.lg", xl: "container.xl" }}
+        p={0}
+        pos="relative"
+        pt="20vh"
+        w={{ base: "90%", md: "90%", lg: "full" }}
       >
-        <AbsoluteCenter h="full" w="full">
-          <Container
-            maxW={{ base: "full", md: "container.lg", xl: "container.xl" }}
-            p={0}
-            pos="relative"
-            pt="20vh"
-            w={{ base: "90%", md: "90%", lg: "full" }}
+        <VStack px={boxSpacing} spacing={boxSpacing} w="full">
+          <Heading color="gray" mb="16" size="3xl">
+            Technologies
+          </Heading>
+          {isMiddleScreen && (
+            <SkillsBlock skills={content.frontend} title="Web Frontend" />
+          )}
+          <Flex
+            flexDirection={{ base: "column", md: "row" }}
+            gap={boxSpacing}
+            w="full"
           >
-            <VStack px={boxSpacing} spacing={boxSpacing} w="full">
-              <Heading color="gray" mb="16" size="3xl">
-                Technologies
-              </Heading>
-              {isMiddleScreen && (
-                <SkillsBlock skills={content.frontend} title="Web Frontend" />
-              )}
-              <Flex
-                flexDirection={{ base: "column", md: "row" }}
-                gap={boxSpacing}
-                w="full"
-              >
-                {!isMiddleScreen && (
-                  <SkillsBlock skills={content.frontend} title="Web Frontend" />
-                )}
-                <SkillsBlock skills={content.frameworks} title="Frameworks" />
-                <SkillsBlock skills={content.backend} title="Web Backend" />
-              </Flex>
-              <Flex
-                flexDirection={{ base: "column", md: "row" }}
-                gap={boxSpacing}
-                w="full"
-              >
-                <SkillsBlock
-                  skills={content.frameworksStyle}
-                  title="Styling Frameworks"
-                />
-                <SkillsBlock skills={content.tools} title="Tools" />
-              </Flex>
-            </VStack>
-          </Container>
-        </AbsoluteCenter>
-      </Box>
+            {!isMiddleScreen && (
+              <SkillsBlock skills={content.frontend} title="Web Frontend" />
+            )}
+            <SkillsBlock skills={content.frameworks} title="Frameworks" />
+            <SkillsBlock skills={content.backend} title="Web Backend" />
+          </Flex>
+          <Flex
+            flexDirection={{ base: "column", md: "row" }}
+            gap={boxSpacing}
+            w="full"
+          >
+            <SkillsBlock
+              skills={content.frameworksStyle}
+              title="Styling Frameworks"
+            />
+            <SkillsBlock skills={content.tools} title="Tools" />
+          </Flex>
+        </VStack>
+      </Container>
     </Box>
   );
 }

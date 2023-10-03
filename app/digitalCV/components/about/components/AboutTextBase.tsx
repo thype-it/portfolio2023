@@ -2,8 +2,6 @@ import { Box, VStack } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRef } from "react";
 
-import portrait from "../../../../../public/media/portrait.png";
-
 import { DiscoverButton } from "@/app/components";
 import { ChakraNextImage } from "@/app/components/media";
 import { BoxMotion } from "@/app/components/motion";
@@ -28,11 +26,13 @@ export default function AboutTextBase({
               alt="Portrait image of Mike Illit"
               boxSize="100%"
               className="logoImg"
+              height={200}
               maxW="30rem"
               mx="auto"
               objectFit="contain"
               objectPosition="bottom"
-              src={portrait}
+              src="media/portrait.png"
+              width={200}
             />
           </BoxMotion>
           <Box bg="white" boxShadow="0px 6px 81px 115px #fff" width="full">

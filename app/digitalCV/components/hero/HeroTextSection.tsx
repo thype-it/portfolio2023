@@ -25,8 +25,8 @@ const animationOrder = {
   startText: 0.27,
   visibleVideoStart: 0.3,
   visibleVideoEnd: 0.62,
+  endText: 0.63,
   hideVideo: 0.69,
-  endText: 0.7,
 };
 
 export default function HeroTextSection() {
@@ -100,9 +100,17 @@ function ScrollOpacityText({
   index,
   text,
 }: ScrollOpacityTextProps) {
-  const { rangeArray } = getScrollRange(index, content.sentences.length);
+  const {
+    start: originalStart,
+    end: originalEnd,
+    step,
+  } = getScrollRange(index, content.sentences.length, 0.3);
   const startOpacity = index === 0 ? 1 : 0.3;
   const endOpacity = index === content.sentences.length - 1 ? 1 : 0.3;
+
+  const start = originalStart - 0.05;
+  const end = originalEnd + 0.05;
+  const rangeArray = [start, start + step, end - step, end];
 
   return (
     <motion.span

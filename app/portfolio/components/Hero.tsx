@@ -27,6 +27,7 @@ export default function Hero() {
           boxSize={{ base: "50vw", md: "30vw", xl: "20vw" }}
           objectFit="contain"
           src={logoWhite}
+          priority
         />
         <Text
           fontSize={{ base: "10vw", md: "5vw", xl: "3.5vw" }}
