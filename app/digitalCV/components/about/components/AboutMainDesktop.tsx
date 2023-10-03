@@ -7,7 +7,6 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
-import portrait from "../../../../../public/media/portrait.png";
 import { useAboutButton } from "../AboutMainSection";
 import type { AboutChildProps, SeeNextBlockProps } from "../types";
 
@@ -30,9 +29,11 @@ export default function AboutMainDesktop({
             alt="Portrait image of Mike Illit"
             boxSize="100%"
             className="logoImg"
+            height={500}
             objectFit="contain"
             objectPosition="bottom"
-            src={portrait}
+            src="/media/portrait.png"
+            width={500}
           />
         </Box>
       </VStack>
