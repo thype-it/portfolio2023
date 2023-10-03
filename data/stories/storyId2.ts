@@ -1,4 +1,4 @@
-export const id2: (StoryContentItemText | StoryContentItemImg)[] = [
+export const id2: StoryContentData = [
   {
     image: {
       name: "image2",

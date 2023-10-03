@@ -14,11 +14,24 @@ type StoryContentItem = (StoryContentItemText | StoryContentItemImg) & {
   id: string;
 };
 
+type StoryContentData = (
+  | StoryContentItemText
+  | (Omit<StoryContentItemImg, "image"> & {
+      image: {
+        name: string;
+        extension: "png" | "jpg";
+        alt: string;
+      };
+    })
+)[];
+
 type StoryContentItemImg = {
   image: {
     name: string;
     extension: "png" | "jpg";
     alt: string;
+    base64?: string;
+    imgSrc: string;
   };
   title?: string;
   text?: string;

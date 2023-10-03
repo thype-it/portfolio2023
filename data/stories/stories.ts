@@ -2,6 +2,8 @@ import { id } from "./storyId";
 import { id2 } from "./storyId2";
 
 import checkStoriesDataValidity from "@/utils/checkStoriesDataValidity";
+import { storiesEndpoint } from "@/utils/endpoints";
+import insertBufferImages from "@/utils/insertBufferImages";
 import insertIds from "@/utils/insertIds";
 
 // add all new story content here
@@ -9,7 +11,7 @@ import insertIds from "@/utils/insertIds";
 const storyContentList = {
   id,
   id2,
-} as Record<string, (StoryContentItemText | StoryContentItemImg)[]>;
+} as Record<string, StoryContentData>;
 
 //add new stories here
 const storyList: Omit<Story, "content">[] = [
@@ -23,13 +25,19 @@ const storyList: Omit<Story, "content">[] = [
   },
 ];
 
-const data: Story[] = storyList.map((story) => ({
-  ...story,
-  content: insertIds<
-    StoryContentItemText | StoryContentItemImg,
-    StoryContentItem
-  >(storyContentList[story.id]),
-}));
+const data: Story[] = await Promise.all(
+  storyList.map(async (story) => {
+    const content = insertIds<
+      StoryContentItemText | StoryContentItemImg,
+      StoryContentItem
+    >(storyContentList[story.id]);
+
+    return {
+      ...story,
+      content: await insertBufferImages(content, storiesEndpoint, story.id),
+    };
+  })
+);
 
 checkStoriesDataValidity(data);
 
