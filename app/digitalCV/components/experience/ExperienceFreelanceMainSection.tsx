@@ -326,6 +326,7 @@ function ScrollImageItem({
         mt={isLast ? height * (isSmallScreen ? 0.15 : 0.09) : "0"}
         objectFit="contain"
         src={isSmallScreen ? item.image.mobile : item.image.desktop}
+        priority
       />
     </VstackMotion>
   );

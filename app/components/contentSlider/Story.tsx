@@ -55,11 +55,11 @@ type ItemProps = {
   storyId: string;
 };
 
-function StoryItem({ isImageItem, item, maxW, storyId }: ItemProps) {
+function StoryItem({ isImageItem, item, maxW }: ItemProps) {
   return (
     <Box maxW={maxW}>
       {isImageItem ? (
-        <StoryItemImage item={item as StoryContentItemImg} storyId={storyId} />
+        <StoryItemImage item={item as StoryContentItemImg} />
       ) : (
         <StoryItemText item={item as StoryContentItemText} />
       )}
@@ -69,18 +69,22 @@ function StoryItem({ isImageItem, item, maxW, storyId }: ItemProps) {
 
 type ImageProps = {
   item: StoryContentItemImg;
-  storyId: string;
 };
 
-function StoryItemImage({ item, storyId }: ImageProps) {
-  const imgSrc = `/media/stories/${storyId}/${item.image.name}.${item.image.extension}`;
-
+function StoryItemImage({ item }: ImageProps) {
   return (
     <Flex
       flexDir={item.isTextBottom ? "column" : "column-reverse"}
       textAlign="center"
     >
-      <Image alt={item.image.alt} height={500} src={imgSrc} width={500} />
+      <Image
+        alt={item.image.alt}
+        blurDataURL={item.image.base64}
+        height={500}
+        placeholder={item.image.base64 ? "blur" : "empty"}
+        src={item.image.imgSrc}
+        width={500}
+      />
       {item.title && <SmallText>{item.title}</SmallText>}
       {item.text && (
         <Text

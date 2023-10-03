@@ -12,7 +12,7 @@ const projectContentList = {
   "33": projectContent,
   "223": projectContent,
   "21": projectContent,
-} as Record<string, (StoryContentItemText | StoryContentItemImg)[]>;
+} as Record<string, StoryContentData>;
 
 //add new projects here
 const projectList: Omit<Project, "content">[] = [
