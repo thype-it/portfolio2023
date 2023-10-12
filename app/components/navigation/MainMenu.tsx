@@ -12,7 +12,6 @@ import {
   MenuList,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
-import { usePathname } from "next/navigation";
 import React from "react";
 import {
   MdArrowForward,
@@ -26,8 +25,6 @@ import {
 import { BoxMotion } from "../motion";
 
 export default function MainMenu() {
-  const currentPath = usePathname();
-
   return (
     <Box
       as="nav"
@@ -99,7 +96,7 @@ export default function MainMenu() {
                 <Icon as={MdArticle} />
                 &nbsp; Blog
               </MenuItem>
-              <MenuItem as={NextLink} href={`${currentPath}/#contact`}>
+              <MenuItem as={NextLink} href="digitalCV/#contact">
                 <Icon as={MdContactPage} />
                 &nbsp; Contact
               </MenuItem>

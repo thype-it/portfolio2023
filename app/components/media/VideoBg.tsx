@@ -1,11 +1,15 @@
+"use client";
+
 import { Box } from "@chakra-ui/react";
 import React from "react";
+import { isMobile } from "react-device-detect";
 
 type Props = {
   src: string;
+  srcPhone: string;
 };
 
-export default function VideoBg({ src }: Props) {
+export default function VideoBg({ src, srcPhone }: Props) {
   return (
     <Box height="100%" left="0" position="absolute" top="0" width="100%">
       <video
@@ -15,7 +19,7 @@ export default function VideoBg({ src }: Props) {
         muted
         playsInline
       >
-        <source src={src} />
+        {isMobile ? <source src={srcPhone} /> : <source src={src} />}
       </video>
     </Box>
   );

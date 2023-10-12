@@ -1,4 +1,4 @@
-import projects from "../data/projects/projects";
+import { projects } from "@/data";
 
 export function getAllProjects() {
   return projects;

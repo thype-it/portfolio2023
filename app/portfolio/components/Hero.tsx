@@ -9,18 +9,19 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 
-import { ChakraNextImage, VideoBg } from "@/app/components/media";
+import { ChakraNextImage } from "@/app/components/media";
 import logoWhite from "@/public/media/logo/logo_white.svg";
 
 export default function Hero() {
-  const videoSrc = "/media/video/stockVideo.mp4";
-
   return (
     <Box color="white" overflow="hidden">
       <VStack align="center" pb={4} pos="relative" pt={16}>
-        <AbsoluteCenter h="full" opacity={0.4} w="full" zIndex="hide">
-          <VideoBg src={videoSrc} />
-        </AbsoluteCenter>
+        <AbsoluteCenter
+          h="full"
+          opacity={0.4}
+          w="full"
+          zIndex="hide"
+        ></AbsoluteCenter>
 
         <ChakraNextImage
           alt="White MikeIT logo"

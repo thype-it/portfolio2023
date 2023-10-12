@@ -26,13 +26,13 @@ export default function AboutTextBase({
               alt="Portrait image of Mike Illit"
               boxSize="100%"
               className="logoImg"
-              height={200}
+              height={300}
               maxW="30rem"
               mx="auto"
               objectFit="contain"
               objectPosition="bottom"
-              src="media/portrait.png"
-              width={200}
+              src="/media/portrait.png"
+              width={300}
             />
           </BoxMotion>
           <Box bg="white" boxShadow="0px 6px 81px 115px #fff" width="full">

@@ -9,6 +9,7 @@ import { getScrollRange } from "@/utils/getScrollRange";
 //variables:
 const sectionHeightVH = 160;
 const videoSrc = "/media/video/stockVideo.mp4";
+const videoPhoneSrc = "/media/video/stockVideoPhone.mp4";
 
 //text content:
 const content = {
@@ -50,7 +51,7 @@ export default function HeroTextSection() {
       animationOrder.visibleVideoEnd,
       animationOrder.hideVideo,
     ],
-    [0, 0.5, 0.5, 0]
+    [0, 0.25, 0.25, 0]
   );
 
   return (
@@ -139,7 +140,9 @@ function BackgroundVideo({ opacityMotion: opacity }: ScrollMotionProps) {
       w="full"
       zIndex={0}
     >
-      <VideoBg src={videoSrc} />
+      <Container h="full" maxH="1080" maxW="1920" p={0} pos="relative" w="full">
+        <VideoBg src={videoSrc} srcPhone={videoPhoneSrc} />
+      </Container>
     </BoxMotion>
   );
 }

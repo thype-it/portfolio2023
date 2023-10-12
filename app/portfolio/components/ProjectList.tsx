@@ -8,7 +8,6 @@ import {
   Container,
   Heading,
   Icon,
-  Image,
   SimpleGrid,
   Stack,
   Tag,
@@ -20,7 +19,9 @@ import React from "react";
 import { isBrowser } from "react-device-detect";
 import { MdAdsClick } from "react-icons/md";
 
+import { ChakraNextImage } from "@/app/components/media";
 import { BoxMotion } from "@/app/components/motion";
+import { projectsEndpoint } from "@/utils/endpoints";
 
 type Props = {
   data?: Project[];
@@ -51,6 +52,7 @@ export default function ProjectList({ data }: Props) {
 function ProjectCard({ item }: { item: Project }) {
   const borderRadius = { base: "lg", md: "2xl" };
   const isSmallScreen = useBreakpointValue({ base: true, md: false });
+  const titleImgSrc = `${projectsEndpoint}/${item.id}/title.jpg`;
 
   return (
     <Link href={`/portfolio/${item.id}`} style={{ perspective: "400px" }}>
@@ -68,14 +70,26 @@ function ProjectCard({ item }: { item: Project }) {
         >
           <CardBody background="black" borderRadius={borderRadius}>
             <Box pos="relative">
-              <Image
-                alt="Green double couch with wooden legs"
+              <ChakraNextImage
+                alt={`Featured project named ${item.title} title image`}
                 borderRadius="lg"
+                height={250}
+                mx="auto"
+                objectFit="cover"
                 opacity={0.4}
-                src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+                src={titleImgSrc}
+                width={350}
               />
-              <AbsoluteCenter>
-                <Heading color="white" size="md">
+              <AbsoluteCenter h="full" w="full">
+                <Heading
+                  bottom={4}
+                  color="white"
+                  pos="absolute"
+                  px={6}
+                  size="md"
+                  textAlign="center"
+                  w="full"
+                >
                   {item.title}
                 </Heading>
               </AbsoluteCenter>
