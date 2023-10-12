@@ -37,3 +37,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 [How to include import of other types in ambient module declarations - namely in this project types.d.ts](https://stackoverflow.com/questions/39040108/import-class-in-definition-file-d-ts)
 [Inspiration for horizontal springy scroll with framer motion](https://5crke.csb.app/)
+
+"All title images must be named title.jpg to ensure consistency and ease of access."
