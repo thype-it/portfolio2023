@@ -65,9 +65,11 @@ function AboutButton(variant: SeeNextBlockVariant) {
       case "blog":
         return { icon: <Icon as={MdArticle} />, text: "Blog" };
       case "caseStudy":
-        return { icon: <Icon as={MdArticle} />, text: "Case Study" };
-      default:
-        return { icon: <Icon as={MdBusiness} />, text: "Portfolio" };
+        return {
+          icon: <Icon as={MdArticle} />,
+          text: "Case Study",
+          href: "/portfolio/1-mike-it",
+        };
     }
   })();
 
