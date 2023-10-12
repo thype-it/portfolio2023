@@ -7,6 +7,10 @@ type ScrollMotionProps = {
 type Story = {
   id: string;
   title: string;
+  link?: {
+    href: string;
+    text: string;
+  };
   content: StoryContentItem[];
 };
 
@@ -41,6 +45,7 @@ type StoryContentItemImg = {
 type StoryContentItemText = {
   title?: string;
   text?: string;
+  textArray?: string[];
   highlightText?: string | string[];
   highlightTitle?: string | string[];
 };
@@ -48,13 +53,11 @@ type StoryContentItemText = {
 type Project = {
   id: string;
   title: string;
+  link?: {
+    href: string;
+    text: string;
+  };
   description: string;
   techStack: string[];
-  content: ProjectContentItem[];
-};
-
-type ProjectContentItem = (StoryContentItemText | StoryContentItemImg) & {
-  id: string;
-  //links ?
-  //desciption ?
+  content: StoryContentItem[];
 };

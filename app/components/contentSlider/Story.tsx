@@ -1,8 +1,8 @@
 "use client";
 
 import {
-  Box,
   Flex,
+  HStack,
   Heading,
   Highlight,
   Text,
@@ -12,29 +12,39 @@ import {
 import Image from "next/image";
 import type { ReactNode } from "react";
 
+import { LinkWithIcon } from "..";
 import { SmallText } from "../text";
 
 type Props = {
   data: Story;
   children?: ReactNode;
+  specialContent?: ReactNode;
 };
 
-export default function Story({ data, children }: Props) {
+export default function Story({ data, children, specialContent }: Props) {
   const isSmallScreen = useBreakpointValue({ base: true, md: false });
   const maxStoryItemWidth = isSmallScreen ? 300 : 600; //px
 
   return (
     <>
-      <Heading
-        as="h1"
-        color="white"
-        lineHeight={1.1}
-        maxW={maxStoryItemWidth}
-        size="4xl"
-      >
-        {data.title}
-      </Heading>
-      {children}
+      <VStack pointerEvents="auto">
+        <Heading
+          as="h1"
+          color="white"
+          lineHeight={1.1}
+          maxW={maxStoryItemWidth}
+          size="4xl"
+        >
+          {data.title}
+        </Heading>
+        {data.link && (
+          <HStack mt={8} w="full">
+            <LinkWithIcon href={data.link.href}>{data.link.text}</LinkWithIcon>
+          </HStack>
+        )}
+        {children}
+      </VStack>
+      {specialContent}
       {data.content.map((item) => (
         <StoryItem
           key={item.id}
@@ -57,13 +67,13 @@ type ItemProps = {
 
 function StoryItem({ isImageItem, item, maxW }: ItemProps) {
   return (
-    <Box maxW={maxW}>
+    <Flex align="center" h="full" maxW={maxW} mx={4}>
       {isImageItem ? (
         <StoryItemImage item={item as StoryContentItemImg} />
       ) : (
         <StoryItemText item={item as StoryContentItemText} />
       )}
-    </Box>
+    </Flex>
   );
 }
 
@@ -73,19 +83,18 @@ type ImageProps = {
 
 function StoryItemImage({ item }: ImageProps) {
   return (
-    <Flex
-      flexDir={item.isTextBottom ? "column" : "column-reverse"}
-      textAlign="center"
-    >
-      <Image
-        alt={item.image.alt}
-        blurDataURL={item.image.base64}
-        height={500}
-        placeholder={item.image.base64 ? "blur" : "empty"}
-        src={item.image.imgSrc}
-        width={500}
-      />
-      {item.title && <SmallText>{item.title}</SmallText>}
+    <VStack gap={4} maxH="85%" overflow="hidden" textAlign="center">
+      <Flex flexDir={item.isTextBottom ? "column" : "column-reverse"}>
+        {item.title && <SmallText>{item.title}</SmallText>}
+        <Image
+          alt={item.image.alt}
+          blurDataURL={item.image.base64}
+          height={500}
+          placeholder={item.image.base64 ? "blur" : "empty"}
+          src={item.image.imgSrc}
+          width={550}
+        />
+      </Flex>
       {item.text && (
         <Text
           color="gray.300"
@@ -95,7 +104,7 @@ function StoryItemImage({ item }: ImageProps) {
           {item.text}
         </Text>
       )}
-    </Flex>
+    </VStack>
   );
 }
 
@@ -114,7 +123,6 @@ function StoryItemText({ item }: TextProps) {
           >
             {item.title}
           </Highlight>
-          ;
         </SmallText>
       )}
       {item.text && (
@@ -125,9 +133,23 @@ function StoryItemText({ item }: TextProps) {
           >
             {item.text}
           </Highlight>
-          ;
         </Text>
       )}
+      {item.textArray &&
+        item.textArray.map((text) => (
+          <Text
+            key={text}
+            color="gray.300"
+            fontSize={{ base: "sm", md: "large" }}
+          >
+            <Highlight
+              query={item.highlightText || ""}
+              styles={{ color: "white" }}
+            >
+              {text}
+            </Highlight>
+          </Text>
+        ))}
     </VStack>
   );
 }
