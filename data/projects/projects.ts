@@ -1,5 +1,9 @@
 import { projectContent1 } from "./1-mike-it";
-import { projectContent } from "./projectId";
+import { projectContent2 } from "./2-interflex";
+import { projectContent3 } from "./3-cn";
+import { projectContent4 } from "./4-webtailor";
+import { projectContent5 } from "./5-jovinecky";
+import { projectContent6 } from "./6-lenses";
 
 import { projectsEndpoint } from "@/utils/endpoints";
 import insertBufferImages from "@/utils/insertBufferImages";
@@ -9,11 +13,11 @@ import insertIds from "@/utils/insertIds";
 // make sure that the id is the same as the project id
 const projectContentList = {
   "1-mike-it": projectContent1,
-  "2-interflex": projectContent,
-  "3-cn": projectContent,
-  "4-old-webs": projectContent,
-  "5-jovinecky": projectContent,
-  "6-lenses": projectContent,
+  "2-interflex": projectContent2,
+  "3-cn": projectContent3,
+  "4-webtailor": projectContent4,
+  "5-jovinecky": projectContent5,
+  "6-lenses": projectContent6,
 } as Record<string, StoryContentData>;
 
 //add new projects here
@@ -52,7 +56,7 @@ const projectList: Omit<Project, "content">[] = [
     ],
   },
   {
-    id: "4-old-webs",
+    id: "4-webtailor",
     title: "Commercial and Presentational Websites",
     description:
       "Freelance projects for various clients, with focus on design and user experience.",
@@ -60,12 +64,20 @@ const projectList: Omit<Project, "content">[] = [
   },
   {
     id: "5-jovinecky",
-    title: "Jovinecky  E-commerce Website",
+    link: {
+      href: "https://jovinecky.sk",
+      text: "Website",
+    },
+    title: "Jovinecky E-commerce Website",
     description: "An online store for a local candy bar brand.",
-    techStack: ["CSS", "WordPress"],
+    techStack: ["CSS", "Elementor Pro", "WordPress", "Woo Commerce"],
   },
   {
     id: "6-lenses",
+    link: {
+      href: "https://optikam.sk",
+      text: "Website",
+    },
     title: "Online lens shopping",
     description: "Addon that enables customers to buy lenses online.",
     techStack: ["HTML", "SCSS", "JavaScript", "jQuery"],

@@ -67,7 +67,7 @@ type ItemProps = {
 
 function StoryItem({ isImageItem, item, maxW }: ItemProps) {
   return (
-    <Flex align="center" h="full" maxW={maxW} mx={4}>
+    <Flex align="center" h="full" maxW={maxW} mx={4} pointerEvents="auto">
       {isImageItem ? (
         <StoryItemImage item={item as StoryContentItemImg} />
       ) : (

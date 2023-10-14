@@ -37,6 +37,7 @@ type StoryContentItemImg = {
     base64?: string;
     imgSrc: string;
   };
+  textArray?: never;
   title?: string;
   text?: string;
   isTextBottom?: boolean;
