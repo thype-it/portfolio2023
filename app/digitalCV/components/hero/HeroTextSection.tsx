@@ -8,8 +8,8 @@ import { getScrollRange } from "@/utils/getScrollRange";
 
 //variables:
 const sectionHeightVH = 160;
-const videoSrc = "/media/video/stockVideo.mp4";
-const videoPhoneSrc = "/media/video/stockVideoPhone.mp4";
+const videoSrc = "/media/video/backgroundVideo.mp4";
+const videoPhoneSrc = "/media/video/backgroundVideoPhone.mp4";
 
 //text content:
 const content = {
