@@ -9,20 +9,18 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 
-import { ChakraNextImage } from "@/app/components/media";
+import { ChakraNextImage, VideoBg } from "@/app/components/media";
 import logoWhite from "@/public/media/logo/logo_white.svg";
+const videoSrc = "/media/video/backgroundVideo.mp4";
+const videoPhoneSrc = "/media/video/backgroundVideoPhone.mp4";
 
 export default function Hero() {
   return (
-    <Box color="white" overflow="hidden">
+    <Box color="white" overflow="hidden" pos="relative">
+      <AbsoluteCenter h="full" opacity={0.4} w="full" zIndex="hide">
+        <VideoBg src={videoSrc} srcPhone={videoPhoneSrc} />
+      </AbsoluteCenter>
       <VStack align="center" pb={4} pos="relative" pt={16}>
-        <AbsoluteCenter
-          h="full"
-          opacity={0.4}
-          w="full"
-          zIndex="hide"
-        ></AbsoluteCenter>
-
         <ChakraNextImage
           alt="White MikeIT logo"
           boxSize={{ base: "50vw", md: "30vw", xl: "20vw" }}
@@ -43,13 +41,16 @@ export default function Hero() {
           opacity={0.8}
           textAlign={{ base: "center", md: "left" }}
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
-          repellat perspiciatis, laborum beatae architecto nihil, adipisci ipsam
-          neque modi magni omnis quibus
+          Hi, I&apos;m Mike, a software developer based in Australia. I enjoy
+          building things for the web and mobile.
         </Text>
       </VStack>
       <Divider borderWidth="1px" opacity={1} />
-      <Heading py={{ base: 4, md: 8 }} textAlign="center">
+      <Heading
+        background="blackAlpha.500"
+        py={{ base: 4, md: 8 }}
+        textAlign="center"
+      >
         Featured projects
       </Heading>
       <Divider borderWidth="1px" opacity={1} />
