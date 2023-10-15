@@ -13,17 +13,24 @@ import Image from "next/image";
 import type { ReactNode } from "react";
 
 import { LinkWithIcon } from "..";
+import { VideoPlayer } from "../media";
 import { SmallText } from "../text";
 
 type Props = {
   data: Story;
   children?: ReactNode;
-  specialContent?: ReactNode;
 };
 
-export default function Story({ data, children, specialContent }: Props) {
+const STORY_ITEM_WIDTH = {
+  large: 600, //px
+  small: 300, //px
+};
+
+export default function Story({ data, children }: Props) {
   const isSmallScreen = useBreakpointValue({ base: true, md: false });
-  const maxStoryItemWidth = isSmallScreen ? 300 : 600; //px
+  const maxStoryItemWidth = isSmallScreen
+    ? STORY_ITEM_WIDTH.small
+    : STORY_ITEM_WIDTH.large;
 
   return (
     <>
@@ -33,7 +40,7 @@ export default function Story({ data, children, specialContent }: Props) {
           color="white"
           lineHeight={1.1}
           maxW={maxStoryItemWidth}
-          size="4xl"
+          size={isSmallScreen ? "2xl" : "4xl"}
         >
           {data.title}
         </Heading>
@@ -42,13 +49,12 @@ export default function Story({ data, children, specialContent }: Props) {
             <LinkWithIcon href={data.link.href}>{data.link.text}</LinkWithIcon>
           </HStack>
         )}
-        {children}
       </VStack>
-      {specialContent}
+      {children}
       {data.content.map((item) => (
         <StoryItem
           key={item.id}
-          isImageItem={"image" in item}
+          isMediaItem={"image" in item}
           item={item}
           maxW={maxStoryItemWidth}
           storyId={data.id}
@@ -59,17 +65,26 @@ export default function Story({ data, children, specialContent }: Props) {
 }
 
 type ItemProps = {
-  isImageItem: boolean;
+  isMediaItem: boolean;
   item: StoryContentItem;
   maxW: number;
   storyId: string;
 };
 
-function StoryItem({ isImageItem, item, maxW }: ItemProps) {
+function StoryItem({ isMediaItem, item, maxW }: ItemProps) {
   return (
-    <Flex align="center" h="full" maxW={maxW} mx={4} pointerEvents="auto">
-      {isImageItem ? (
-        <StoryItemImage item={item as StoryContentItemImg} />
+    <Flex
+      align="center"
+      height="83%"
+      maxW={maxW}
+      mx={4}
+      overflow="hidden"
+      pointerEvents="auto"
+      pos="relative"
+      width={STORY_ITEM_WIDTH.large}
+    >
+      {isMediaItem ? (
+        <StoryItemMedia item={item as StoryContentItemMedia} />
       ) : (
         <StoryItemText item={item as StoryContentItemText} />
       )}
@@ -77,23 +92,39 @@ function StoryItem({ isImageItem, item, maxW }: ItemProps) {
   );
 }
 
-type ImageProps = {
-  item: StoryContentItemImg;
+type MediaProps = {
+  item: StoryContentItemMedia;
 };
 
-function StoryItemImage({ item }: ImageProps) {
+function StoryItemMedia({ item }: MediaProps) {
+  const image = (
+    <Image
+      alt={item.image.alt}
+      blurDataURL={item.image.base64}
+      objectFit="contain"
+      placeholder={item.image.base64 ? "blur" : "empty"}
+      {...(item.image.cover
+        ? {
+            fill: true,
+          }
+        : {
+            height: STORY_ITEM_WIDTH.large,
+            width: STORY_ITEM_WIDTH.large,
+            style: { width: "fit-content" },
+          })}
+      src={item.image.imgSrc}
+    />
+  );
+
   return (
-    <VStack gap={4} maxH="85%" overflow="hidden" textAlign="center">
-      <Flex flexDir={item.isTextBottom ? "column" : "column-reverse"}>
+    <VStack gap={4} textAlign="center" w="full">
+      <Flex flexDir={item.isTextBottom ? "column" : "column-reverse"} w="full">
         {item.title && <SmallText>{item.title}</SmallText>}
-        <Image
-          alt={item.image.alt}
-          blurDataURL={item.image.base64}
-          height={500}
-          placeholder={item.image.base64 ? "blur" : "empty"}
-          src={item.image.imgSrc}
-          width={550}
-        />
+        {item.videoSrc ? (
+          <VideoPlayer fallback={image} src={item.videoSrc} />
+        ) : (
+          image
+        )}
       </Flex>
       {item.text && (
         <Text

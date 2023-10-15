@@ -28,7 +28,7 @@ const storyList: Omit<Story, "content">[] = [
 const data: Story[] = await Promise.all(
   storyList.map(async (story) => {
     const content = insertIds<
-      StoryContentItemText | StoryContentItemImg,
+      StoryContentItemText | StoryContentItemMedia,
       StoryContentItem
     >(storyContentList[story.id]);
 

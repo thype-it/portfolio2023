@@ -65,6 +65,7 @@ export const projectContent1: StoryContentData = [
       name: "serverData",
       extension: "jpg",
       alt: "Server data illustration",
+      cover: true,
     },
   },
   {

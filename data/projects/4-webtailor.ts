@@ -1,14 +1,31 @@
 export const projectContent4: StoryContentData = [
   {
-    //video with designs
-    text: "Responsive websites with stunning, captivating animations. Modern e-commerce solutions powered by WooCommerce, with custom designs crafted to meet the unique needs of each customer.",
+    title:
+      "Responsive websites with stunning, captivating animations. Modern e-commerce solutions powered by WooCommerce, with custom designs crafted to meet the unique needs of each customer.",
   },
   {
-    title: "My Responsibilities and Technical Workflow",
+    videoSrc: "/media/video/stockVideo.mp4",
+    image: {
+      name: "webtailorPlaceholder",
+      extension: "jpg",
+      alt: "placeholder",
+    },
+    text: "Short compilation of some of my projects.",
+  },
+
+  {
     textArray: [
       "First, I would sit down with a client to detail the project's needs, transforming their ideas into a site structure with various sections and pages sketched on paper to fulfill their goals. I'd ensure that all their desired functionality was taken into account and provide this structure to a graphic designer who produced all the necessary graphic components for the project.",
       "Afterward, I created the frontend UI template files, primarily using HTML, SCSS, and jQuery, for all the different pages.Some of these templates can be found by clicking the link to my Github repository. The setup of the WordPress WooCommerce and other plugins, according to the desired functionality, was implemented, and my design files were used as the site's theme template. Occasionally, custom JavaScript or PHP code was needed to further enhance or enable the client's desired functionality, with which I also asissted.",
     ],
+  },
+  {
+    image: {
+      name: "designFiles",
+      extension: "jpg",
+      alt: "Mikeit web design files",
+      cover: true,
+    },
   },
   {
     title: "Crafting pixel-perfect designs efficiently",

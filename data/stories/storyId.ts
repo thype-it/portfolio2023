@@ -38,7 +38,7 @@ export const id: StoryContentData = [
       extension: "png",
       alt: "test alt",
     },
-    text: "Lorem ipsum dolor sit amet, consecte. Lorem ipsum dolor sit amet, consecte .Lorem ipsum dolor sit amet, consecte. Lorem ipsum dolor sit amet, consecte",
+    text: "Lorem ipsum dolor sit amet, consecte. Lorem ipsum dolor sit amet, consecte .Lorem ipsum dolor sit amet, consecte. Lorem ipsum dolor sit amet, consecte Lorem ipsum dolor sit amet, consecte. Lorem ipsum dolor sit amet, consecte .Lorem ipsum dolor sit amet, consecte. Lorem ipsum dolor sit amet, consecte",
   },
   {
     image: {

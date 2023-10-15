@@ -37,6 +37,10 @@ const projectList: Omit<Project, "content">[] = [
   {
     id: "2-interflex",
     title: "Interflex Mobile App",
+    link: {
+      href: "https://interflex.com/en/",
+      text: "Company Website",
+    },
     description:
       "Native mobile app bringing one of the most popular Interflex products to mobile devices.",
     techStack: ["React Native", "TypeScript", "Redux"],
@@ -44,6 +48,10 @@ const projectList: Omit<Project, "content">[] = [
   {
     id: "3-cn",
     title: "CN Group Company Projects",
+    link: {
+      href: "https://www.cngroup.dk/",
+      text: "Website",
+    },
     description:
       "Company website and inovative system for managing projects, employees, events and more.",
     techStack: [
@@ -61,6 +69,10 @@ const projectList: Omit<Project, "content">[] = [
     description:
       "Freelance projects for various clients, with focus on design and user experience.",
     techStack: ["HTML", "SCSS", "JavaScript", "jQuery"],
+    link: {
+      href: "https://github.com/thype-it/past-projects",
+      text: "Github",
+    },
   },
   {
     id: "5-jovinecky",
@@ -87,7 +99,7 @@ const projectList: Omit<Project, "content">[] = [
 const data: Project[] = await Promise.all(
   projectList.map(async (project) => {
     const content = insertIds<
-      StoryContentItemText | StoryContentItemImg,
+      StoryContentItemText | StoryContentItemMedia,
       StoryContentItem
     >(projectContentList[project.id]);
 
