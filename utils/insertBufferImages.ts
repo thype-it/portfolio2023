@@ -8,7 +8,7 @@ export default function insertBufferImages<StoryContentItem extends object>(
   return Promise.all(
     content.map(async (item) => {
       if (item.hasOwnProperty("image")) {
-        const imageItem = item as StoryContentItemImg;
+        const imageItem = item as StoryContentItemMedia;
         const imgSrc = `${dataEndpoint}/${storyId}/${imageItem.image.name}.${imageItem.image.extension}`;
 
         try {

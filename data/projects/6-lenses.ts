@@ -17,6 +17,7 @@ export const projectContent6: StoryContentData = [
       name: "lensesFeature",
       extension: "jpg",
       alt: "Screenshot of the website's 'choose your own lenses' section",
+      cover: true,
     },
   },
 ];

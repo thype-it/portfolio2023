@@ -8,6 +8,7 @@ export const projectContent5: StoryContentData = [
       name: "jovincekyBox",
       alt: "Screenshot of the website's 'build your own box' section",
       extension: "jpg",
+      cover: true,
     },
   },
 ];

@@ -14,29 +14,32 @@ type Story = {
   content: StoryContentItem[];
 };
 
-type StoryContentItem = (StoryContentItemText | StoryContentItemImg) & {
+type StoryContentItem = (StoryContentItemText | StoryContentItemMedia) & {
   id: string;
 };
 
 type StoryContentData = (
   | StoryContentItemText
-  | (Omit<StoryContentItemImg, "image"> & {
+  | (Omit<StoryContentItemMedia, "image"> & {
       image: {
         name: string;
         extension: "png" | "jpg";
         alt: string;
+        cover?: boolean;
       };
     })
 )[];
 
-type StoryContentItemImg = {
+type StoryContentItemMedia = {
   image: {
     name: string;
     extension: "png" | "jpg";
     alt: string;
     base64?: string;
     imgSrc: string;
+    cover?: boolean;
   };
+  videoSrc?: string;
   textArray?: never;
   title?: string;
   text?: string;
