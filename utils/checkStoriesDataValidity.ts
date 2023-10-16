@@ -1,16 +1,21 @@
 import fs from "fs";
 import path from "path";
 
-const storiesDirectory = path.join(process.cwd(), "public/media/stories");
-const storyIdFolderNames = fs.readdirSync(storiesDirectory);
+export default function checkStoriesDataValidity(
+  data: Story[],
+  dataset: string = "stories"
+) {
+  const errorMessage = `List of story ids from /data/${dataset} and folder names from /public/media/${dataset} do not match.`;
 
-const errorMessage = `List of story ids from /data/stories and folder names from /public/media/stories do not match.`;
-
-export default function checkStoriesDataValidity(data: Story[]) {
+  const storiesDirectory = path.join(process.cwd(), `public/media/${dataset}`);
+  const storyIdFolderNames = fs.readdirSync(storiesDirectory);
   const storyIdList = data.map((story) => story.id);
 
-  const isValid = storyIdList.every((storyId, index) => {
-    return storyId === storyIdFolderNames[index];
+  const sortedStoryIdList = storyIdList.slice().sort();
+  const sortedStoryIdFolderNames = storyIdFolderNames.slice().sort();
+
+  const isValid = sortedStoryIdList.every((storyId, index) => {
+    return storyId === sortedStoryIdFolderNames[index];
   });
 
   if (!isValid) {
