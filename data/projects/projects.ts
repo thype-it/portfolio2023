@@ -5,6 +5,7 @@ import { projectContent4 } from "./4-webtailor";
 import { projectContent5 } from "./5-jovinecky";
 import { projectContent6 } from "./6-lenses";
 
+import checkStoriesDataValidity from "@/utils/checkStoriesDataValidity";
 import { projectsEndpoint } from "@/utils/endpoints";
 import insertBufferImages from "@/utils/insertBufferImages";
 import insertIds from "@/utils/insertIds";
@@ -109,5 +110,7 @@ const data: Project[] = await Promise.all(
     };
   })
 );
+
+checkStoriesDataValidity(data, "projects");
 
 export default data;

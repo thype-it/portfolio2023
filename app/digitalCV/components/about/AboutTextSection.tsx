@@ -30,7 +30,7 @@ export default function AboutTextSection() {
           <TextBlock title={content.title} topic={content.topic} isInverted>
             {content.text}
             <br />
-            <Link href="/digitalCV/id">
+            <Link href="/digitalCV/about">
               <DiscoverButton mt={10} isInverted />
             </Link>
           </TextBlock>

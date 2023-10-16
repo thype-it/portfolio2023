@@ -10,7 +10,7 @@ export const projectContent4: StoryContentData = [
       extension: "jpg",
       alt: "placeholder",
     },
-    text: "Short compilation of some of my projects.",
+    text: "Short compilation of some of the projects.",
   },
 
   {

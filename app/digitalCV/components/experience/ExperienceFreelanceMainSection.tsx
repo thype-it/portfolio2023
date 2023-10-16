@@ -201,7 +201,7 @@ export default function ExperienceFreelanceMainSection() {
         </Box>
       </Box>
       <Center h="50vh" mt="20vh" pos="relative" w="full">
-        <Link href="/digitalCV/id">
+        <Link href="/digitalCV/freelance">
           <DiscoverButton>Find out more</DiscoverButton>
         </Link>
       </Center>

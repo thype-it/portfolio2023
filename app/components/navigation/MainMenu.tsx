@@ -67,19 +67,19 @@ export default function MainMenu() {
                 <MenuItem as={NextLink} href="/digitalCV#experience">
                   #Experience
                 </MenuItem>
-                <MenuItem as={NextLink} href="/digitalCV/id">
+                <MenuItem as={NextLink} href="/digitalCV/ciklum">
                   <Icon as={MdArrowRight} />
                   Frontend Developer
                 </MenuItem>
-                <MenuItem as={NextLink} href="/digitalCV#hero">
+                <MenuItem as={NextLink} href="/digitalCV/freelance">
                   <Icon as={MdArrowRight} />
                   Freelance
                 </MenuItem>
-                <MenuItem as={NextLink} href="/digitalCV#hero">
+                <MenuItem as={NextLink} href="/digitalCV/thypestudio">
                   <Icon as={MdArrowRight} />
-                  Projects
+                  Ventures
                 </MenuItem>
-                <MenuItem as={NextLink} href="/digitalCV#hero">
+                <MenuItem as={NextLink} href="/digitalCV/education">
                   <Icon as={MdArrowRight} />
                   Education
                 </MenuItem>
@@ -92,11 +92,16 @@ export default function MainMenu() {
                 <Icon as={MdBusiness} />
                 &nbsp; Portfolio
               </MenuItem>
-              <MenuItem as={NextLink} href="/blog">
+              <MenuItem
+                as={NextLink}
+                href="/blog"
+                style={{ pointerEvents: "none" }}
+                disabled
+              >
                 <Icon as={MdArticle} />
                 &nbsp; Blog
               </MenuItem>
-              <MenuItem as={NextLink} href="digitalCV/#contact">
+              <MenuItem as={NextLink} href="/digitalCV#contact">
                 <Icon as={MdContactPage} />
                 &nbsp; Contact
               </MenuItem>

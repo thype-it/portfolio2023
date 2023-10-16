@@ -28,20 +28,16 @@ const content = {
         we created a mobile game available on the App Store and Google Play. 
         It quickly rose to the number 1 spot in the Casual and Action categories 
         in our region, maintaining a top 3 position in the free games chart on the App Store for several weeks.
+        It was part of a larger entrepreneurial endeavor.
     `,
   },
   muni: {
     title: "Computer science foundation",
     text: `
-    During my participation in an applied science program, 
-    I established a foundational understanding of computer 
-    operation. I was introduced to programming concepts using Boolean 
-    algebra and languages like Python and C. Additionally, I explored 
-    diverse topics, such as interpreting punched cards, introductory courses 
-    in relational algebra and MySQL, and algorithm complexity.
-     My education was further enriched by completing 
-    numerous courses dedicated to specific technologies, enabling me to acquire valuable 
-    hands-on experience and enhance my expertise.
+    During my participation in an applied science program, I established a foundational understanding 
+    of computer operations. As a successful participant of the selective CN UNI program, I was able to 
+    acquire valuable hands-on experience. My education was further enriched by completing numerous courses 
+    dedicated to specific technologies.
     `,
   },
 };
@@ -61,6 +57,7 @@ export default function ExperienceOthersSection() {
         <ContentBox
           isAnimationVertical={!isSmallScreen}
           isSmallScreen={isSmallScreen}
+          slug="thypestudio"
           text={content.thype.text}
           title={content.thype.title}
           isInverted
@@ -111,6 +108,7 @@ type ContentBoxProps = {
   isInverted?: boolean;
   isSmallScreen?: boolean;
   isAnimationVertical?: boolean;
+  slug?: string;
 };
 
 function ContentBox({
@@ -120,6 +118,7 @@ function ContentBox({
   isInverted = false,
   isSmallScreen = false,
   isAnimationVertical = false,
+  slug = "education",
 }: ContentBoxProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { amount: 0.3, once: true });
@@ -148,7 +147,7 @@ function ContentBox({
             </Heading>
             <Text>{text}</Text>
             {!isSmallScreen && (
-              <Link as={NextLink} href="/digitalCV/id" mt="auto">
+              <Link as={NextLink} href={`/digitalCV/${slug}`} mt="auto">
                 <DiscoverButton isInverted={isInverted} />
               </Link>
             )}
@@ -166,7 +165,7 @@ function ContentBox({
           {children}
         </FlexMotion>
         {isSmallScreen && (
-          <Link as={NextLink} href="/digitalCV/id" mx="auto">
+          <Link as={NextLink} href={`/digitalCV/${slug}`} mx="auto">
             <DiscoverButton isInverted={isInverted} mb="5" />
           </Link>
         )}

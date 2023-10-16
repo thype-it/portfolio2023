@@ -90,7 +90,7 @@ export default function ExperienceCnSection() {
           <SmallText>{content.discoverText}</SmallText>
         </Box>
         <Center w={{ base: "100%", md: "50%" }}>
-          <Link href="/digitalCV/id">
+          <Link href="/digitalCV/ciklum">
             <DiscoverButton />
           </Link>
         </Center>

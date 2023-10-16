@@ -118,7 +118,11 @@ function StoryItemMedia({ item }: MediaProps) {
 
   return (
     <VStack gap={4} textAlign="center" w="full">
-      <Flex flexDir={item.isTextBottom ? "column" : "column-reverse"} w="full">
+      <Flex
+        align="center"
+        flexDir={item.isTextBottom ? "column" : "column-reverse"}
+        w="full"
+      >
         {item.title && <SmallText>{item.title}</SmallText>}
         {item.videoSrc ? (
           <VideoPlayer fallback={image} src={item.videoSrc} />
