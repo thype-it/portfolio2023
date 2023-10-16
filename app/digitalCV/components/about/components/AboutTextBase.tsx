@@ -37,7 +37,7 @@ export default function AboutTextBase({
           </BoxMotion>
           <Box bg="white" boxShadow="0px 6px 81px 115px #fff" width="full">
             <Box mx="auto" transform="auto" translateY="-100%" w="max-content">
-              <Link href="/digitalCV/id">
+              <Link href="/digitalCV/about">
                 <DiscoverButton isInverted />
               </Link>
             </Box>
