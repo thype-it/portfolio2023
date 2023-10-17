@@ -17,9 +17,9 @@ const content = {
     title: "Ciklum WE",
     topic: "Bratislava",
     text: `
-    As a React/React Native developer, I've actively contributed to three projects, 
-    collaborating extensively within a large Agile team. My latest project was a greenfield React 
-    Native app for a big client based in Germany.
+    As a React/React Native developer, I've actively contributed to multiple projects, 
+    collaborating extensively within a large Agile team. My latest endeavour was a greenfield React 
+    Native app for a large client based in Germany.
     `,
   },
   subHeroText:
