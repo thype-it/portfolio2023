@@ -150,14 +150,14 @@ export default function ExperienceFreelanceMainSection() {
         pt="20"
         w="full"
       >
-        <Box h="100vh" left={0} pos="sticky" top={0} w="full">
+        <Box h="fullHeight" left={0} pos="sticky" top={0} w="full">
           <Container
             h="40%"
             maxW="container.lg"
             mx="auto"
             pos="relative"
             transform="auto"
-            translateY={{ base: "3vh", md: "3vh" }}
+            translateY={{ base: "3svh", md: "3svh" }}
           >
             <CenterMotion
               ref={textRef}
@@ -200,7 +200,7 @@ export default function ExperienceFreelanceMainSection() {
           </Flex>
         </Box>
       </Box>
-      <Center h="50vh" mt="20vh" pos="relative" w="full">
+      <Center h="50svh" mt="20svh" pos="relative" w="full">
         <Link href="/digitalCV/freelance">
           <DiscoverButton>Find out more</DiscoverButton>
         </Link>
@@ -234,7 +234,7 @@ function DeviceFrame({ children, isSmallScreen = false }: DeviceFrameProps) {
       scale={{ base: 0.5, md: 0.6, lg: 0.8 }}
       transform="auto"
       transformOrigin="bottom"
-      translateY={{ base: "20vh", md: "20vh", "3xl": "0" }}
+      translateY={{ base: "20svh", md: "20svh", "3xl": "0" }}
     >
       {device}
     </Box>

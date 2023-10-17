@@ -58,8 +58,8 @@ export default function HeroTextSection() {
     <BoxMotion
       ref={targetRef}
       as="section"
-      h={`${sectionHeightVH}vh`}
-      mt="-40vh"
+      h={`${sectionHeightVH}svh`}
+      mt="-40svh"
       pos="relative"
       top={0}
     >
@@ -132,8 +132,8 @@ function ScrollOpacityText({
 function BackgroundVideo({ opacityMotion: opacity }: ScrollMotionProps) {
   return (
     <BoxMotion
-      h="100vh"
-      mt={`-${sectionHeightVH + 100}vh`}
+      h="fullHeight"
+      mt={`-${sectionHeightVH + 100}svh`}
       pos="sticky"
       style={{ opacity }}
       top={0}

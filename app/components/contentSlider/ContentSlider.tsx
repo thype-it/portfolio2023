@@ -79,7 +79,7 @@ export default function ContentSlider({ children }: Props) {
             overflow: "-moz-scrollbars-none", // Older Firefox
           }
         }
-        h={isDesktopDevice ? "100vh" : "full"}
+        h={isDesktopDevice ? "fullHeight" : "full"}
         id="scrollerContainerContentDrawer"
         overflowX={isDesktopDevice ? "hidden" : "auto"}
         pos="relative"
@@ -90,7 +90,7 @@ export default function ContentSlider({ children }: Props) {
           alignItems="center"
           display="flex"
           gap={{ base: 10, md: 20 }}
-          h={isDesktopDevice ? "100vh" : "full"}
+          h={isDesktopDevice ? "fullHeight" : "full"}
           overflow="hidden"
           px={16}
           width="max-content"

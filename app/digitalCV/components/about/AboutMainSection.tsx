@@ -25,7 +25,7 @@ const seeNextContent = {
     "To learn more about my past projects and my experience you can visit my portfolio.",
   blog: "Take a look at my blog. Learn more about why I chose to move to Melbourne, or how I got into programming.",
   caseStudy:
-    "Want to see how I made this portfolio ? I prepared a case study detailing the process from start to finish.",
+    "Want to see how I made this portfolio ? I prepared a case study that offers a brief look behind the scene.",
 };
 
 const AboutButtonContext = createContext(AboutButton);
@@ -100,14 +100,14 @@ function MiddleContent() {
   return (
     <>
       <SmallText color="black">
-        I currently live in Melbourne <br /> Feel free to contact me at{" "}
+        I currently reside in Melbourne. <br /> Feel free to contact me at{" "}
         <Link href="mailto:inquiries@mikeit.site" textDecor="underline">
           inquiries@mikeit.site.
         </Link>{" "}
         <br />
         Download my{" "}
         <Link download="CV" href={CV} textDecor="underline">
-          CV
+          CV.
         </Link>
       </SmallText>
       <Heading mb={8} size="2xl">

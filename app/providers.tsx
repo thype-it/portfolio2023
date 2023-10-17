@@ -2,6 +2,7 @@
 
 import { CacheProvider } from "@chakra-ui/next-js";
 import { ChakraProvider } from "@chakra-ui/react";
+import dynamic from "next/dynamic";
 import {
   Montserrat,
   Montserrat_Alternates,
@@ -10,6 +11,11 @@ import {
 } from "next/font/google";
 
 import theme from "./theme";
+
+const LandscapeOverlay = dynamic(
+  () => import("./components/LandscapeOverlay"),
+  { ssr: false }
+);
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -38,7 +44,10 @@ export default function Providers({ children }: { children: React.ReactNode }) {
         `}
       </style>
       <CacheProvider>
-        <ChakraProvider theme={theme}>{children}</ChakraProvider>
+        <ChakraProvider theme={theme}>
+          {children}
+          <LandscapeOverlay />
+        </ChakraProvider>
       </CacheProvider>
     </>
   );

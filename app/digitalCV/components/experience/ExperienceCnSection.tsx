@@ -17,9 +17,9 @@ const content = {
     title: "Ciklum WE",
     topic: "Bratislava",
     text: `
-    As a React/React Native developer, I've actively contributed to three projects, 
-    collaborating extensively within a large Agile team. My latest project was a greenfield React 
-    Native app for a big client based in Germany.
+    As a React/React Native developer, I've actively contributed to multiple projects, 
+    collaborating extensively within a large Agile team. My latest endeavour was a greenfield React 
+    Native app for a large client based in Germany.
     `,
   },
   subHeroText:
@@ -45,7 +45,7 @@ export default function ExperienceCnSection() {
   return (
     <Box ref={targetRef} as="section" bg="black" pos="relative" w="full">
       <ImageBg
-        height="100vh"
+        height="fullHeight"
         initialOpacity={0.5}
         scaleMotion={scaleImageBig}
         src={bratislavaBg.src}
@@ -67,7 +67,7 @@ export default function ExperienceCnSection() {
       <Box mx="auto" transform="auto" translateY="-30%" w="85%">
         <ImageBg
           boxShadow="dark-lg"
-          h={{ base: "60vh", md: "80vh" }}
+          h={{ base: "60svh", md: "80svh" }}
           initialOpacity={0.6}
           scaleMotion={scaleImageSmall}
           src={ciklumPresent.src}
