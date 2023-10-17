@@ -59,7 +59,7 @@ export default function HeroTextSection() {
       ref={targetRef}
       as="section"
       h={`${sectionHeightVH}vh`}
-      mt="-40vh"
+      mt="-40svh"
       pos="relative"
       top={0}
     >

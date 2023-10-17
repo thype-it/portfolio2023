@@ -105,7 +105,14 @@ export default function HeroMainSection() {
   );
 
   return (
-    <Box ref={targetRef} as="section" h="300vh" pos="relative" top={0} w="full">
+    <Box
+      ref={targetRef}
+      as="section"
+      h="300svh"
+      pos="relative"
+      top={0}
+      w="full"
+    >
       <Flex
         ref={scope}
         bg="black"

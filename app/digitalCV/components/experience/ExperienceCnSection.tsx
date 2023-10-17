@@ -67,7 +67,7 @@ export default function ExperienceCnSection() {
       <Box mx="auto" transform="auto" translateY="-30%" w="85%">
         <ImageBg
           boxShadow="dark-lg"
-          h={{ base: "60vh", md: "80vh" }}
+          h={{ base: "60svh", md: "80svh" }}
           initialOpacity={0.6}
           scaleMotion={scaleImageSmall}
           src={ciklumPresent.src}

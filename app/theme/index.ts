@@ -54,7 +54,8 @@ const theme = extendTheme({
     body: "var(--font-roboto)",
   },
   sizes: {
-    fullHeight: "var(--chakra-vh)", //100dvh with fallback provided by chakra styles
+    fullHeight: "100svh",
+    // fullHeight: "var(--chakra-vh)", //100dvh with fallback provided by chakra styles
     fullWidth: "100dvw",
   },
   components: {

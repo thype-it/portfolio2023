@@ -18,7 +18,7 @@ const content = {
 
 export default function SkillsTextSection() {
   return (
-    <Box as="section" mt="-40vh" pos="relative">
+    <Box as="section" mt="-40svh" pos="relative">
       <ContentContainer>
         <TextBlock title={content.title} topic={content.topic}>
           {content.text}

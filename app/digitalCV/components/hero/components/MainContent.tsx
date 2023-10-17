@@ -49,7 +49,7 @@ export default function MainContent({
       <VstackMotion
         flex={1}
         pb={10}
-        pt="10vh"
+        pt="10svh"
         style={{ opacity: wrapperOpacity }}
         zIndex={zIndices.middle}
       >
@@ -76,7 +76,7 @@ export default function MainContent({
 
   const baseVersion = (
     <VstackMotion
-      pt={{ base: "5vh", md: "10vh" }}
+      pt={{ base: "5svh", md: "10svh" }}
       style={{ opacity: wrapperOpacity }}
       w="full"
       zIndex={zIndices.middle}
