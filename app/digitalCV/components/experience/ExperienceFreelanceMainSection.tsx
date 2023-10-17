@@ -150,7 +150,7 @@ export default function ExperienceFreelanceMainSection() {
         pt="20"
         w="full"
       >
-        <Box h="100vh" left={0} pos="sticky" top={0} w="full">
+        <Box h="fullHeight" left={0} pos="sticky" top={0} w="full">
           <Container
             h="40%"
             maxW="container.lg"

@@ -45,7 +45,7 @@ export default function ExperienceCnSection() {
   return (
     <Box ref={targetRef} as="section" bg="black" pos="relative" w="full">
       <ImageBg
-        height="100vh"
+        height="fullHeight"
         initialOpacity={0.5}
         scaleMotion={scaleImageBig}
         src={bratislavaBg.src}

@@ -109,7 +109,7 @@ export default function HeroMainSection() {
       <Flex
         ref={scope}
         bg="black"
-        h="100vh"
+        h="fullHeight"
         overflow="hidden"
         pos="sticky"
         top={0}

@@ -18,7 +18,13 @@ export default function IntroView() {
       }}
       zIndex={30}
     >
-      <Center bg="gray" h="100vh" overflow="hidden" pos="relative" w="100vw">
+      <Center
+        bg="gray"
+        h="fullHeight"
+        overflow="hidden"
+        pos="relative"
+        w="100vw"
+      >
         <AbsoluteCenter>
           <BoxMotion
             animate={{ boxShadow: "0 0 60px rgba(0, 0, 0, 0.8)", scale: 20 }}

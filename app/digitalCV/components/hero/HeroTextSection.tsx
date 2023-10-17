@@ -132,7 +132,7 @@ function ScrollOpacityText({
 function BackgroundVideo({ opacityMotion: opacity }: ScrollMotionProps) {
   return (
     <BoxMotion
-      h="100vh"
+      h="fullHeight"
       mt={`-${sectionHeightVH + 100}vh`}
       pos="sticky"
       style={{ opacity }}
