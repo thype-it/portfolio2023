@@ -68,8 +68,4 @@ export const projectContent1: StoryContentData = [
       cover: true,
     },
   },
-  {
-    title:
-      "epic conclusion about what I have learned and I am going to use in the future",
-  },
 ];
