@@ -75,7 +75,7 @@ export default function SkillsSection() {
         maxW={{ base: "full", md: "container.lg", xl: "container.xl" }}
         p={0}
         pos="relative"
-        pt="20vh"
+        pt="20svh"
         w={{ base: "90%", md: "90%", lg: "full" }}
       >
         <VStack px={boxSpacing} spacing={boxSpacing} w="full">
