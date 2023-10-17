@@ -2,8 +2,6 @@
 
 ## Project Structure
 
-HakkaStack project consists of a REST API and a web frontend.
-
 - `backend` - Server logic is located in the /data folder and is handled with Next js. For this project no API is required.
 - `frontend` - The web written in TypeScript in React.
 
