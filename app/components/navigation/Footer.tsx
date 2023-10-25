@@ -42,7 +42,7 @@ const SocialsList: SocialsProps[] = [
   {
     imageSrc: "/media/icons/linkedin.svg",
     alt: "Linkedin media icon",
-    href: "https://www.linkedin.com/in/michael-illit-2997a8221/",
+    href: "https://www.linkedin.com/in/michal-illit/",
   },
 ];
 
