@@ -36,7 +36,7 @@ import { getScrollRange } from "@/utils/getScrollRange";
 const content = {
   hero: {
     topic: `Experience`,
-    title: `Freelance carier. Satisfied clients.`,
+    title: `Freelance career. Satisfied clients.`,
     text: `
       I've had the opportunity to work on numerous websites, both independently
       and collaboratively. Additionally, I engage in small-scale projects
